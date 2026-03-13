@@ -214,21 +214,24 @@ p {
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: 1.5rem clamp(1.5rem, 6vw, 6rem);
+  padding: 1.2rem clamp(1.5rem, 6vw, 6rem);
   display: flex;
   align-items: center;
   justify-content: space-between;
   transition: var(--transition-medium);
-}
-
-/* Scrolled state — glass effect */
-.nav.scrolled {
-  background: rgba(247, 245, 240, 0.92);
+  /* Always visible on every page */
+  background: rgba(247, 245, 240, 0.97);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  padding-block: 1rem;
   border-bottom: 1px solid var(--border);
-  box-shadow: 0 4px 30px rgba(44,42,40,0.06);
+  box-shadow: 0 2px 20px rgba(44, 42, 40, 0.06);
+}
+
+/* Scrolled state - fully opaque + slightly tighter */
+.nav.scrolled {
+  background: rgba(247, 245, 240, 1);
+  padding-block: 0.85rem;
+  box-shadow: 0 4px 30px rgba(44, 42, 40, 0.10);
 }
 
 .nav-logo {
@@ -397,7 +400,7 @@ p {
   flex-direction: column;
   justify-content: flex-end;
   padding: var(--section-padding);
-  padding-top: 12rem;
+  padding-top: 9rem;
   padding-bottom: 5rem;
   max-width: 900px;
 }
