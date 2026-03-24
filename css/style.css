@@ -1831,3 +1831,196 @@ p {
   .contact-form-wrapper { padding: 2rem 1.5rem; }
   .whatsapp-strip { flex-direction: column; text-align: center; }
 }
+
+
+/* ============================================================
+   PART 3 — ADDITIONS: Logo, Service Pills, Components, Checklist
+   ============================================================ */
+
+/* ── LOGO IMAGE in nav ── */
+.nav-logo-img {
+  height: 48px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  display: block;
+}
+
+.footer-logo-img {
+  height: 42px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  display: block;
+  filter: brightness(0) invert(1);   /* makes logo white in dark footer */
+  opacity: 0.85;
+}
+
+.nav-logo-text-wrap {
+  flex-direction: column;
+  line-height: 1;
+}
+
+/* ── ALL-SERVICES PILL GRID ── */
+.all-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-top: 3rem;
+}
+
+.svc-pill {
+  background: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.8rem 1.2rem;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  transition: var(--transition-fast);
+}
+
+.svc-pill:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.svc-pill svg {
+  width: 28px;
+  height: 28px;
+  stroke: var(--accent);
+  transition: stroke var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.svc-pill:hover svg { stroke: #fff; }
+
+/* ── FEATURE CHECKLIST ── */
+.feature-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+.feature-checklist li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.feature-checklist li svg { flex-shrink: 0; }
+
+/* ── COMPONENTS SECTION (Kitchen page) ── */
+.comp-category-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-serif);
+  font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.comp-category-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.comp-category-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--accent);
+}
+
+.components-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.comp-card {
+  background: var(--bg-secondary);
+  padding: 2rem 1.8rem;
+  transition: background 0.4s ease;
+  position: relative;
+}
+
+.comp-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.comp-card:hover { background: var(--bg-primary); }
+.comp-card:hover::after { transform: scaleX(1); }
+
+.comp-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+  transition: var(--transition-fast);
+}
+
+.comp-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--accent);
+}
+
+.comp-card:hover .comp-icon {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.comp-card:hover .comp-icon svg { stroke: #fff; }
+.comp-card h4 { margin-bottom: 0.6rem; font-size: 1rem; }
+.comp-card p { font-size: 0.84rem; line-height: 1.7; }
+
+/* ── RESPONSIVE: pills, components ── */
+@media (max-width: 1024px) {
+  .components-grid { grid-template-columns: repeat(2, 1fr); }
+  .all-services-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .components-grid { grid-template-columns: 1fr; }
+  .all-services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .all-services-grid { grid-template-columns: repeat(2, 1fr); }
+}
