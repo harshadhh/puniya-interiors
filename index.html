@@ -3,92 +3,67 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Puniya Interiors — Premium interior design, modular kitchens, and custom furniture in Pune. Turning homes into sanctuaries since 2015. Visit our Dhanori showroom." />
-  <meta name="keywords" content="interior design Pune, modular kitchen Pune, Dhanori interiors, custom furniture Pune, Puniya Interiors, home renovation Pune" />
+  <meta name="description" content="Puniya Interiors — One-stop solution for all interior works in Pune. Modular kitchens, custom furniture, false ceilings, civil work & renovation. 45-day handover. 10-year warranty." />
+  <meta name="keywords" content="interior design Pune, modular kitchen Pune, false ceiling Pune, renovation Pune, furniture Pune, Dhanori interiors, Puniya Interiors" />
   <meta name="author" content="Puniya Interiors" />
-
-  <!-- Open Graph / Social Preview -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Puniya Interiors — Spaces Designed for Living" />
-  <meta property="og:description" content="Premium interior design, modular kitchens & custom furniture in Pune. Book a free site visit today." />
+  <meta property="og:title" content="Puniya Interiors — One-Stop Solution for All Interior Works" />
+  <meta property="og:description" content="Modular kitchens, furniture, false ceilings, civil work & renovation in Pune. 45-day handover. 10-year warranty." />
   <meta property="og:url" content="https://puniyainteriors.com" />
 
-  <!-- Local Business Schema — Helps Google rank you in Pune searches -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "InteriorDesigner",
     "name": "Puniya Interiors",
-    "description": "Premium interior design, modular kitchens, and custom furniture in Pune.",
+    "description": "One-stop solution for all interior works in Pune — modular kitchens, furniture, false ceilings, civil work and renovation.",
     "url": "https://puniyainteriors.com",
     "telephone": "+91-XXXXXXXXXX",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Your Showroom Address",
-      "addressLocality": "Dhanori",
-      "addressRegion": "Pune",
-      "postalCode": "411015",
-      "addressCountry": "IN"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "18.5904",
-      "longitude": "73.9317"
-    },
+    "address": { "@type": "PostalAddress", "streetAddress": "Your Showroom Address", "addressLocality": "Dhanori", "addressRegion": "Pune", "postalCode": "411015", "addressCountry": "IN" },
     "openingHours": "Mo-Sa 10:00-19:00",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "47"
-    },
-    "priceRange": "₹₹₹"
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "47" },
+    "priceRange": "intintint"
   }
   </script>
 
-  <title>Puniya Interiors — Spaces Designed for Living, Crafted for You</title>
-
-  <!-- Preconnect for fast Google Fonts load -->
+  <title>Puniya Interiors — One-Stop Solution for All Interior Works, Pune</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
   <link rel="stylesheet" href="css/style.css" />
 </head>
-
 <body>
 
-  <!-- PAGE TRANSITION OVERLAY (cross-fade between pages) -->
   <div class="page-transition enter" aria-hidden="true"></div>
 
-  <!-- ══════════════════════════════════════════
-       STICKY NAVIGATION
-  ══════════════════════════════════════════ -->
+  <!-- NAVIGATION -->
   <nav class="nav" role="navigation" aria-label="Main navigation">
-    <a href="index.html" class="nav-logo" aria-label="Puniya Interiors - Home">
-      <span class="nav-logo-name">Puniya Interiors</span>
-      <span class="nav-logo-tagline">Dhanori, Pune</span>
+    <a href="index.html" class="nav-logo" aria-label="Puniya Interiors Home">
+      <!--
+        LOGO: Add your logo as images/logo.png (SVG preferred, 180x52px transparent bg)
+        The text fallback shows automatically if no logo file exists.
+      -->
+      <img src="images/logo.png" alt="Puniya Interiors" class="nav-logo-img"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="eager" />
+      <span class="nav-logo-text-wrap" style="display:none">
+        <span class="nav-logo-name">Puniya Interiors</span>
+        <span class="nav-logo-tagline">Dhanori, Pune</span>
+      </span>
     </a>
 
-    <!-- Desktop Nav -->
     <ul class="nav-links">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="modular-kitchens.html">Kitchens</a></li>
       <li><a href="custom-furniture.html">Furniture</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
       <li><a href="about.html">About</a></li>
-      <li>
-        <a href="contact.html" class="nav-cta">Book a Visit</a>
-      </li>
+      <li><a href="contact.html" class="nav-cta">Book a Visit</a></li>
     </ul>
 
-    <!-- Hamburger (Mobile) -->
     <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </button>
   </nav>
 
-  <!-- Mobile Menu Overlay -->
   <nav class="nav-mobile" aria-label="Mobile navigation">
     <a href="index.html">Home</a>
     <a href="modular-kitchens.html">Kitchens</a>
@@ -99,35 +74,25 @@
   </nav>
 
 
-  <!-- ══════════════════════════════════════════
-       HERO SECTION
-  ══════════════════════════════════════════ -->
+  <!-- HERO -->
   <section class="hero" aria-label="Hero banner">
     <div class="hero-bg">
-      <!--
-        REPLACE THIS with your best kitchen or living room photo.
-        Ideal size: 2400 x 1600px, warm-lit, professional grade.
-      -->
-      <img
-        class="hero-bg-image"
-        src="images/hero-living-room.jpg"
+      <img class="hero-bg-image" src="images/hero-living-room.jpg"
         alt="A beautifully designed living space crafted by Puniya Interiors, Pune"
-        loading="eager"
-        fetchpriority="high"
-        onerror="this.closest('.hero-bg').style.background='linear-gradient(135deg,#2C2A28 0%,#4A3728 100%)'"
-      />
+        loading="eager" fetchpriority="high"
+        onerror="this.closest('.hero-bg').style.background='linear-gradient(135deg,#2C2A28 0%,#4A3728 100%)'" />
     </div>
-
     <div class="hero-content">
-      <span class="eyebrow hero-eyebrow reveal">Pune's Premium Interior Studio</span>
+      <span class="eyebrow hero-eyebrow reveal">One-Stop Solution for All Interior Works</span>
       <h1 class="reveal reveal-delay-1">
         Spaces Designed<br/>
         for <em>Living.</em><br/>
         Crafted for You.
       </h1>
       <p class="hero-subtext reveal reveal-delay-2">
-        From modular kitchens to full home transformations — we turn
-        your vision into a sanctuary you'll be proud to call home.
+        From modular kitchens and end-to-end furniture to false ceilings,
+        lighting, wallpapers, tiles, and complete renovation —
+        everything under one roof, delivered in 45 days.
       </p>
       <div class="hero-actions reveal reveal-delay-3">
         <a href="contact.html" class="btn btn-primary">
@@ -135,22 +100,17 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
         <a href="https://wa.me/91XXXXXXXXXX?text=Hi%20Puniya%20Interiors%2C%20I%20would%20like%20to%20discuss%20a%20project."
-           target="_blank"
-           rel="noopener noreferrer"
-           class="btn btn-whatsapp">
+           target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.529 5.859L.057 23.5l5.777-1.517A11.951 11.951 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.893 0-3.667-.52-5.184-1.426l-.371-.22-3.43.9.916-3.345-.242-.383A9.953 9.953 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
           <span>Chat on WhatsApp</span>
         </a>
       </div>
     </div>
-
     <div class="hero-scroll" aria-hidden="true">Scroll</div>
   </section>
 
 
-  <!-- ══════════════════════════════════════════
-       TRUST BAR
-  ══════════════════════════════════════════ -->
+  <!-- TRUST BAR -->
   <div class="trust-bar" role="complementary" aria-label="Trust indicators">
     <div class="trust-bar-inner">
       <div class="trust-item">
@@ -162,182 +122,186 @@
           <span>Google Top Rated in Pune</span>
         </div>
       </div>
-
       <div class="trust-divider" aria-hidden="true"></div>
-
       <div class="trust-item">
         <div class="trust-item-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><path d="M8 21h8M12 17v4"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
-        <span>Authorized Hettich &amp; Häfele Partner</span>
+        <span>45-Day Handover Guarantee</span>
       </div>
-
       <div class="trust-divider" aria-hidden="true"></div>
-
+      <div class="trust-item">
+        <div class="trust-item-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <span>10-Year Furniture Warranty</span>
+      </div>
+      <div class="trust-divider" aria-hidden="true"></div>
+      <div class="trust-item">
+        <div class="trust-item-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <span>European Hardware — Hettich &amp; Häfele</span>
+      </div>
+      <div class="trust-divider" aria-hidden="true"></div>
       <div class="trust-item">
         <div class="trust-item-icon">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         </div>
         <span>200+ Homes Completed in Pune</span>
       </div>
-
-      <div class="trust-divider" aria-hidden="true"></div>
-
-      <div class="trust-item">
-        <div class="trust-item-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-        <span>On-Time Delivery Guarantee</span>
-      </div>
     </div>
   </div>
 
 
-  <!-- ══════════════════════════════════════════
-       SERVICES — Editorial 3-Column Layout
-  ══════════════════════════════════════════ -->
+  <!-- SERVICES — 3 Featured + Full Icon Grid -->
   <section class="services" aria-labelledby="services-heading">
     <div class="container">
       <div class="section-header reveal">
-        <span class="eyebrow">What We Create</span>
+        <span class="eyebrow">Everything Under One Roof</span>
         <h2 id="services-heading">
-          Every Space Tells<br/>
-          a Story We <em>Craft</em>
+          Your Complete<br/>
+          Interior <em>Partner</em>
         </h2>
+        <p style="margin-top:1rem;max-width:56ch;">
+          We handle every single aspect of your home — from the kitchen
+          and furniture to false ceilings, tiles, lighting, wallpapers, and full
+          civil work. One team. One deadline. Zero coordination headache.
+        </p>
       </div>
 
+      <!-- 3 featured arch-image cards -->
       <div class="services-grid">
 
-        <!-- Service 1: Modular Kitchens -->
+        <!-- 01 — Modular Kitchens FIRST -->
         <article class="service-card reveal reveal-delay-1">
           <div class="service-arch">
-            <!--
-              REPLACE: Photo of your most impressive modular kitchen
-              Size: 600 x 800px, warm natural light
-            -->
-            <img
-              src="images/kitchen-card.jpg"
-              alt="Premium modular kitchen with Hettich hardware designed by Puniya Interiors"
-              loading="lazy"
-              class="img-placeholder"
-              onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(180deg,#EAE6DF,#D8D0C4)'"
-            />
+            <img src="images/kitchen-card.jpg" alt="Premium modular kitchen with European hardware by Puniya Interiors"
+              loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(180deg,#EAE6DF,#D8D0C4)'" />
           </div>
           <span class="service-number">01</span>
           <h3>Modular Kitchens</h3>
           <p>
-            Precision-engineered with Hettich and Häfele hardware.
-            From compact studio kitchens to expansive island layouts —
-            every drawer, shelf, and corner optimized for your life.
+            Tandems, SS trolleys, pantry units, tall units, rolling shutters
+            and crockery cabinets — engineered with European Hettich &amp; Häfele
+            hardware. Every kitchen built to outlast a lifetime.
           </p>
-          <a href="modular-kitchens.html" class="service-link" aria-label="Learn more about our modular kitchens">
+          <a href="modular-kitchens.html" class="service-link">
             Explore Kitchens
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </article>
 
-        <!-- Service 2: Custom Furniture -->
+        <!-- 02 — End-to-End Furniture -->
         <article class="service-card reveal reveal-delay-2">
           <div class="service-arch">
-            <!--
-              REPLACE: Photo of your best custom furniture piece or wardrobe
-            -->
-            <img
-              src="images/furniture-card.jpg"
-              alt="Bespoke custom furniture designed and crafted by Puniya Interiors"
-              loading="lazy"
-              onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(180deg,#EAE6DF,#C8C0B4)'"
-            />
+            <img src="images/furniture-card.jpg" alt="Bespoke end-to-end furniture by Puniya Interiors, Pune"
+              loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(180deg,#EAE6DF,#C8C0B4)'" />
           </div>
           <span class="service-number">02</span>
-          <h3>Custom Furniture &amp; Décor</h3>
+          <h3>End-to-End Furniture</h3>
           <p>
-            Wardrobes that breathe, beds that anchor, shelving that
-            defines — each piece crafted from premium materials,
-            designed exclusively for your space and personality.
+            Hydraulic beds, wardrobes with built-in mirrors and organisers,
+            TV units with louvers, mandirs, sofa sets, dining tables —
+            all crafted with a 10-year warranty.
           </p>
-          <a href="custom-furniture.html" class="service-link" aria-label="Learn more about our custom furniture">
+          <a href="custom-furniture.html" class="service-link">
             Explore Furniture
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </article>
 
-        <!-- Service 3: Turnkey Interiors -->
+        <!-- 03 — False Ceiling & Civil Work (replaces Turnkey) -->
         <article class="service-card reveal reveal-delay-3">
           <div class="service-arch">
-            <!--
-              REPLACE: Photo of a complete full-home turnkey project
-            -->
-            <img
-              src="images/turnkey-card.jpg"
-              alt="Complete turnkey interior design project by Puniya Interiors, Pune"
-              loading="lazy"
-              onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(180deg,#EAE6DF,#D0C8BB)'"
-            />
+            <img src="images/ceiling-card.jpg" alt="False ceiling and civil work by Puniya Interiors"
+              loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(180deg,#EAE6DF,#D0C8BB)'" />
           </div>
           <span class="service-number">03</span>
-          <h3>Turnkey Interiors</h3>
+          <h3>False Ceiling &amp; Civil Work</h3>
           <p>
-            Hand us the keys. We handle everything — from 3D design
-            concepts and material selection to final execution and
-            styling — delivering a complete home without the stress.
+            Profile lights, cove lighting, magnetic and track lights —
+            paired with expert civil work: painting, plumbing, tiling,
+            and complete renovation services across Pune.
           </p>
-          <a href="portfolio.html" class="service-link" aria-label="View our portfolio of turnkey projects">
-            View Portfolio
+          <a href="custom-furniture.html#civil" class="service-link">
+            Explore Civil Work
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </article>
 
       </div>
+
+      <!-- Full services pill grid — all 11 categories -->
+      <div class="all-services-grid reveal">
+        <a href="modular-kitchens.html" class="svc-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/></svg>
+          Modular Kitchens
+        </a>
+        <a href="custom-furniture.html" class="svc-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          Wardrobes &amp; Bedroom
+        </a>
+        <a href="custom-furniture.html#living" class="svc-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="7" width="20" height="13" rx="2"/><path d="M2 12h20M6 7V5a2 2 0 012-2h8a2 2 0 012 2v2"/></svg>
+          Living Room
+        </a>
+        <a href="custom-furniture.html#entrance" class="svc-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 12l9-9 9 9M5 10v9a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-9"/></svg>
+          Entrance &amp; Main Door
+        </a>
+        <a href="custom-furniture.html#civil" class="svc-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+          False Ceiling
+        </a>
+        <a href="custom-furniture.html#lighting" class="svc-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>
+          Lighting Design
+        </a>
+        <a href="custom-furniture.html#wallpaper" class="svc-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
+          Wallpapers
+        </a>
+        <a href="custom-furniture.html#tiles" class="svc-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="9" height="9"/><rect x="13" y="2" width="9" height="9"/><rect x="2" y="13" width="9" height="9"/><rect x="13" y="13" width="9" height="9"/></svg>
+          Tiles &amp; Marble
+        </a>
+        <a href="custom-furniture.html#civil" class="svc-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Civil &amp; Renovation
+        </a>
+        <a href="custom-furniture.html#balcony" class="svc-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg>
+          Balcony &amp; PVC
+        </a>
+        <a href="contact.html" class="svc-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+          Commercial Spaces
+        </a>
+      </div>
     </div>
   </section>
 
 
-  <!-- ══════════════════════════════════════════
-       BEFORE & AFTER SLIDER
-  ══════════════════════════════════════════ -->
+  <!-- BEFORE & AFTER SLIDER -->
   <section class="slider-section" aria-labelledby="ba-heading">
     <div class="container">
       <div class="section-header text-center reveal">
         <span class="eyebrow">The Transformation</span>
         <h2 id="ba-heading">From Bare Walls to<br/><em>Your Dream Home</em></h2>
-        <p style="margin-top:1rem;">
-          Drag the slider to witness the complete transformation we delivered
-          for a 3BHK family in Viman Nagar, Pune.
-        </p>
+        <p style="margin-top:1rem;">Drag the slider to witness the complete transformation we delivered for a 3BHK family in Viman Nagar, Pune.</p>
       </div>
-
       <div class="slider-wrapper reveal" role="img" aria-label="Before and after interior transformation slider">
-        <!-- BEFORE image -->
         <div class="slider-before">
-          <!--
-            REPLACE: A "before" photo of an empty/raw apartment
-            Size: 1600 x 900px
-          -->
-          <img
-            src="images/before-room.jpg"
-            alt="Before: Empty apartment before Puniya Interiors transformation"
-            loading="lazy"
-            onerror="this.closest('.slider-before').style.background='#C8C0B4'"
-          />
+          <img src="images/before-room.jpg" alt="Before: Empty apartment before Puniya Interiors renovation"
+            loading="lazy" onerror="this.closest('.slider-before').style.background='#C8C0B4'" />
           <span class="slider-label slider-label-before">Before</span>
         </div>
-
-        <!-- AFTER image -->
         <div class="slider-after" aria-hidden="true">
-          <!--
-            REPLACE: The same room AFTER transformation — same angle, same crop
-          -->
-          <img
-            src="images/after-room.jpg"
-            alt="After: The same room beautifully transformed by Puniya Interiors"
-            loading="lazy"
-            onerror="this.closest('.slider-after').style.background='linear-gradient(135deg,#EAE6DF,#D4CBB8)'"
-          />
+          <img src="images/after-room.jpg" alt="After: The same room transformed by Puniya Interiors"
+            loading="lazy" onerror="this.closest('.slider-after').style.background='linear-gradient(135deg,#EAE6DF,#D4CBB8)'" />
           <span class="slider-label slider-label-after">After</span>
         </div>
-
-        <!-- Drag handle -->
         <div class="slider-handle" aria-hidden="true">
           <div class="slider-handle-circle">⇔</div>
         </div>
@@ -346,78 +310,51 @@
   </section>
 
 
-  <!-- ══════════════════════════════════════════
-       THE PROCESS — 3-Step Timeline
-  ══════════════════════════════════════════ -->
+  <!-- PROCESS — 45-day handover -->
   <section class="process" aria-labelledby="process-heading">
     <div class="container">
       <div class="section-header text-center reveal">
         <span class="eyebrow">How It Works</span>
-        <h2 id="process-heading">Zero Stress.<br/><em>Flawless Results.</em></h2>
+        <h2 id="process-heading">Zero Stress.<br/><em>45-Day Handover.</em></h2>
       </div>
-
       <div class="process-steps">
-
         <div class="process-step reveal reveal-delay-1">
           <div class="process-number" aria-hidden="true">1</div>
           <div>
             <h4>Free Consultation &amp; Site Visit</h4>
-            <p>
-              We visit your home, understand your vision, measure every
-              corner, and discuss your budget. Zero commitment required.
-            </p>
+            <p>We visit your home, understand your vision, measure every corner, and discuss your budget. Zero commitment, zero cost.</p>
           </div>
         </div>
-
         <div class="process-step reveal reveal-delay-2">
           <div class="process-number" aria-hidden="true">2</div>
           <div>
             <h4>3D Design &amp; Material Selection</h4>
-            <p>
-              We present photorealistic 3D renders so you can walk
-              through your future home before a single nail is driven.
-            </p>
+            <p>We present photorealistic 3D renders so you can walk through your future home — choosing every finish, hardware, and colour — before a single nail is driven.</p>
           </div>
         </div>
-
         <div class="process-step reveal reveal-delay-3">
           <div class="process-number" aria-hidden="true">3</div>
           <div>
-            <h4>Flawless Execution &amp; Handover</h4>
-            <p>
-              Our skilled craftsmen bring the design to life with
-              precision. We hand over your complete, styled home on schedule.
-            </p>
+            <h4>Execution &amp; 45-Day Handover</h4>
+            <p>Our skilled craftsmen execute with precision. We commit to handing over your complete, styled home within 45 days — backed by a 10-year furniture warranty.</p>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
 
-  <!-- ══════════════════════════════════════════
-       TESTIMONIALS
-  ══════════════════════════════════════════ -->
+  <!-- TESTIMONIALS -->
   <section class="testimonials" aria-labelledby="testimonials-heading">
     <div class="container">
       <div class="section-header reveal">
         <span class="eyebrow">Client Stories</span>
-        <h2 id="testimonials-heading">
-          Homes We've<br/>
-          <em>Transformed</em>
-        </h2>
+        <h2 id="testimonials-heading">Homes We've<br/><em>Transformed</em></h2>
       </div>
-
       <div class="testimonials-grid">
-
         <article class="testimonial-card reveal reveal-delay-1">
           <span class="testimonial-quote-mark" aria-hidden="true">"</span>
-          <p class="testimonial-text">
-            Puniya Interiors transformed our 3BHK in Viman Nagar into
-            something straight out of a magazine. The kitchen alone is
-            worth every rupee. Our guests can't stop asking who did it.
-          </p>
+          <p class="testimonial-text">Puniya Interiors transformed our 3BHK in Viman Nagar into something straight out of a magazine. The kitchen alone is worth every rupee. Our guests can't stop asking who did it.</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar" aria-hidden="true">R</div>
             <div>
@@ -427,14 +364,9 @@
             </div>
           </div>
         </article>
-
         <article class="testimonial-card reveal reveal-delay-2">
           <span class="testimonial-quote-mark" aria-hidden="true">"</span>
-          <p class="testimonial-text">
-            The modular kitchen they designed for us uses every inch
-            brilliantly. The Hettich hardware feels buttery smooth.
-            I cook every day now — that says everything.
-          </p>
+          <p class="testimonial-text">The modular kitchen uses every inch brilliantly. The European Hettich hardware feels buttery smooth. I cook every day now — that says everything.</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar" aria-hidden="true">P</div>
             <div>
@@ -444,14 +376,9 @@
             </div>
           </div>
         </article>
-
         <article class="testimonial-card reveal reveal-delay-3">
           <span class="testimonial-quote-mark" aria-hidden="true">"</span>
-          <p class="testimonial-text">
-            Transparent pricing, zero hidden costs, and they delivered
-            exactly on day 45 as promised. In Pune's interior market,
-            that kind of professionalism is rare. Highly recommend.
-          </p>
+          <p class="testimonial-text">Transparent pricing, zero hidden costs, and they delivered exactly on day 45 as promised. In Pune's interior market, that kind of professionalism is rare. Highly recommend.</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar" aria-hidden="true">A</div>
             <div>
@@ -461,14 +388,9 @@
             </div>
           </div>
         </article>
-
         <article class="testimonial-card reveal reveal-delay-4">
           <span class="testimonial-quote-mark" aria-hidden="true">"</span>
-          <p class="testimonial-text">
-            The 3D renders they showed us were so accurate — the final
-            home looked even better. The team was professional, clean,
-            and respectful of our space throughout.
-          </p>
+          <p class="testimonial-text">They handled everything — kitchen, wardrobes, false ceiling, lighting, and all civil work. One team, one point of contact, zero stress. The 10-year warranty gave us real confidence.</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar" aria-hidden="true">M</div>
             <div>
@@ -478,31 +400,22 @@
             </div>
           </div>
         </article>
-
       </div>
     </div>
   </section>
 
 
-  <!-- ══════════════════════════════════════════
-       FINAL CTA BANNER
-  ══════════════════════════════════════════ -->
+  <!-- CTA BANNER -->
   <section class="cta-banner" aria-labelledby="cta-heading">
     <h2 id="cta-heading">Ready to Transform<br/><em>Your Home?</em></h2>
-    <p>
-      Book a free, no-obligation site visit. We come to you,
-      listen to your vision, and show you exactly what's possible.
-    </p>
+    <p>Book a free, no-obligation site visit. We come to you, listen to your vision, and show you exactly what's possible — delivered in 45 days.</p>
     <div class="cta-banner-actions">
       <a href="contact.html" class="btn btn-light">
         Schedule a Free Site Visit
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-      <a
-        href="https://wa.me/91XXXXXXXXXX?text=Hi%20Puniya%20Interiors%2C%20I%20would%20like%20to%20book%20a%20site%20visit."
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn btn-ghost-white">
+      <a href="https://wa.me/91XXXXXXXXXX?text=Hi%20Puniya%20Interiors%2C%20I%20would%20like%20to%20book%20a%20site%20visit."
+         target="_blank" rel="noopener noreferrer" class="btn btn-ghost-white">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.529 5.859L.057 23.5l5.777-1.517A11.951 11.951 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.893 0-3.667-.52-5.184-1.426l-.371-.22-3.43.9.916-3.345-.242-.383A9.953 9.953 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
         WhatsApp Us Now
       </a>
@@ -510,52 +423,42 @@
   </section>
 
 
-  <!-- ══════════════════════════════════════════
-       FOOTER
-  ══════════════════════════════════════════ -->
+  <!-- FOOTER -->
   <footer class="footer" role="contentinfo">
     <div class="footer-grid">
-
-      <!-- Brand Column -->
       <div class="footer-brand">
-        <div class="nav-logo">
-          <span class="nav-logo-name">Puniya Interiors</span>
-          <span class="nav-logo-tagline">Dhanori, Pune — Est. 2015</span>
+        <div class="nav-logo" style="margin-bottom:1rem;">
+          <img src="images/logo.png" alt="Puniya Interiors" class="footer-logo-img"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+          <span class="nav-logo-text-wrap" style="display:none">
+            <span class="nav-logo-name">Puniya Interiors</span>
+            <span class="nav-logo-tagline">Dhanori, Pune — Est. 2015</span>
+          </span>
         </div>
-        <p>
-          Crafting premium living spaces across Pune for over a decade.
-          Every project is a promise — of quality, precision, and a home
-          you'll love for years.
-        </p>
+        <p>Pune's one-stop solution for all interior works — modular kitchens, end-to-end furniture, false ceilings, renovation and more. Delivered in 45 days with a 10-year warranty.</p>
       </div>
-
-      <!-- Navigation Column -->
       <div class="footer-col">
         <h5>Explore</h5>
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="modular-kitchens.html">Modular Kitchens</a></li>
-          <li><a href="custom-furniture.html">Custom Furniture</a></li>
+          <li><a href="custom-furniture.html">End-to-End Furniture</a></li>
           <li><a href="portfolio.html">Our Portfolio</a></li>
           <li><a href="about.html">Our Story</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </div>
-
-      <!-- Services Column -->
       <div class="footer-col">
         <h5>Services</h5>
         <ul>
           <li><a href="modular-kitchens.html">Modular Kitchens</a></li>
-          <li><a href="custom-furniture.html">Wardrobes &amp; Storage</a></li>
-          <li><a href="custom-furniture.html">Living Room Design</a></li>
-          <li><a href="custom-furniture.html">Bedroom Interiors</a></li>
-          <li><a href="contact.html">Turnkey Projects</a></li>
+          <li><a href="custom-furniture.html">Wardrobes &amp; Bedrooms</a></li>
+          <li><a href="custom-furniture.html#living">Living Room &amp; TV Units</a></li>
+          <li><a href="custom-furniture.html#civil">False Ceiling &amp; Lighting</a></li>
+          <li><a href="custom-furniture.html#civil">Civil Work &amp; Renovation</a></li>
           <li><a href="contact.html">Commercial Spaces</a></li>
         </ul>
       </div>
-
-      <!-- Contact Column -->
       <div class="footer-col">
         <h5>Visit Us</h5>
         <div class="footer-contact-item">
@@ -571,29 +474,18 @@
           <span>Mon – Sat: 10 AM – 7 PM</span>
         </div>
       </div>
-
     </div>
-
     <div class="footer-bottom">
       <span>© 2026 Puniya Interiors. All rights reserved.</span>
-      <span>Designed with precision in Pune.</span>
+      <span>One-Stop Solution for All Interior Works — Pune.</span>
     </div>
   </footer>
 
-  <!-- ══════════════════════════════════════════
-       FLOATING WHATSAPP BUTTON (always visible)
-  ══════════════════════════════════════════ -->
-  <a
-    href="https://wa.me/91XXXXXXXXXX?text=Hi%20Puniya%20Interiors%2C%20I%27d%20like%20to%20discuss%20my%20interior%20project."
-    class="whatsapp-float"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Chat with Puniya Interiors on WhatsApp">
+  <a href="https://wa.me/91XXXXXXXXXX?text=Hi%20Puniya%20Interiors%2C%20I%27d%20like%20to%20discuss%20my%20interior%20project."
+     class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.529 5.859L.057 23.5l5.777-1.517A11.951 11.951 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.893 0-3.667-.52-5.184-1.426l-.371-.22-3.43.9.916-3.345-.242-.383A9.953 9.953 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
   </a>
 
-  <!-- Main Script — loads after HTML for performance -->
   <script src="js/script.js" defer></script>
-
 </body>
 </html>
