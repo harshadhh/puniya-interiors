@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Custom furniture, wardrobes, and home décor in Pune by Puniya Interiors. Bespoke beds, wardrobes, TV units, and living room designs crafted from premium materials." />
-  <meta name="keywords" content="custom furniture Pune, bespoke wardrobe Pune, TV unit design Pune, bedroom interiors Pune, Puniya Interiors furniture" />
-  <title>Custom Furniture &amp; Décor — Puniya Interiors, Pune</title>
+  <meta name="description" content="End-to-end furniture, false ceilings, lighting, wallpapers, tiles, civil work & renovation by Puniya Interiors, Pune. Bedroom, living room, entrance, balcony and commercial — all under one roof." />
+  <meta name="keywords" content="custom furniture Pune, wardrobe Pune, TV unit Pune, false ceiling Pune, wallpaper Pune, tiles Pune, renovation Pune, Puniya Interiors" />
+  <title>End-to-End Furniture &amp; Interiors — Puniya Interiors, Pune</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="css/style.css" />
@@ -16,9 +16,13 @@
 
   <!-- NAVIGATION -->
   <nav class="nav" role="navigation" aria-label="Main navigation">
-    <a href="index.html" class="nav-logo" aria-label="Puniya Interiors - Home">
-      <span class="nav-logo-name">Puniya Interiors</span>
-      <span class="nav-logo-tagline">Dhanori, Pune</span>
+    <a href="index.html" class="nav-logo" aria-label="Puniya Interiors Home">
+      <img src="images/logo.png" alt="Puniya Interiors" class="nav-logo-img"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="eager" />
+      <span class="nav-logo-text-wrap" style="display:none">
+        <span class="nav-logo-name">Puniya Interiors</span>
+        <span class="nav-logo-tagline">Dhanori, Pune</span>
+      </span>
     </a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
@@ -28,144 +32,402 @@
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html" class="nav-cta">Book a Visit</a></li>
     </ul>
-    <button class="nav-hamburger" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
   </nav>
   <nav class="nav-mobile" aria-label="Mobile navigation">
-    <a href="index.html">Home</a>
-    <a href="modular-kitchens.html">Kitchens</a>
-    <a href="custom-furniture.html">Furniture</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
+    <a href="index.html">Home</a><a href="modular-kitchens.html">Kitchens</a>
+    <a href="custom-furniture.html">Furniture</a><a href="portfolio.html">Portfolio</a>
+    <a href="about.html">About</a><a href="contact.html">Contact</a>
   </nav>
 
+
   <!-- INNER HERO -->
-  <header class="inner-hero" aria-label="Custom Furniture page hero">
+  <header class="inner-hero" aria-label="Furniture and Interiors page hero">
     <div class="inner-hero-bg">
-      <!--
-        REPLACE: A beautiful wardrobe or bedroom photo
-        Ideal: 2400 x 1200px, warm tones
-      -->
-      <img
-        src="images/furniture-hero.jpg"
-        alt="Bespoke custom furniture designed by Puniya Interiors, Pune"
-        loading="eager"
-        onerror="this.closest('.inner-hero-bg').style.background='linear-gradient(135deg,#3A3028 0%,#2C2A28 100%)'"
-      />
+      <img src="images/furniture-hero.jpg" alt="Complete interior solutions by Puniya Interiors, Pune"
+        loading="eager" onerror="this.closest('.inner-hero-bg').style.background='linear-gradient(135deg,#3A3028 0%,#2C2A28 100%)'" />
     </div>
     <div class="inner-hero-content">
       <div class="inner-hero-breadcrumb">
-        <a href="index.html">Home</a>
-        <span>›</span>
-        <span>Custom Furniture &amp; Décor</span>
+        <a href="index.html">Home</a><span>›</span><span>End-to-End Furniture &amp; Interiors</span>
       </div>
-      <h1>Furniture That<br/><em>Fits Your Life</em></h1>
+      <h1>Every Room.<br/><em>Every Detail.</em></h1>
       <p class="inner-hero-sub">
-        Not bought. Not standard. Designed around your rooms, your
-        storage needs, and your sense of beauty — then crafted by hand
-        from materials you choose.
+        From bedroom wardrobes and living room TV units to false ceilings,
+        wallpapers, lighting, tiles, and civil work — we handle everything
+        so you don't have to coordinate with ten different contractors.
       </p>
     </div>
   </header>
 
-  <!-- SERVICES OVERVIEW CARDS -->
-  <section style="padding: var(--section-padding);" aria-labelledby="furniture-services-heading">
+
+  <!-- QUICK NAV — jump links to each category -->
+  <nav class="section-jumpnav" aria-label="Jump to section">
     <div class="container">
-      <div class="section-header text-center reveal">
-        <span class="eyebrow">What We Craft</span>
-        <h2 id="furniture-services-heading">Every Room. <em>Every Detail.</em></h2>
+      <div class="jumpnav-inner">
+        <a href="#bedroom" class="jumpnav-item">Bedroom</a>
+        <a href="#living" class="jumpnav-item">Living Room</a>
+        <a href="#entrance" class="jumpnav-item">Entrance</a>
+        <a href="#balcony" class="jumpnav-item">Balcony</a>
+        <a href="#civil" class="jumpnav-item">False Ceiling &amp; Civil</a>
+        <a href="#lighting" class="jumpnav-item">Lighting</a>
+        <a href="#wallpaper" class="jumpnav-item">Wallpapers</a>
+        <a href="#tiles" class="jumpnav-item">Tiles</a>
+        <a href="#commercial" class="jumpnav-item">Commercial</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ══ BEDROOM ══ -->
+  <section id="bedroom" style="padding:var(--section-padding);" aria-labelledby="bedroom-heading">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">01 — Bedroom</span>
+        <h2 id="bedroom-heading">Your Sanctuary.<br/><em>Perfectly Designed.</em></h2>
+        <p style="margin-top:1rem;">A bedroom is more than a room to sleep in. It's the first space you see every morning and the last at night. We design it to feel like a luxury retreat — private, restful, and uniquely yours.</p>
       </div>
 
-      <div class="services-grid" style="margin-top:3.5rem;">
-        <article class="service-card reveal reveal-delay-1">
-          <div class="service-arch">
-            <img src="images/wardrobe-card.jpg" alt="Custom wardrobe design by Puniya Interiors" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(180deg,#EAE6DF,#D0C8BB)'" />
-          </div>
-          <span class="service-number">01</span>
-          <h3>Wardrobes &amp; Storage</h3>
-          <p>Floor-to-ceiling wardrobes with soft-close shutters, internal organizers, trouser racks, and integrated lighting. Every inch of your bedroom — maximized.</p>
-          <a href="contact.html" class="service-link">Discuss Your Wardrobe <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </article>
+      <div class="components-grid" style="margin-top:3rem;">
 
-        <article class="service-card reveal reveal-delay-2">
-          <div class="service-arch">
-            <img src="images/living-card.jpg" alt="Custom living room TV unit by Puniya Interiors" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(180deg,#EAE6DF,#C8C0B4)'" />
-          </div>
-          <span class="service-number">02</span>
-          <h3>Living Room &amp; TV Units</h3>
-          <p>Statement TV units with concealed wire management, floating shelves, backlit niches, and bar cabinets that become the visual centrepiece of your space.</p>
-          <a href="contact.html" class="service-link">Discuss Your Living Room <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </article>
+        <div class="comp-card reveal reveal-delay-1">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><rect x="9" y="13" width="6" height="8"/></svg></div>
+          <h4>Hydraulic Bed</h4>
+          <p>Gas-lift hydraulic storage beds that open smoothly to reveal a full under-mattress storage compartment. Premium upholstered headboard included.</p>
+        </div>
 
-        <article class="service-card reveal reveal-delay-3">
-          <div class="service-arch">
-            <img src="images/bedroom-card.jpg" alt="Custom bedroom interior by Puniya Interiors" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(180deg,#EAE6DF,#D0CABC)'" />
-          </div>
-          <span class="service-number">03</span>
-          <h3>Bedroom Interiors</h3>
-          <p>Upholstered headboards, platform beds with under-storage, side tables, and dressing areas — designed as a complete sanctuary for rest and privacy.</p>
-          <a href="contact.html" class="service-link">Discuss Your Bedroom <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </article>
+        <div class="comp-card reveal reveal-delay-2">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M2 11h20M7 7V5a1 1 0 011-1h8a1 1 0 011 1v2"/></svg></div>
+          <h4>Drawer Bed</h4>
+          <p>Beds with built-in pull-out drawers on the sides — perfect for linen, seasonal clothing, and extra storage without compromising the bedroom aesthetic.</p>
+        </div>
+
+        <div class="comp-card reveal reveal-delay-3">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 3H5a2 2 0 00-2 2v5M21 8V5a2 2 0 00-2-2h-3M3 16v3a2 2 0 002 2h3M16 21h3a2 2 0 002-2v-3"/><path d="M12 8v8M8 12h8"/></svg></div>
+          <h4>Wall Mounted Bed</h4>
+          <p>Murphy-style wall-mounted folding beds — ideal for studio apartments and guest rooms. Folds away cleanly to free up the full floor space when not in use.</p>
+        </div>
+
+        <div class="comp-card reveal reveal-delay-1">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
+          <h4>Foam Headboard</h4>
+          <p>Custom upholstered foam headboards in premium fabric, velvet, or leatherette. Wall-fixed or bed-integrated, designed to anchor your bedroom's visual identity.</p>
+        </div>
+
+        <div class="comp-card reveal reveal-delay-2">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="2" width="18" height="20" rx="2"/><path d="M8 2v20M3 8h5M3 14h5M16 8h5M16 14h5"/></svg></div>
+          <h4>Wardrobes — Full System</h4>
+          <p>Floor-to-ceiling wardrobes with: <strong>Drawers</strong>, <strong>Cloth Hanging</strong>, <strong>Built-in Dressing Mirror</strong>, <strong>Organisers</strong>, <strong>Iron Board</strong>, and dedicated compartments for every need. Soft-close Hettich fittings throughout.</p>
+        </div>
+
+        <div class="comp-card reveal reveal-delay-3">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="3" width="6" height="4" rx="1"/><rect x="9" y="3" width="6" height="4" rx="1"/><rect x="16" y="3" width="6" height="4" rx="1"/><path d="M2 9h20M2 13h20M2 17h20M2 21h20"/></svg></div>
+          <h4>Side Tables</h4>
+          <p>Custom bedside tables designed to match your bed and wardrobe — with integrated charging points, drawers, or open shelving. Any size, any finish.</p>
+        </div>
+
+        <div class="comp-card reveal reveal-delay-1">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 19V5a2 2 0 012-2h12a2 2 0 012 2v14"/><path d="M2 19h20M9 3v16M15 3v4"/></svg></div>
+          <h4>Study Table</h4>
+          <p>Wall-mounted or free-standing study tables with overhead shelves, cable management, and a dedicated workspace for children and home-office needs.</p>
+        </div>
+
+        <div class="comp-card reveal reveal-delay-2">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 19V5a2 2 0 012-2h8l6 6v10a2 2 0 01-2 2H6a2 2 0 01-2-2z"/><polyline points="14 3 14 9 20 9"/></svg></div>
+          <h4>Book Rack</h4>
+          <p>Open or closed book racks — wall-mounted floating shelves, built-in alcove shelving, or freestanding units. Designed to display your collection beautifully.</p>
+        </div>
+
+        <div class="comp-card reveal reveal-delay-3">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 3H5a2 2 0 00-2 2v5M21 8V5a2 2 0 00-2-2h-3M3 16v3a2 2 0 002 2h3M16 21h3a2 2 0 002-2v-3"/></svg></div>
+          <h4>Loft Storage</h4>
+          <p>Overhead loft cabinets above wardrobes for seasonal storage. Smooth-action lift-up or hinged doors — maximizing every vertical inch of your bedroom.</p>
+        </div>
+
+        <div class="comp-card reveal reveal-delay-1">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/><circle cx="15" cy="6" r="1"/></svg></div>
+          <h4>Wall Décor</h4>
+          <p>Feature walls with paneling, fluted panels, back-painted glass, wallpapers, or textured finishes — transforming a plain wall into your bedroom's signature statement.</p>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- WHY CUSTOM — SPLIT FEATURE -->
-  <section style="padding: var(--section-padding); background: var(--bg-secondary);" aria-labelledby="why-custom-heading">
+
+  <!-- ══ LIVING ROOM ══ -->
+  <section id="living" style="padding:var(--section-padding);background:var(--bg-secondary);" aria-labelledby="living-heading">
     <div class="container">
-      <div class="split-layout">
+      <div class="section-header reveal">
+        <span class="eyebrow">02 — Living Room</span>
+        <h2 id="living-heading">The Room Everyone<br/><em>Remembers.</em></h2>
+        <p style="margin-top:1rem;">Your living room is the first impression every guest forms. We design it to be bold, functional, and unmistakably yours.</p>
+      </div>
+
+      <div class="components-grid" style="margin-top:3rem;">
+
+        <div class="comp-card reveal reveal-delay-1">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <h4>TV Unit with Louvers</h4>
+          <p>Statement TV units with textured <strong>louver panels</strong>, concealed wire management, backlit floating shelves, and integrated bar/display niches. The centrepiece your living room deserves.</p>
+        </div>
+
+        <div class="comp-card reveal reveal-delay-2">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <h4>Mandir</h4>
+          <p>Beautifully crafted wooden mandirs — wall-mounted, free-standing, or integrated into your living room unit. Traditional craftsmanship with clean, contemporary lines.</p>
+        </div>
+
+        <div class="comp-card reveal reveal-delay-3">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 9V7a2 2 0 00-2-2H6a2 2 0 00-2 2v2M2 11v5a2 2 0 002 2h16a2 2 0 002-2v-5a2 2 0 00-2-2H4a2 2 0 00-2 2z"/><path d="M6 18v2M18 18v2"/></svg></div>
+          <h4>Sofa Set</h4>
+          <p>Custom upholstered sofa sets designed to your living room's dimensions and aesthetic — fabric, velvet, or leatherette in any configuration: L-shape, sectional, or classic 3+1+1.</p>
+        </div>
+
+        <div class="comp-card reveal reveal-delay-1">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="7" width="20" height="15" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div>
+          <h4>Back Wall Décor</h4>
+          <p>Feature accent walls with fluted panels, CNC-cut patterns, wallpaper, textured paint, or stone cladding — creating a visual anchor for your entire living room.</p>
+        </div>
+
+        <div class="comp-card reveal reveal-delay-2">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
+          <h4>False Ceiling</h4>
+          <p>Living room false ceilings with cove lighting, POP designs, coffered panels, and integrated lighting zones — transforming a flat ceiling into an architectural feature.</p>
+        </div>
+
+        <div class="comp-card reveal reveal-delay-3">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></div>
+          <h4>Room Partition</h4>
+          <p>Stylish partitions in CNC-cut wood, fluted glass, or metal frames — dividing living and dining areas with visual interest rather than solid walls.</p>
+        </div>
+
+        <div class="comp-card reveal reveal-delay-1">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="1"/><path d="M2 10h20M2 14h20M7 7V3M17 7V3"/></svg></div>
+          <h4>Dining Table</h4>
+          <p>Custom dining tables in <strong>Folding</strong> and <strong>Wall-Mounted</strong> configurations — perfect for compact apartments. Also available as fixed 4/6/8-seater sets with matching chairs.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ ENTRANCE ══ -->
+  <section id="entrance" style="padding:var(--section-padding);" aria-labelledby="entrance-heading">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">03 — Entrance</span>
+        <h2 id="entrance-heading">First Impressions<br/><em>That Last.</em></h2>
+        <p style="margin-top:1rem;">The entrance is the prologue to your home. We design it to feel intentional, welcoming, and secure — from the main door to the last finishing touch.</p>
+      </div>
+
+      <div class="components-grid" style="margin-top:3rem;">
+
+        <div class="comp-card reveal reveal-delay-1">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v6M15 3v6"/></svg></div>
+          <h4>Wall Paneling</h4>
+          <p>Fluted wood panels, PU-finished boards, or textured wall cladding at the entrance — creating a warm, hotel-lobby arrival experience the moment you step in.</p>
+        </div>
+
+        <div class="comp-card reveal reveal-delay-2">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
+          <h4>Shoe Rack</h4>
+          <p>Concealed or open shoe storage designed for Indian homes — with seating bench, pull-out drawers, and ventilated panels to keep your entrance clean and organized.</p>
+        </div>
+
+        <div class="comp-card reveal reveal-delay-3">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></div>
+          <h4>Safety Door with Digital Lock</h4>
+          <p>Premium safety doors with biometric / PIN / card digital smart locks. Powder-coated steel frames with decorative panel inserts — security without compromising style.</p>
+        </div>
+
+        <div class="comp-card reveal reveal-delay-1">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg></div>
+          <h4>CNC Jali</h4>
+          <p>Precision CNC-cut decorative screens in MDF or metal — used as room dividers, door panels, or feature walls. Geometric, floral, or custom pattern in any design you choose.</p>
+        </div>
+
+        <div class="comp-card reveal reveal-delay-2">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <h4>Name Plates</h4>
+          <p>Custom designer name plates in brass, stainless steel, acrylic, or wood — engraved, laser-cut, or backlit LED. The smallest detail that makes a powerful statement.</p>
+        </div>
+
+        <div class="comp-card reveal reveal-delay-3">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-4M16 3l5 5-5 5M21 8H9"/></svg></div>
+          <h4>Main Door</h4>
+          <p>Solid wood, engineered wood, or composite main doors with custom veneers, glass inserts, or carved panels. Complete with frames, seals, and a 10-year structural warranty.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ BALCONY ══ -->
+  <section id="balcony" style="padding:var(--section-padding);background:var(--bg-secondary);" aria-labelledby="balcony-heading">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">04 — Balcony</span>
+        <h2 id="balcony-heading">Your Outdoor<br/><em>Living Space.</em></h2>
+      </div>
+      <div class="split-layout" style="margin-top:3.5rem;">
+        <div class="split-text reveal">
+          <p>Most balconies in Pune are neglected corners. We transform them into usable extensions of your living space — weather-resistant, stylish, and low-maintenance.</p>
+          <ul class="feature-checklist" style="margin-top:1.5rem;">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><strong>PVC Ceiling</strong> — Waterproof, termite-proof, easy-clean panels. Ideal for Pune's monsoons.</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Anti-skid tiles and outdoor flooring</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Weatherproof wall cladding and railing upgrades</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Outdoor seating and planter integration</li>
+          </ul>
+          <a href="contact.html" class="btn btn-primary" style="margin-top:2rem;">
+            <span>Discuss Your Balcony</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div class="split-image reveal reveal-delay-2">
+          <div class="arch-image">
+            <img src="images/balcony-card.jpg" alt="Balcony interior design by Puniya Interiors, Pune"
+              loading="lazy" onerror="this.parentElement.style.background='linear-gradient(180deg,#EAE6DF,#C8C8C0)'" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ FALSE CEILING & CIVIL WORK ══ -->
+  <section id="civil" style="padding:var(--section-padding);" aria-labelledby="civil-heading">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">05 — False Ceiling &amp; Civil Work</span>
+        <h2 id="civil-heading">The Foundation of<br/><em>Every Perfect Home.</em></h2>
+        <p style="margin-top:1rem;">Great interiors start with solid civil work. We handle it all — so your furniture, ceilings, and finishes all come together seamlessly under one team.</p>
+      </div>
+
+      <div class="components-grid" style="margin-top:3rem;">
+
+        <div class="comp-card reveal reveal-delay-1">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
+          <h4>False Ceiling — POP &amp; Gypsum</h4>
+          <p>Coffered ceilings, dropped panels, cove designs, and multi-level ceilings in POP or gypsum board — transforming every room from top to bottom.</p>
+        </div>
+
+        <div class="comp-card reveal reveal-delay-2">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 20h20M4 20V10M8 20V6M12 20V2M16 20V8M20 20V14"/></svg></div>
+          <h4>Painting</h4>
+          <p>Interior and exterior painting with premium Asian Paints or Berger finishes — texture paint, designer finishes, and meticulous preparation for a flawless result.</p>
+        </div>
+
+        <div class="comp-card reveal reveal-delay-3">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/></svg></div>
+          <h4>Plumbing</h4>
+          <p>Kitchen and bathroom plumbing — pipe re-routing, new fixture installation, drainage upgrades, and waterproofing. Clean, code-compliant, and long-lasting work.</p>
+        </div>
+
+        <div class="comp-card reveal reveal-delay-1">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="9" height="9"/><rect x="13" y="2" width="9" height="9"/><rect x="2" y="13" width="9" height="9"/><rect x="13" y="13" width="9" height="9"/></svg></div>
+          <h4>Renovation</h4>
+          <p>Complete home renovation — demolition, masonry, waterproofing, screeding, and rebuild. We handle gut renovations as smoothly as targeted room refreshes.</p>
+        </div>
+
+        <div class="comp-card reveal reveal-delay-2">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="1"/><rect x="13" y="2" width="9" height="9" rx="1"/><rect x="2" y="13" width="9" height="9" rx="1"/><rect x="13" y="13" width="9" height="9" rx="1"/></svg></div>
+          <h4>Tiling Work</h4>
+          <p>Expert tile-laying for kitchens, bathrooms, and living areas. Precise grouting, waterproofing, and levelling — so every tile sits perfectly flat and lasts for decades.</p>
+        </div>
+
+        <div class="comp-card reveal reveal-delay-3">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg></div>
+          <h4>Electrical &amp; Wiring</h4>
+          <p>Concealed wiring, circuit planning, switch-board upgrades, and point additions — done safely, to IS standards, coordinated with your furniture layout.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ LIGHTING ══ -->
+  <section id="lighting" style="padding:var(--section-padding);background:var(--bg-secondary);" aria-labelledby="lighting-heading">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">06 — Lighting Design</span>
+        <h2 id="lighting-heading">Light Changes<br/><em>Everything.</em></h2>
+        <p style="margin-top:1rem;">The right lighting makes every material, texture, and colour in your home look its best. We design lighting as an integral part of the interior — not an afterthought.</p>
+      </div>
+
+      <div class="components-grid" style="margin-top:3rem;">
+
+        <div class="comp-card reveal reveal-delay-1">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="8" width="20" height="8" rx="2"/><path d="M6 8V5M18 8V5M6 16v3M18 16v3"/></svg></div>
+          <h4>Panel Lights</h4>
+          <p><strong>Surface-mounted</strong> panel lights and <strong>rectangular LED panels</strong> for kitchens, offices, and utility spaces — uniform, glare-free illumination in warm or cool white.</p>
+        </div>
+
+        <div class="comp-card reveal reveal-delay-2">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="2" x2="12" y2="22"/><path d="M5 5.5l14 13M19 5.5L5 18.5"/></svg></div>
+          <h4>Profile Lights</h4>
+          <p>Aluminum LED profile channels recessed into furniture edges, under cabinets, and ceiling coving. Creates a luxury glow that makes your kitchen and wardrobes look premium.</p>
+        </div>
+
+        <div class="comp-card reveal reveal-delay-3">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
+          <h4>Magnetic Lights</h4>
+          <p>Modern magnetic track systems — repositionable spotlights that click into a ceiling-mounted magnetic rail. Change your lighting layout any time without any electrical work.</p>
+        </div>
+
+        <div class="comp-card reveal reveal-delay-1">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="5" r="3"/><path d="M12 8v8M8 12l4 4 4-4"/></svg></div>
+          <h4>Spot Lights</h4>
+          <p>Recessed downlights precisely aimed at artwork, décor items, and kitchen platforms — creating drama and depth with targeted illumination where it matters most.</p>
+        </div>
+
+        <div class="comp-card reveal reveal-delay-2">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/><circle cx="6" cy="6" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg></div>
+          <h4>Track Lights</h4>
+          <p>Adjustable track lighting mounted to ceiling rails — ideal for kitchens, art walls, and retail-style living rooms. Aims precisely where you need it.</p>
+        </div>
+
+        <div class="comp-card reveal reveal-delay-3">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
+          <h4>Cove Lights</h4>
+          <p>Indirect LED strips hidden inside false ceiling coves — washing the ceiling and walls with a warm ambient glow. The defining feature of any luxury living room.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ WALLPAPERS ══ -->
+  <section id="wallpaper" style="padding:var(--section-padding);" aria-labelledby="wallpaper-heading">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">07 — Wallpapers</span>
+        <h2 id="wallpaper-heading">Walls That<br/><em>Tell a Story.</em></h2>
+      </div>
+      <div class="split-layout" style="margin-top:3.5rem;">
         <div class="split-image reveal">
           <div class="arch-image">
-            <img
-              src="images/craftsmanship.jpg"
-              alt="Craftsman at work on custom furniture at Puniya Interiors"
-              loading="lazy"
-              onerror="this.parentElement.style.background='linear-gradient(180deg,#D8D0C4,#C0B8AE)'"
-            />
-          </div>
-          <div class="split-image-badge" aria-label="100 percent custom made">
-            <strong>100%</strong>
-            <span>Custom Made</span>
+            <img src="images/wallpaper-card.jpg" alt="Custom designed wallpapers by Puniya Interiors, Pune"
+              loading="lazy" onerror="this.parentElement.style.background='linear-gradient(180deg,#EAE6DF,#D4CCBC)'" />
           </div>
         </div>
         <div class="split-text reveal reveal-delay-2">
-          <span class="eyebrow">Our Craft</span>
-          <h2 id="why-custom-heading">
-            Built in Pune.<br/>
-            <em>Made to Last.</em>
-          </h2>
-          <p>
-            Our workshop is right here in Pune. When you choose Puniya Interiors, you
-            are choosing a piece made by skilled local craftsmen — not factory-flat-packed
-            and assembled on site.
-          </p>
-          <p>
-            We use only BWP marine ply for all carcasses, ensuring your furniture
-            survives Pune's humid monsoons for decades without swelling or warping.
-            Finishes are UV-sealed for lasting colour fidelity.
-          </p>
-          <ul style="display:flex;flex-direction:column;gap:0.8rem;margin-top:0.5rem;">
-            <li style="display:flex;align-items:center;gap:0.7rem;font-size:0.9rem;color:var(--text-secondary);">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              BWP Marine Ply — Moisture &amp; termite resistant
-            </li>
-            <li style="display:flex;align-items:center;gap:0.7rem;font-size:0.9rem;color:var(--text-secondary);">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              Hettich soft-close hinges &amp; drawer runners
-            </li>
-            <li style="display:flex;align-items:center;gap:0.7rem;font-size:0.9rem;color:var(--text-secondary);">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              UV-sealed acrylic, laminate &amp; lacquer finishes
-            </li>
-            <li style="display:flex;align-items:center;gap:0.7rem;font-size:0.9rem;color:var(--text-secondary);">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              5-year workmanship warranty on all furniture
-            </li>
+          <span class="eyebrow">Custom Wallpapers</span>
+          <h3>Designed Exclusively <em>for Your Space</em></h3>
+          <p>We go beyond catalogue wallpapers. We design <strong>custom wallpapers</strong> — patterns, murals, and textures created specifically for your room dimensions and décor palette.</p>
+          <ul class="feature-checklist" style="margin-top:1.2rem;">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Custom designed & digitally printed murals</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Premium imported wallpaper catalogue (1000+ options)</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>3D textured, fabric, and grasscloth finishes</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Waterproof and washable options for kitchens &amp; baths</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Professional installation — bubble-free, edge-perfect</li>
           </ul>
-          <a href="contact.html" class="btn btn-primary" style="margin-top:1rem;">
-            <span>Get a Custom Quote</span>
+          <a href="contact.html" class="btn btn-primary" style="margin-top:2rem;">
+            <span>Explore Wallpaper Options</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
@@ -173,52 +435,175 @@
     </div>
   </section>
 
-  <!-- GALLERY STRIP -->
-  <section class="gallery-strip" aria-labelledby="furniture-gallery-heading">
+
+  <!-- ══ TILES & MARBLE ══ -->
+  <section id="tiles" style="padding:var(--section-padding);background:var(--bg-secondary);" aria-labelledby="tiles-heading">
     <div class="container">
       <div class="section-header reveal">
-        <span class="eyebrow">Portfolio Highlights</span>
-        <h2 id="furniture-gallery-heading">Recent <em>Furniture Projects</em></h2>
+        <span class="eyebrow">08 — Tiles &amp; Marble</span>
+        <h2 id="tiles-heading">The Surface Beneath<br/><em>Everything.</em></h2>
+        <p style="margin-top:1rem;">We supply and lay premium tiles for every surface — flooring, walls, kitchen dadoes, bathroom linings, and feature walls.</p>
       </div>
-      <div class="gallery-strip-grid">
-        <!-- REPLACE with your actual furniture project photos -->
-        <div class="g-item reveal"><img src="images/f-gallery-1.jpg" alt="Custom wardrobe project 1" loading="lazy" onerror="this.parentElement.style.background='#D8D0C4'" /></div>
-        <div class="g-item reveal reveal-delay-1"><img src="images/f-gallery-2.jpg" alt="Living room project 2" loading="lazy" onerror="this.parentElement.style.background='#CABFB4'" /></div>
-        <div class="g-item reveal reveal-delay-2"><img src="images/f-gallery-3.jpg" alt="Bedroom project 3" loading="lazy" onerror="this.parentElement.style.background='#C0B8AE'" /></div>
-        <div class="g-item reveal reveal-delay-1"><img src="images/f-gallery-4.jpg" alt="Custom furniture project 4" loading="lazy" onerror="this.parentElement.style.background='#D0C8BB'" /></div>
-        <div class="g-item reveal reveal-delay-2"><img src="images/f-gallery-5.jpg" alt="Custom TV unit project 5" loading="lazy" onerror="this.parentElement.style.background='#C8C0B4'" /></div>
+
+      <div class="components-grid" style="margin-top:3rem;">
+
+        <div class="comp-card reveal reveal-delay-1">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="2"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="12" y1="2" x2="12" y2="22"/></svg></div>
+          <h4>Full Body Tiles</h4>
+          <p>Through-body porcelain tiles — the colour runs throughout the tile body, making chips virtually invisible. Premium-grade, 800x800mm and larger formats available.</p>
+        </div>
+
+        <div class="comp-card reveal reveal-delay-2">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="1"/><rect x="13" y="2" width="9" height="9" rx="1"/><rect x="2" y="13" width="9" height="9" rx="1"/><rect x="13" y="13" width="9" height="9" rx="1"/></svg></div>
+          <h4>Ceramic Tiles</h4>
+          <p>Glazed ceramic wall and floor tiles — a wide range of textures, patterns, and sizes for kitchens, bathrooms, and living areas. Budget-friendly without compromising look.</p>
+        </div>
+
+        <div class="comp-card reveal reveal-delay-3">
+          <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <h4>Marble &amp; Natural Stone</h4>
+          <p>Italian, Indian, and imported marble for flooring, feature walls, kitchen platforms, and bathrooms. Sealed, polished, and professionally installed for lasting elegance.</p>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- CTA BANNER -->
+
+  <!-- ══ COMMERCIAL ══ -->
+  <section id="commercial" style="padding:var(--section-padding);" aria-labelledby="commercial-heading">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">09 — Commercial Spaces</span>
+        <h2 id="commercial-heading">Spaces That<br/><em>Work for Business.</em></h2>
+        <p style="margin-top:1rem;">We bring the same design precision and material quality we use for homes to every commercial project — because your workspace reflects your brand.</p>
+      </div>
+
+      <div class="services-grid" style="margin-top:3rem;">
+
+        <article class="service-card reveal reveal-delay-1">
+          <div class="service-arch">
+            <img src="images/office-card.jpg" alt="Office interior design by Puniya Interiors, Pune"
+              loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(180deg,#EAE6DF,#D0C8BB)'" />
+          </div>
+          <span class="service-number">01</span>
+          <h3>Office Interiors</h3>
+          <p>Reception areas, workstations, cabins, conference rooms, and pantries — designed for productivity, branded for impression, and built to last through years of daily use.</p>
+          <a href="contact.html" class="service-link">Discuss Your Office <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </article>
+
+        <article class="service-card reveal reveal-delay-2">
+          <div class="service-arch">
+            <img src="images/shop-card.jpg" alt="Retail shop interior design by Puniya Interiors"
+              loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(180deg,#EAE6DF,#C8C0B4)'" />
+          </div>
+          <span class="service-number">02</span>
+          <h3>Shop &amp; Retail Fit-Out</h3>
+          <p>Display units, counters, storage walls, fitting rooms, and branded façades — retail interiors designed to maximize product visibility and drive customer dwell time.</p>
+          <a href="contact.html" class="service-link">Discuss Your Shop <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </article>
+
+        <article class="service-card reveal reveal-delay-3">
+          <div class="service-arch">
+            <img src="images/mall-card.jpg" alt="Mall and commercial interior design by Puniya Interiors"
+              loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(180deg,#EAE6DF,#D4CABC)'" />
+          </div>
+          <span class="service-number">03</span>
+          <h3>Mall &amp; Large Format</h3>
+          <p>High-traffic commercial spaces, food courts, and showrooms — large-format interiors executed with the same precision as our residential projects, on schedule and on budget.</p>
+          <a href="contact.html" class="service-link">Discuss Your Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- WHY ONE-STOP — CRAFT SECTION -->
+  <section style="padding:var(--section-padding);background:var(--bg-secondary);" aria-labelledby="why-one-stop-heading">
+    <div class="container">
+      <div class="split-layout">
+        <div class="split-image reveal">
+          <div class="arch-image">
+            <img src="images/craftsmanship.jpg" alt="Craftsmen at work at Puniya Interiors, Pune"
+              loading="lazy" onerror="this.parentElement.style.background='linear-gradient(180deg,#D8D0C4,#C0B8AE)'" />
+          </div>
+          <div class="split-image-badge"><strong>10yr</strong><span>Furniture Warranty</span></div>
+        </div>
+        <div class="split-text reveal reveal-delay-2">
+          <span class="eyebrow">Why One-Stop</span>
+          <h2 id="why-one-stop-heading">Built in Pune.<br/><em>Made to Last.</em></h2>
+          <p>When you choose Puniya Interiors, you eliminate the chaos of coordinating between a carpenter, a civil contractor, an electrician, a tile vendor, and a painter. One team handles everything — with one point of contact, one deadline, and one warranty.</p>
+          <ul class="feature-checklist" style="margin-top:1.2rem;">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>BWP Marine Ply — termite &amp; moisture resistant</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>European Hettich &amp; Häfele hardware throughout</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>UV-sealed Acrylic, Laminate &amp; PU finishes</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><strong>10-year warranty</strong> on all furniture</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>45-day handover commitment — always honoured</li>
+          </ul>
+          <a href="contact.html" class="btn btn-primary" style="margin-top:1.5rem;">
+            <span>Book a Free Design Session</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- GALLERY -->
+  <section class="gallery-strip" aria-labelledby="furniture-gallery-heading">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Portfolio Highlights</span>
+        <h2 id="furniture-gallery-heading">Recent <em>Projects</em></h2>
+      </div>
+      <div class="gallery-strip-grid">
+        <div class="g-item reveal"><img src="images/f-gallery-1.jpg" alt="Wardrobe project by Puniya Interiors" loading="lazy" onerror="this.parentElement.style.background='#D8D0C4'" /></div>
+        <div class="g-item reveal reveal-delay-1"><img src="images/f-gallery-2.jpg" alt="Living room project by Puniya Interiors" loading="lazy" onerror="this.parentElement.style.background='#CABFB4'" /></div>
+        <div class="g-item reveal reveal-delay-2"><img src="images/f-gallery-3.jpg" alt="Bedroom project by Puniya Interiors" loading="lazy" onerror="this.parentElement.style.background='#C0B8AE'" /></div>
+        <div class="g-item reveal reveal-delay-1"><img src="images/f-gallery-4.jpg" alt="False ceiling project by Puniya Interiors" loading="lazy" onerror="this.parentElement.style.background='#D0C8BB'" /></div>
+        <div class="g-item reveal reveal-delay-2"><img src="images/f-gallery-5.jpg" alt="Entrance design by Puniya Interiors" loading="lazy" onerror="this.parentElement.style.background='#C8C0B4'" /></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CTA -->
   <section class="cta-banner" aria-labelledby="furniture-cta-heading">
     <h2 id="furniture-cta-heading">Let's Design Your<br/><em>Perfect Space</em></h2>
-    <p>Tell us about your space and budget. We'll bring ideas, samples, and a clear estimate — no pressure, no commitment.</p>
+    <p>Tell us about your home and budget. We'll bring ideas, material samples, and a clear estimate — no pressure, no commitment. Delivered in 45 days.</p>
     <div class="cta-banner-actions">
       <a href="contact.html" class="btn btn-light">Book a Free Design Session</a>
       <a href="portfolio.html" class="btn btn-ghost-white">View Full Portfolio</a>
     </div>
   </section>
 
-  <!-- FOOTER (identical across all pages) -->
+
+  <!-- FOOTER -->
   <footer class="footer" role="contentinfo">
     <div class="footer-grid">
       <div class="footer-brand">
-        <div class="nav-logo"><span class="nav-logo-name">Puniya Interiors</span><span class="nav-logo-tagline">Dhanori, Pune — Est. 2015</span></div>
-        <p>Crafting premium living spaces across Pune for over a decade.</p>
+        <div class="nav-logo" style="margin-bottom:1rem;">
+          <img src="images/logo.png" alt="Puniya Interiors" class="footer-logo-img"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+          <span class="nav-logo-text-wrap" style="display:none"><span class="nav-logo-name">Puniya Interiors</span><span class="nav-logo-tagline">Dhanori, Pune — Est. 2015</span></span>
+        </div>
+        <p>Pune's one-stop solution for all interior works — delivered in 45 days with a 10-year warranty.</p>
       </div>
-      <div class="footer-col"><h5>Explore</h5><ul><li><a href="index.html">Home</a></li><li><a href="modular-kitchens.html">Modular Kitchens</a></li><li><a href="custom-furniture.html">Custom Furniture</a></li><li><a href="portfolio.html">Our Portfolio</a></li><li><a href="about.html">Our Story</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
-      <div class="footer-col"><h5>Services</h5><ul><li><a href="modular-kitchens.html">Modular Kitchens</a></li><li><a href="custom-furniture.html">Wardrobes &amp; Storage</a></li><li><a href="custom-furniture.html">Living Room Design</a></li><li><a href="custom-furniture.html">Bedroom Interiors</a></li><li><a href="contact.html">Turnkey Projects</a></li></ul></div>
+      <div class="footer-col"><h5>Explore</h5><ul><li><a href="index.html">Home</a></li><li><a href="modular-kitchens.html">Modular Kitchens</a></li><li><a href="custom-furniture.html">End-to-End Furniture</a></li><li><a href="portfolio.html">Our Portfolio</a></li><li><a href="about.html">Our Story</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+      <div class="footer-col"><h5>Services</h5><ul><li><a href="modular-kitchens.html">Modular Kitchens</a></li><li><a href="custom-furniture.html#bedroom">Wardrobes &amp; Bedrooms</a></li><li><a href="custom-furniture.html#living">Living Room &amp; TV Units</a></li><li><a href="custom-furniture.html#civil">False Ceiling &amp; Lighting</a></li><li><a href="custom-furniture.html#civil">Civil Work &amp; Renovation</a></li><li><a href="custom-furniture.html#commercial">Commercial Spaces</a></li></ul></div>
       <div class="footer-col"><h5>Visit Us</h5>
         <div class="footer-contact-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Your Address, Dhanori,<br/>Pune — 411015</span></div>
         <div class="footer-contact-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><a href="tel:+91XXXXXXXXXX">+91 XXXXXXXXXX</a></div>
+        <div class="footer-contact-item"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Mon–Sat: 10 AM – 7 PM</span></div>
       </div>
     </div>
-    <div class="footer-bottom"><span>© 2026 Puniya Interiors. All rights reserved.</span><span>Designed with precision in Pune.</span></div>
+    <div class="footer-bottom"><span>© 2026 Puniya Interiors. All rights reserved.</span><span>One-Stop Solution for All Interior Works — Pune.</span></div>
   </footer>
 
-  <a href="https://wa.me/91XXXXXXXXXX?text=Hi%20Puniya%20Interiors%2C%20I%20want%20to%20discuss%20my%20interior%20project." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <a href="https://wa.me/91XXXXXXXXXX?text=Hi%20Puniya%20Interiors%2C%20I%27d%20like%20to%20discuss%20my%20interior%20project."
+    class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.529 5.859L.057 23.5l5.777-1.517A11.951 11.951 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.893 0-3.667-.52-5.184-1.426l-.371-.22-3.43.9.916-3.345-.242-.383A9.953 9.953 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
   </a>
   <script src="js/script.js" defer></script>

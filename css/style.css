@@ -2024,3 +2024,46 @@ p {
 @media (max-width: 480px) {
   .all-services-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ── SECTION JUMP NAV (Furniture page) ── */
+.section-jumpnav {
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 70px;
+  z-index: 900;
+}
+
+.jumpnav-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.jumpnav-inner::-webkit-scrollbar { display: none; }
+
+.jumpnav-item {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 1rem 1.4rem;
+  white-space: nowrap;
+  border-right: 1px solid var(--border);
+  transition: color 0.2s ease, background 0.2s ease;
+  flex-shrink: 0;
+}
+
+.jumpnav-item:hover {
+  color: var(--accent);
+  background: var(--bg-secondary);
+}
+
+@media (max-width: 768px) {
+  .section-jumpnav { top: 62px; }
+  .jumpnav-item { padding: 0.85rem 1rem; font-size: 0.62rem; }
+}
