@@ -1471,7 +1471,7 @@ p {
 
 .about-stat-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 2px;
   background: var(--border);
   border: 1px solid var(--border);
@@ -1864,7 +1864,7 @@ p {
 /* ── ALL-SERVICES PILL GRID ── */
 .all-services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-template-columns: repeat(6, 1fr);
   gap: 1px;
   background: var(--border);
   border: 1px solid var(--border);
@@ -2013,7 +2013,7 @@ p {
 /* ── RESPONSIVE: pills, components ── */
 @media (max-width: 1024px) {
   .components-grid { grid-template-columns: repeat(2, 1fr); }
-  .all-services-grid { grid-template-columns: repeat(4, 1fr); }
+  /* all-services-grid: handled in newer block below */
 }
 
 @media (max-width: 768px) {
@@ -2081,19 +2081,26 @@ p {
 ────────────────────────────────────────── */
 .hero-split {
   min-height: 100svh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  position: relative;
   background: var(--bg-dark);
-  padding-top: 72px; /* nav height */
+  padding-top: 72px;
   overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 
-/* LEFT — TEXT PANEL */
+
+
+/* TEXT — sits on top of the full-bleed slideshow */
 .hero-split-text {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: clamp(3rem,6vw,6rem) clamp(2rem,5vw,6rem) clamp(3rem,6vw,6rem) clamp(2rem,7vw,8rem);
+  max-width: 680px;
+  width: 100%;
 }
 
 .hero-split-text .hero-eyebrow {
@@ -2173,12 +2180,7 @@ p {
   align-items: center;
 }
 
-/* RIGHT — IMAGE MOSAIC */
-.hero-split-visual {
-  position: relative;
-  overflow: hidden;
-  background: #1E1C1A;
-}
+
 
 .hero-mosaic {
   display: grid;
@@ -2630,9 +2632,8 @@ p {
    5. RESPONSIVE
 ────────────────────────────────────────── */
 @media (max-width: 1024px) {
-  .hero-split { grid-template-columns: 1fr; min-height: auto; }
-  .hero-split-visual { height: 55vw; min-height: 320px; }
-  .hero-split-text { padding: 4rem 2rem 3rem; }
+  .hero-split { min-height: 100svh; }
+  .hero-split-text { padding: 5rem 2rem 3rem 2rem; max-width: 100%; }
   .hero-stats { width: 100%; justify-content: stretch; }
   .hero-stat { flex: 1; }
 
@@ -2643,7 +2644,7 @@ p {
 }
 
 @media (max-width: 768px) {
-  .hero-split-visual { height: 70vw; }
+  /* hero-split-visual is absolute, no height override needed */
   .mosaic-stack { grid-template-rows: 1fr 1fr 0.55fr; }
   .hero-stats { flex-wrap: wrap; }
   .hero-stat { flex: 1 1 calc(50% - 0.5rem); }
@@ -2661,4 +2662,340 @@ p {
   .hero-stat { flex-direction: row; justify-content: space-between; padding: 0.7rem 1rem; }
   .hero-stat-num { font-size: 1.1rem; }
   .ed-grid-4 { grid-template-columns: 1fr; }
+}
+
+
+/* ============================================================
+   HERO SLIDESHOW — Auto-crossfade, 5 slides, 3-second interval
+   ============================================================ */
+
+.hero-slideshow {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #1E1C1A;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hero-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Ken Burns subtle zoom on active slide */
+.hero-slide.active img {
+  animation: kenBurns 8s ease-out forwards;
+}
+
+@keyframes kenBurns {
+  from { transform: scale(1.06); }
+  to   { transform: scale(1.0); }
+}
+
+/* Fallback placeholders — warm dark tones when no image */
+.slide-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 0.3rem;
+  padding: 1.5rem;
+  z-index: 0;
+}
+
+.slide-fallback span {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.25);
+  letter-spacing: 0.05em;
+}
+
+.slide-fallback small {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.15);
+}
+
+.slide-fallback-1 { background: linear-gradient(145deg, #3D2B1F 0%, #2A2018 100%); }
+.slide-fallback-2 { background: linear-gradient(145deg, #2C2820 0%, #1E1C18 100%); }
+.slide-fallback-3 { background: linear-gradient(145deg, #352B20 0%, #241E18 100%); }
+.slide-fallback-4 { background: linear-gradient(145deg, #302820 0%, #201C18 100%); }
+.slide-fallback-5 { background: linear-gradient(145deg, #3A2C20 0%, #281E16 100%); }
+
+/* Hide fallback when image loads successfully */
+.hero-slide img:not([style*="display: none"]) ~ .slide-fallback {
+  display: none;
+}
+
+/* Slide label — bottom RIGHT caption */
+.slide-label {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  background: rgba(0,0,0,0.4);
+  padding: 0.4rem 0.9rem;
+  border-radius: 2px;
+  backdrop-filter: blur(8px);
+  z-index: 2;
+}
+
+/* Dot indicators */
+.slide-dots {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  gap: 6px;
+  z-index: 3;
+}
+
+.slide-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s ease, transform 0.3s ease, width 0.3s ease;
+  flex-shrink: 0;
+}
+
+.slide-dot.active {
+  background: var(--accent);
+  width: 20px;
+  border-radius: 3px;
+  transform: none;
+}
+
+/* Progress bar at the top of slideshow */
+.slide-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(255,255,255,0.1);
+  z-index: 3;
+}
+
+.slide-progress-bar {
+  height: 100%;
+  background: var(--accent);
+  width: 0%;
+  transition: width 3s linear;
+}
+
+.slide-progress-bar.running { width: 100%; }
+
+
+/* ============================================================
+   TRENDING TILES — ed-tile-trending variant
+   ============================================================ */
+
+.ed-tile-trending {
+  position: relative;
+}
+
+.ed-trend-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.25rem 0.6rem;
+  border-radius: 2px;
+}
+
+/* Responsive: slideshow height on mobile */
+@media (max-width: 1024px) {
+  .hero-slideshow { min-height: 320px; }
+}
+
+@media (max-width: 768px) {
+  .slide-label { font-size: 0.6rem; bottom: 3.5rem; right: 1rem; }
+  .slide-dots { bottom: 1rem; right: 1rem; }
+}
+
+/* Kitchen accessories: 5 items — render as single clean row */
+#accessories .components-grid {
+  grid-template-columns: repeat(5, 1fr);
+}
+@media (max-width: 1200px) {
+  #accessories .components-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 768px) {
+  #accessories .components-grid { grid-template-columns: 1fr; }
+}
+
+/* Jump nav active state — clicked item glows with terracotta */
+.jumpnav-item.active {
+  color: #fff;
+  background: var(--accent);
+  border-right-color: var(--accent);
+}
+
+.jumpnav-item {
+  position: relative;
+  transition: color 0.25s ease, background 0.25s ease;
+}
+
+/* Animated underline sweep on click */
+.jumpnav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.jumpnav-item.active::after,
+.jumpnav-item:hover::after {
+  transform: scaleX(1);
+}
+
+.jumpnav-item.active svg,
+.jumpnav-item.active:hover svg { stroke: #fff; }
+
+/* When hero-slideshow is inside hero-split, it fills the full background */
+.hero-split .hero-slideshow {
+  position: absolute !important;
+  inset: 0 !important;
+  height: 100% !important;
+  width: 100% !important;
+  z-index: 0;
+  border-radius: 0;
+}
+
+/* Dark gradient overlay on the slideshow for text readability */
+.hero-split .hero-slideshow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(28, 26, 24, 0.84) 0%,
+    rgba(28, 26, 24, 0.68) 45%,
+    rgba(28, 26, 24, 0.25) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Dots and progress bar sit above the gradient */
+.hero-split .slide-dots { z-index: 3; }
+.hero-split .slide-progress { z-index: 3; }
+.hero-split .slide-label { z-index: 3; }
+
+/* ── FOUNDER SOLO CARD (about page) ── */
+.founder-solo-card {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: clamp(3rem, 6vw, 7rem);
+  align-items: center;
+  margin-top: 4rem;
+  max-width: 960px;
+  margin-inline: auto;
+}
+
+.founder-solo-arch {
+  width: 100%;
+  aspect-ratio: 3/4;
+  border-radius: var(--radius-arch);
+  overflow: hidden;
+  background: var(--bg-secondary);
+}
+
+.founder-solo-arch img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.5s ease;
+}
+
+.founder-solo-arch:hover img { transform: scale(1.04); }
+
+.founder-solo-info { display: flex; flex-direction: column; gap: 1rem; }
+
+.founder-solo-info h3 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 400;
+  color: var(--text-primary);
+}
+
+.founder-role {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  max-width: 100% !important;
+}
+
+.founder-bio {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  max-width: 50ch;
+}
+
+@media (max-width: 768px) {
+  .founder-solo-card {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    text-align: center;
+  }
+  .founder-solo-arch { aspect-ratio: 1 / 1; }
+  .founder-solo-info { align-items: center; }
+  .founder-bio { max-width: 100%; }
+}
+
+/* ── ABOUT STAT ROW responsive fix (4 cols on desktop) ── */
+@media (max-width: 900px) {
+  .about-stat-row { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .about-stat-row { grid-template-columns: 1fr; }
+}
+
+/* ── ALL SERVICES GRID responsive fix ── */
+@media (max-width: 1100px) {
+  /* all-services-grid: handled in newer block below */
+}
+@media (max-width: 600px) {
+  .all-services-grid { grid-template-columns: repeat(2, 1fr); }
 }

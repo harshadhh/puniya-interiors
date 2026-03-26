@@ -117,7 +117,7 @@
   if (!wrapper) return;
 
   const afterEl = wrapper.querySelector('.slider-after');
-  const handle  = wrapper.querySelector('.slider-handle');
+  const handle = wrapper.querySelector('.slider-handle');
   let isDragging = false;
 
   function updateSlider(x) {
@@ -190,8 +190,8 @@
     const href = link.getAttribute('href');
     // Only internal html links
     if (!href || href.startsWith('#') || href.startsWith('http') ||
-        href.startsWith('mailto') || href.startsWith('tel') ||
-        href.startsWith('https')) return;
+      href.startsWith('mailto') || href.startsWith('tel') ||
+      href.startsWith('https')) return;
 
     link.addEventListener('click', (e) => {
       e.preventDefault();
@@ -282,4 +282,80 @@
       }
     });
   });
+})();
+
+
+/* ══════════════════════════════════════════
+   8. HERO SLIDESHOW — Auto crossfade every 3s
+   5 slides, smooth Ken Burns, progress bar
+══════════════════════════════════════════ */
+(function initHeroSlideshow() {
+  const slideshow = document.querySelector('.hero-slideshow');
+  if (!slideshow) return;
+
+  const slides = slideshow.querySelectorAll('.hero-slide');
+  const dots = slideshow.querySelectorAll('.slide-dot');
+  const progBar = slideshow.querySelector('.slide-progress-bar');
+
+  if (!slides.length) return;
+
+  let current = 0;
+  let timer = null;
+  let paused = false;
+
+  function goTo(index) {
+    // Remove active from current
+    slides[current].classList.remove('active');
+    dots[current] && dots[current].classList.remove('active');
+
+    current = (index + slides.length) % slides.length;
+
+    slides[current].classList.add('active');
+    dots[current] && dots[current].classList.add('active');
+
+    // Reset & restart progress bar
+    if (progBar) {
+      progBar.classList.remove('running');
+      // Force reflow so the transition restarts cleanly
+      void progBar.offsetWidth;
+      progBar.classList.add('running');
+    }
+  }
+
+  function startTimer() {
+    clearInterval(timer);
+    timer = setInterval(() => {
+      if (!paused) goTo(current + 1);
+    }, 3000);
+  }
+
+  // Dot click — jump to that slide
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      goTo(i);
+      startTimer(); // reset interval on manual click
+    });
+  });
+
+  // Pause on hover for better UX (disabled for full-bleed hero to ensure it slides continuously)
+  // slideshow.addEventListener('mouseenter', () => { paused = true; });
+  // slideshow.addEventListener('mouseleave', () => { paused = false; });
+
+  // Touch swipe support
+  let touchStartX = 0;
+  slideshow.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+
+  slideshow.addEventListener('touchend', e => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) {
+      goTo(diff > 0 ? current + 1 : current - 1);
+      startTimer();
+    }
+  }, { passive: true });
+
+  // Kick off — first slide starts active, progress bar runs
+  goTo(0);
+  startTimer();
 })();
