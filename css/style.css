@@ -236,7 +236,9 @@ p {
 
 .nav-logo {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.8rem;
   line-height: 1;
 }
 
@@ -469,29 +471,31 @@ p {
 /* ── 10. TRUST BAR ── */
 .trust-bar {
   background: var(--bg-dark);
-  padding: 1.5rem clamp(1.5rem, 6vw, 6rem);
+  padding: 2.5rem clamp(1.5rem, 6vw, 6rem);
 }
 
 .trust-bar-inner {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  max-width: 680px;
+  margin: 0 auto;
 }
 
 .trust-item {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1rem;
   color: rgba(255,255,255,0.7);
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  padding: 1.4rem 2rem;
+  border: 1px solid rgba(255,255,255,0.07);
 }
 
 .trust-item-icon {
-  width: 36px;
-  height: 36px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   background: rgba(166, 124, 82, 0.2);
   display: flex;
@@ -500,12 +504,10 @@ p {
   flex-shrink: 0;
 }
 
-.trust-item-icon svg { width: 16px; height: 16px; stroke: var(--accent); fill: none; }
+.trust-item-icon svg { width: 18px; height: 18px; stroke: var(--accent); fill: none; }
 
 .trust-divider {
-  width: 1px;
-  height: 30px;
-  background: rgba(255,255,255,0.12);
+  display: none;
 }
 
 .trust-rating {
@@ -1105,7 +1107,7 @@ p {
   .hero-content { padding-top: 8rem; }
   .hero h1 { font-size: clamp(2.5rem, 10vw, 4rem); }
 
-  .trust-bar-inner { justify-content: center; }
+  .trust-bar-inner { grid-template-columns: 1fr; max-width: 340px; }
   .trust-divider { display: none; }
 
   .services-grid { grid-template-columns: 1fr; }
@@ -1839,11 +1841,20 @@ p {
 
 /* ── LOGO IMAGE in nav ── */
 .nav-logo-img {
-  height: 48px;
+  height: clamp(32px, 4vw, 48px);
   width: auto;
-  max-width: 180px;
+  max-width: clamp(120px, 15vw, 180px);
   object-fit: contain;
   display: block;
+}
+
+@media(max-width: 768px) {
+  .nav-logo-name {
+    font-size: 1.25rem !important;
+  }
+  .nav-logo-tagline {
+    display: none !important;
+  }
 }
 
 .footer-logo-img {
@@ -1857,6 +1868,7 @@ p {
 }
 
 .nav-logo-text-wrap {
+  display: flex;
   flex-direction: column;
   line-height: 1;
 }
@@ -1870,6 +1882,8 @@ p {
   border: 1px solid var(--border);
   margin-top: 3rem;
 }
+
+/* 12 items in 6-col = perfect 2 rows — no orphan fix needed */
 
 .svc-pill {
   background: var(--bg-primary);
@@ -1960,6 +1974,26 @@ p {
   border: 1px solid var(--border);
 }
 
+/* Fix orphan last card in 3-col grid */
+/* Orphan last card — full row, centered content */
+.components-grid .comp-card:last-child:nth-child(3n + 1) {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 480px;
+  margin: 0 auto;
+  width: 100%;
+}
+/* Override for the grid-column on full-width orphan — center it within the grid */
+.components-grid:has(.comp-card:last-child:nth-child(3n + 1)) {
+  position: relative;
+}
+.components-grid .comp-card:last-child:nth-child(3n + 2) {
+  grid-column: span 2;
+}
+
 .comp-card {
   background: var(--bg-secondary);
   padding: 2rem 1.8rem;
@@ -2007,7 +2041,7 @@ p {
 }
 
 .comp-card:hover .comp-icon svg { stroke: #fff; }
-.comp-card h4 { margin-bottom: 0.6rem; font-size: 1rem; }
+.comp-card h4 { margin-bottom: 0.6rem; font-size: 1rem; font-weight: 700; }
 .comp-card p { font-size: 0.84rem; line-height: 1.7; }
 
 /* ── RESPONSIVE: pills, components ── */
@@ -2019,6 +2053,7 @@ p {
 @media (max-width: 768px) {
   .components-grid { grid-template-columns: 1fr; }
   .all-services-grid { grid-template-columns: repeat(2, 1fr); }
+
 }
 
 @media (max-width: 480px) {
@@ -2654,6 +2689,9 @@ p {
   .ed-grid-4 { grid-template-columns: 1fr 1fr; }
 
   .ed-cta-row { justify-content: center; }
+
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
 }
 
 @media (max-width: 480px) {
@@ -2847,10 +2885,7 @@ p {
 
 /* Kitchen accessories: 5 items — render as single clean row */
 #accessories .components-grid {
-  grid-template-columns: repeat(5, 1fr);
-}
-@media (max-width: 1200px) {
-  #accessories .components-grid { grid-template-columns: repeat(3, 1fr); }
+  grid-template-columns: repeat(3, 1fr);
 }
 @media (max-width: 768px) {
   #accessories .components-grid { grid-template-columns: 1fr; }

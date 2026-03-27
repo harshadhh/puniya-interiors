@@ -254,31 +254,54 @@
       btn.textContent = 'Sending…';
       btn.disabled = true;
 
-      try {
-        const response = await fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
-        });
-
-        if (response.ok) {
+      // Support for new EmailJS Form Logic
+      if (form.id === 'puniya-contact-form' && typeof emailjs !== 'undefined') {
+        try {
+          /* 
+            User needs to update 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' here.
+            The public key is already in contact.html
+          */
+          await emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form);
           form.innerHTML = `
-            <div style="text-align:center;padding:3rem 0;">
-              <p style="font-family:var(--font-serif);font-size:1.8rem;color:var(--accent);">
-                Thank you.
-              </p>
-              <p style="margin-top:0.5rem;">
-                We'll be in touch within 24 hours.
-              </p>
+            <div style="text-align:center;padding:3rem 0;animation:fadeIn 0.5s ease-out;">
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" style="margin-bottom:1rem;"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <p style="font-family:var(--font-serif);font-size:1.8rem;color:var(--accent);">Thank you.</p>
+              <p style="margin-top:0.5rem;color:var(--text-secondary);">Your message was sent successfully. We'll be in touch soon.</p>
             </div>
           `;
-        } else {
-          throw new Error('Form submission failed');
+        } catch (err) {
+          btn.textContent = originalText;
+          btn.disabled = false;
+          alert('Failed to send email layout. Make sure you set your EmailJS Service/Template IDs in script.js. Please WhatsApp us in the meantime.');
         }
-      } catch (err) {
-        btn.textContent = originalText;
-        btn.disabled = false;
-        alert('Something went wrong. Please WhatsApp us directly.');
+        return;
+      }
+
+      // Default Formspree Fallback
+      if (form.action && form.action.includes('http')) {
+        try {
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (response.ok) {
+            form.innerHTML = `
+              <div style="text-align:center;padding:3rem 0;animation:fadeIn 0.5s ease-out;">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" style="margin-bottom:1rem;"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <p style="font-family:var(--font-serif);font-size:1.8rem;color:var(--accent);">Thank you.</p>
+                <p style="margin-top:0.5rem;color:var(--text-secondary);">We'll be in touch within 24 hours.</p>
+              </div>
+            `;
+          } else {
+            throw new Error('Form submission failed');
+          }
+        } catch (err) {
+          btn.textContent = originalText;
+          btn.disabled = false;
+          alert('Something went wrong. Please WhatsApp us directly.');
+        }
       }
     });
   });

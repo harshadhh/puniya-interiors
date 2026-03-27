@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  ════════════════════════════════════════════════════════
+  PUNIYA INTERIORS — EmailJS Email Template
+  ════════════════════════════════════════════════════════
+
+  HOW TO USE THIS IN EMAILJS:
+  1. Go to https://www.emailjs.com → Login → Email Templates
+  2. Click "Create New Template"
+  3. Set Subject: New Inquiry from {{name}} — Puniya Interiors
+  4. Switch to "HTML" editor tab
+  5. Paste ALL of this code (from <html> to </html>)
+  6. Save the template — copy your Template ID
+  7. Paste that Template ID in contact.html where it says YOUR_TEMPLATE_ID
+
+  EMAILJS TEMPLATE VARIABLES (auto-filled from your form):
+  {{name}}     → Client's full name
+  {{phone}}    → Phone number
+  {{email}}    → Email address
+  {{service}}  → Service they need
+  {{budget}}   → Budget range selected
+  {{location}} → Their area in Pune
+  {{message}}  → Project description
+  ════════════════════════════════════════════════════════
+-->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Inquiry — Puniya Interiors</title>
+</head>
+<body style="margin:0;padding:0;background:#F5F1EB;font-family:'Helvetica Neue',Arial,sans-serif;">
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#F5F1EB;padding:40px 16px;">
+    <tr>
+      <td align="center">
+        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:580px;">
+
+          <!-- HEADER -->
+          <tr>
+            <td style="background:#1A1410;border-radius:16px 16px 0 0;padding:36px 40px;text-align:center;">
+              <p style="margin:0 0 4px;font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#B8945A;">
+                PUNIYA INTERIORS · DHANORI, PUNE
+              </p>
+              <h1 style="margin:0;font-size:26px;font-weight:400;color:#FFFFFF;font-family:Georgia,serif;letter-spacing:0.02em;">
+                New Project Inquiry
+              </h1>
+            </td>
+          </tr>
+
+          <!-- ALERT STRIP -->
+          <tr>
+            <td style="background:#B8945A;padding:14px 40px;text-align:center;">
+              <p style="margin:0;font-size:13px;font-weight:700;color:#fff;letter-spacing:0.06em;text-transform:uppercase;">
+                🔔 Reply within 24 hours · WhatsApp for fastest response
+              </p>
+            </td>
+          </tr>
+
+          <!-- BODY CARD -->
+          <tr>
+            <td style="background:#FFFFFF;padding:40px;border-radius:0 0 16px 16px;box-shadow:0 4px 24px rgba(0,0,0,0.08);">
+
+              <!-- Greeting -->
+              <p style="margin:0 0 8px;font-size:15px;color:#5A5550;">
+                Hi Sarvam, a new inquiry just arrived from your website.
+              </p>
+
+              <!-- Divider -->
+              <hr style="border:none;border-top:1px solid #EAE6DF;margin:24px 0;" />
+
+              <!-- CLIENT DETAILS -->
+              <h2 style="margin:0 0 20px;font-size:14px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#B8945A;">
+                Client Details
+              </h2>
+
+              <!-- Name -->
+              <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:14px;">
+                <tr>
+                  <td width="140" style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9A9490;padding-top:2px;">Name</td>
+                  <td style="font-size:16px;font-weight:600;color:#1A1410;">{{name}}</td>
+                </tr>
+              </table>
+
+              <!-- Phone -->
+              <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:14px;">
+                <tr>
+                  <td width="140" style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9A9490;padding-top:2px;">Phone</td>
+                  <td>
+                    <a href="tel:{{phone}}" style="font-size:16px;font-weight:600;color:#B8945A;text-decoration:none;">{{phone}}</a>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Email -->
+              <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:14px;">
+                <tr>
+                  <td width="140" style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9A9490;padding-top:2px;">Email</td>
+                  <td>
+                    <a href="mailto:{{email}}" style="font-size:15px;color:#1A1410;text-decoration:none;">{{email}}</a>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Location -->
+              <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:14px;">
+                <tr>
+                  <td width="140" style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9A9490;padding-top:2px;">Area</td>
+                  <td style="font-size:15px;color:#1A1410;">{{location}}</td>
+                </tr>
+              </table>
+
+              <!-- Divider -->
+              <hr style="border:none;border-top:1px solid #EAE6DF;margin:24px 0;" />
+
+              <!-- PROJECT DETAILS -->
+              <h2 style="margin:0 0 20px;font-size:14px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#B8945A;">
+                Project Details
+              </h2>
+
+              <!-- Service -->
+              <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:14px;">
+                <tr>
+                  <td width="140" style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9A9490;padding-top:4px;">Service Needed</td>
+                  <td>
+                    <span style="display:inline-block;background:#F5F1EB;border:1px solid #E0D9CE;border-radius:6px;padding:5px 14px;font-size:14px;font-weight:600;color:#1A1410;">
+                      {{service}}
+                    </span>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Budget -->
+              <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px;">
+                <tr>
+                  <td width="140" style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9A9490;padding-top:4px;">Budget Range</td>
+                  <td>
+                    <span style="display:inline-block;background:#FBF7F0;border:1px solid #B8945A;border-radius:6px;padding:5px 14px;font-size:14px;font-weight:700;color:#B8945A;">
+                      {{budget}}
+                    </span>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Message Box -->
+              <div style="background:#F9F6F1;border-left:3px solid #B8945A;border-radius:0 8px 8px 0;padding:18px 20px;margin-bottom:32px;">
+                <p style="margin:0 0 6px;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#B8945A;">
+                  Project Description
+                </p>
+                <p style="margin:0;font-size:15px;color:#2C2A28;line-height:1.65;">{{message}}</p>
+              </div>
+
+              <!-- ACTION BUTTONS -->
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td align="center">
+                    <table cellpadding="0" cellspacing="0">
+                      <tr>
+                        <!-- WhatsApp -->
+                        <td style="padding-right:12px;">
+                          <a href="https://wa.me/91{{phone}}"
+                            style="display:inline-block;background:#25D366;color:#fff;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;padding:14px 28px;border-radius:8px;">
+                            📱 WhatsApp Client
+                          </a>
+                        </td>
+                        <!-- Call -->
+                        <td>
+                          <a href="tel:{{phone}}"
+                            style="display:inline-block;background:#1A1410;color:#fff;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;padding:14px 28px;border-radius:8px;">
+                            📞 Call Now
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Divider -->
+              <hr style="border:none;border-top:1px solid #EAE6DF;margin:32px 0 24px;" />
+
+              <!-- Footer note -->
+              <p style="margin:0;font-size:12px;color:#9A9490;text-align:center;line-height:1.6;">
+                This inquiry was submitted via <strong>puniyainteriors.com</strong>.<br />
+                Reply to: <a href="mailto:{{email}}" style="color:#B8945A;text-decoration:none;">{{email}}</a>
+              </p>
+
+            </td>
+          </tr>
+
+          <!-- EMAIL FOOTER -->
+          <tr>
+            <td style="padding:24px 0;text-align:center;">
+              <p style="margin:0;font-size:11px;color:#9A9490;letter-spacing:0.06em;">
+                © 2026 PUNIYA INTERIORS · DHANORI, PUNE · +91 78409 98921
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>
+

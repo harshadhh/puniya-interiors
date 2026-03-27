@@ -511,9 +511,8 @@ function showToast(msg, success = false) {
 async function tryLogin() {
   const val = document.getElementById('pwd').value;
   const hash = await sha256(val);
-  // The actual SHA-256 of "Interior@2025":
-  const correct = await sha256('Interior@2025');
-  if (hash === correct) {
+  // Securely verify against the pre-computed hash
+  if (hash === CORRECT_HASH) {
     sessionStorage.setItem('pi_auth', '1');
     document.getElementById('login').style.display = 'none';
     document.getElementById('app').style.display = 'block';
@@ -543,3 +542,4 @@ if (sessionStorage.getItem('pi_auth') === '1') {
 </script>
 </body>
 </html>
+
