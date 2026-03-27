@@ -3109,9 +3109,11 @@ p {
   position: relative;
   width: 92vw;
   max-width: 1000px;
+  height: 90vh;
   max-height: 90vh;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 .project-lightbox-header {
   display: flex;
@@ -3151,11 +3153,11 @@ p {
 
 .project-lightbox-stage {
   position: relative;
-  aspect-ratio: 4/3;
+  flex: 1 1 0;
+  min-height: 0;
   background: #111;
   border-radius: 4px;
   overflow: hidden;
-  flex-shrink: 0;
 }
 .project-lightbox-stage img {
   position: absolute;

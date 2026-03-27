@@ -785,6 +785,17 @@
           { key: 'p-kitchen-3', filename: 'p-kitchen-3.jpg', label: 'Parallel Kitchen — NIBM Road', alt: 'Parallel kitchen NIBM Road' },
           { key: 'p-commercial-1', filename: 'p-commercial-1.jpg', label: 'Corporate Office — Hinjewadi', alt: 'Office interior Hinjewadi' },
         ]
+      },
+      {
+        id: 'videos',
+        label: 'Portfolio Videos',
+        file: 'portfolio.html',
+        icon: 'video',
+        slots: [
+          { key: 'video-1', filename: 'video-1.mp4', label: 'Video 1 — Full Home Renovation', alt: 'Full Home Renovation Wakad Pune', type: 'video' },
+          { key: 'video-2', filename: 'video-2.mp4', label: 'Video 2 — Island Kitchen Reveal', alt: 'Modular Kitchen Baner Pune', type: 'video' },
+          { key: 'video-3', filename: 'video-3.mp4', label: 'Video 3 — Master Suite Walkthrough', alt: 'Bedroom Wardrobe Kharadi Pune', type: 'video' },
+        ]
       }
     ];
 
@@ -805,6 +816,7 @@
         furniture: '<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>',
         portfolio: '<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>',
         about: '<path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>',
+        video: '<polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>',
       };
       return icons[type] || icons.home;
     }
@@ -832,43 +844,83 @@
 
         const grid = sec.querySelector(`#grid-${page.id}`);
         page.slots.forEach(slot => {
+          const isVideo = slot.type === 'video';
           const card = document.createElement('div');
           card.className = 'img-card';
           card.id = `card-${page.id}-${slot.key}`;
-
           const currentVal = changes[page.id][slot.key] || '';
-          const previewSrc = currentVal || `images/${slot.filename}`;
+          const folder = isVideo ? 'videos' : 'images';
+          const previewSrc = currentVal || `${folder}/${slot.filename}`;
 
-          card.innerHTML = `
-        <div class="img-preview">
-          <div class="placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-            <span>images/${slot.filename}</span>
+          if (isVideo) {
+            card.innerHTML = `
+          <div class="img-preview" style="background:#111;">
+            <div class="placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+              <span>videos/${slot.filename}</span>
+            </div>
+            <video id="vid-${page.id}-${slot.key}" src="${previewSrc}"
+              style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:none;"
+              preload="metadata" muted playsinline controls></video>
+            <div class="status-dot"></div>
           </div>
-          <img src="${previewSrc}" alt="${slot.alt}"
-            onload="this.style.opacity=1;this.previousElementSibling.style.display='none'"
-            onerror="this.style.display='none';this.previousElementSibling.style.display='flex'"
-            style="opacity:0;position:absolute;inset:0;" />
-          <div class="status-dot"></div>
-        </div>
-        <div class="img-info">
-          <div class="img-slot-name">${slot.label}</div>
-          <div class="img-alt">${slot.alt}</div>
-          <code class="img-current">images/${slot.filename}</code>
-          <div class="input-row">
-            <input class="url-input" type="url" id="input-${page.id}-${slot.key}"
-              placeholder="Paste new image URL…"
-              value="${currentVal}" />
-            <button class="btn-apply" onclick="applyChange('${page.id}','${slot.key}')">Apply</button>
+          <div class="img-info">
+            <div class="img-slot-name" style="display:flex;align-items:center;gap:6px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8" style="width:14px;height:14px;flex-shrink:0;"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+              ${slot.label}
+            </div>
+            <div class="img-alt">${slot.alt}</div>
+            <code class="img-current">videos/${slot.filename}</code>
+            <div style="font-size:.72rem;color:var(--muted);margin:.35rem 0 .55rem;line-height:1.5;background:#f5f3ef;border-radius:6px;padding:.45rem .6rem;">
+              \u2139\ufe0f Upload your video to <strong>Google Drive</strong> (share \u2192 Anyone with link), <strong>YouTube</strong> (unlisted), or any host \u2014 then paste the direct <code style="font-size:.7rem;">.mp4</code> URL below.
+            </div>
+            <div class="input-row">
+              <input class="url-input" type="url" id="input-${page.id}-${slot.key}"
+                placeholder="Paste video URL (.mp4 / YouTube / Drive)\u2026"
+                value="${currentVal}" />
+              <button class="btn-apply" onclick="applyVideoChange('${page.id}','${slot.key}')">Apply</button>
+            </div>
           </div>
-        </div>
-      `;
-          grid.appendChild(card);
-
-          // Enter key triggers apply
-          card.querySelector('.url-input').addEventListener('keydown', e => {
-            if (e.key === 'Enter') applyChange(page.id, slot.key);
-          });
+        `;
+            grid.appendChild(card);
+            const vid = card.querySelector('video');
+            const ph  = card.querySelector('.placeholder');
+            if (currentVal) { vid.style.display = ''; ph.style.display = 'none'; }
+            vid.addEventListener('loadedmetadata', () => { vid.style.display=''; ph.style.display='none'; });
+            vid.addEventListener('error', () => { vid.style.display='none'; ph.style.display='flex'; });
+            card.querySelector('.url-input').addEventListener('keydown', e => {
+              if (e.key === 'Enter') applyVideoChange(page.id, slot.key);
+            });
+          } else {
+            card.innerHTML = `
+          <div class="img-preview">
+            <div class="placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <span>images/${slot.filename}</span>
+            </div>
+            <img src="${previewSrc}" alt="${slot.alt}"
+              onload="this.style.opacity=1;this.previousElementSibling.style.display='none'"
+              onerror="this.style.display='none';this.previousElementSibling.style.display='flex'"
+              style="opacity:0;position:absolute;inset:0;" />
+            <div class="status-dot"></div>
+          </div>
+          <div class="img-info">
+            <div class="img-slot-name">${slot.label}</div>
+            <div class="img-alt">${slot.alt}</div>
+            <code class="img-current">images/${slot.filename}</code>
+            <div class="input-row">
+              <input class="url-input" type="url" id="input-${page.id}-${slot.key}"
+                placeholder="Paste new image URL\u2026"
+                value="${currentVal}" />
+              <button class="btn-apply" onclick="applyChange('${page.id}','${slot.key}')">Apply</button>
+            </div>
+          </div>
+        `;
+            grid.appendChild(card);
+            card.querySelector('.url-input').addEventListener('keydown', e => {
+              if (e.key === 'Enter') applyChange(page.id, slot.key);
+            });
+          }
         });
       });
     }
@@ -898,6 +950,24 @@
       updateSavePanel();
       showToast('Preview updated — remember to download your files.', false);
     }
+
+    function applyVideoChange(pageId, slotKey) {
+      const input = document.getElementById(`input-${pageId}-${slotKey}`);
+      const url = input.value.trim();
+      const card = document.getElementById(`card-${pageId}-${slotKey}`);
+      if (!url) return;
+      changes[pageId][slotKey] = url;
+      const vid = card.querySelector('video');
+      const ph  = card.querySelector('.placeholder');
+      vid.src = url;
+      vid.style.display = '';
+      ph.style.display = 'none';
+      card.classList.remove('saved');
+      card.classList.add('dirty');
+      updateSavePanel();
+      showToast('Video URL saved \u2014 remember to download your files.', false);
+    }
+
 
     /* ════════════════════════════════════════════
        COUNT DIRTY
