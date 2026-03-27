@@ -1,305 +1,822 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Image Manager — Puniya Interiors</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap"
+    rel="stylesheet" />
   <style>
     :root {
-      --bg: #F7F5F0; --surface: #EAE6DF; --card: #ffffff; --border: #D1CCC4;
-      --gold: #A67C52; --gold-lt: #c4a07a; --cream: #2C2A28; --text: #6B6560;
-      --muted: #9C958E; --green: #5a9a6a; --red: #b05a5a;
-      --font-serif: 'Playfair Display', serif; --font: 'DM Sans', sans-serif;
-      --r: 10px; --t: 0.22s ease;
+      --bg: #F7F5F0;
+      --surface: #EAE6DF;
+      --card: #ffffff;
+      --border: #D1CCC4;
+      --gold: #A67C52;
+      --gold-lt: #c4a07a;
+      --cream: #2C2A28;
+      --text: #6B6560;
+      --muted: #9C958E;
+      --green: #5a9a6a;
+      --red: #b05a5a;
+      --font-serif: 'Playfair Display', serif;
+      --font: 'DM Sans', sans-serif;
+      --r: 10px;
+      --t: 0.22s ease;
     }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: var(--bg); color: var(--text); font-family: var(--font); font-size: 14px; line-height: 1.6; -webkit-font-smoothing: antialiased; min-height: 100vh; }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 14px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
 
     /* ── LOGIN ── */
-    #login { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem; }
-    .login-box { width: 100%; max-width: 360px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 2.25rem; }
-    .login-logo { text-align: center; margin-bottom: 2rem; }
-    .login-logo-icon { display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; background: rgba(201,169,110,.1); border: 1px solid rgba(201,169,110,.2); border-radius: 12px; margin-bottom: .9rem; }
-    .login-logo-icon svg { width: 24px; height: 24px; color: var(--gold); }
-    .login-logo h1 { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 400; color: var(--cream); }
-    .login-logo p { color: var(--muted); font-size: .78rem; margin-top: .2rem; }
-    label { display: block; font-size: .75rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-bottom: .45rem; }
-    input[type=password] { width: 100%; background: var(--card); border: 1px solid var(--border); color: var(--cream); font-family: var(--font); font-size: .9rem; padding: .7rem .9rem; border-radius: var(--r); outline: none; transition: border-color var(--t); }
-    input[type=password]:focus { border-color: rgba(166,124,82,.5); }
-    .login-btn { width: 100%; margin-top: 1.1rem; background: var(--gold); color: #ffffff; border: none; border-radius: var(--r); padding: .8rem; font-family: var(--font); font-size: .88rem; font-weight: 700; cursor: pointer; transition: background var(--t); }
-    .login-btn:hover { background: var(--gold-lt); }
-    .login-err { font-size: .8rem; color: #d06a5a; text-align: center; margin-top: .6rem; display: none; }
-    .login-err.show { display: block; }
+    #login {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .login-box {
+      width: 100%;
+      max-width: 360px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.25rem;
+    }
+
+    .login-logo {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .login-logo-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      background: rgba(201, 169, 110, .1);
+      border: 1px solid rgba(201, 169, 110, .2);
+      border-radius: 12px;
+      margin-bottom: .9rem;
+    }
+
+    .login-logo-icon svg {
+      width: 24px;
+      height: 24px;
+      color: var(--gold);
+    }
+
+    .login-logo h1 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--cream);
+    }
+
+    .login-logo p {
+      color: var(--muted);
+      font-size: .78rem;
+      margin-top: .2rem;
+    }
+
+    label {
+      display: block;
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: .45rem;
+    }
+
+    input[type=password] {
+      width: 100%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--cream);
+      font-family: var(--font);
+      font-size: .9rem;
+      padding: .7rem .9rem;
+      border-radius: var(--r);
+      outline: none;
+      transition: border-color var(--t);
+    }
+
+    input[type=password]:focus {
+      border-color: rgba(166, 124, 82, .5);
+    }
+
+    .login-btn {
+      width: 100%;
+      margin-top: 1.1rem;
+      background: var(--gold);
+      color: #ffffff;
+      border: none;
+      border-radius: var(--r);
+      padding: .8rem;
+      font-family: var(--font);
+      font-size: .88rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background var(--t);
+    }
+
+    .login-btn:hover {
+      background: var(--gold-lt);
+    }
+
+    .login-err {
+      font-size: .8rem;
+      color: #d06a5a;
+      text-align: center;
+      margin-top: .6rem;
+      display: none;
+    }
+
+    .login-err.show {
+      display: block;
+    }
 
     /* ── TOP BAR ── */
-    #app { display: none; }
-    .topbar { position: sticky; top: 0; z-index: 50; height: 58px; display: flex; align-items: center; justify-content: space-between; padding: 0 clamp(1rem,4vw,2rem); background: rgba(247,245,240,.95); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
-    .topbar-brand { font-family: var(--font-serif); font-size: 1rem; color: var(--gold); }
-    .topbar-brand span { color: var(--muted); font-family: var(--font); font-size: .78rem; font-weight: 400; }
-    .topbar-right { display: flex; align-items: center; gap: .75rem; }
-    .btn-save-all { background: var(--gold); color: #ffffff; border: none; border-radius: 8px; padding: .45rem 1.1rem; font-family: var(--font); font-size: .78rem; font-weight: 700; cursor: pointer; transition: background var(--t); display: flex; align-items: center; gap: 6px; }
-    .btn-save-all:hover { background: var(--gold-lt); }
-    .btn-save-all svg { width: 13px; height: 13px; }
-    .btn-logout { background: none; border: 1px solid var(--border); color: var(--muted); font-family: var(--font); font-size: .75rem; padding: .4rem .8rem; border-radius: 6px; cursor: pointer; transition: all var(--t); }
-    .btn-logout:hover { color: var(--cream); border-color: var(--muted); }
+    #app {
+      display: none;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(1rem, 4vw, 2rem);
+      background: rgba(247, 245, 240, .95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .topbar-brand {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      color: var(--gold);
+    }
+
+    .topbar-brand span {
+      color: var(--muted);
+      font-family: var(--font);
+      font-size: .78rem;
+      font-weight: 400;
+    }
+
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+
+    .btn-save-all {
+      background: var(--gold);
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      padding: .45rem 1.1rem;
+      font-family: var(--font);
+      font-size: .78rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background var(--t);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-save-all:hover {
+      background: var(--gold-lt);
+    }
+
+    .btn-save-all svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    .btn-logout {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-family: var(--font);
+      font-size: .75rem;
+      padding: .4rem .8rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all var(--t);
+    }
+
+    .btn-logout:hover {
+      color: var(--cream);
+      border-color: var(--muted);
+    }
 
     /* ── LAYOUT ── */
-    .wrap { max-width: 980px; margin: 0 auto; padding: clamp(1.5rem,4vw,2.5rem) clamp(1rem,4vw,2rem) 5rem; }
-    .page-title { margin-bottom: .4rem; font-family: var(--font-serif); font-size: clamp(1.5rem,3.5vw,2rem); font-weight: 400; color: var(--cream); }
-    .page-title em { font-style: italic; color: var(--gold); }
-    .page-sub { color: var(--muted); font-size: .85rem; margin-bottom: 2.5rem; }
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 4vw, 2rem) 5rem;
+    }
+
+    .page-title {
+      margin-bottom: .4rem;
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 3.5vw, 2rem);
+      font-weight: 400;
+      color: var(--cream);
+    }
+
+    .page-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .page-sub {
+      color: var(--muted);
+      font-size: .85rem;
+      margin-bottom: 2.5rem;
+    }
 
     /* ── SECTION ── */
-    .section { margin-bottom: 2.5rem; }
-    .section-head { display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; padding-bottom: .65rem; border-bottom: 1px solid var(--border); }
-    .section-icon { width: 30px; height: 30px; border-radius: 7px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .section-icon svg { width: 14px; height: 14px; }
-    .ic-home { background: rgba(201,169,110,.1); color: var(--gold); }
-    .ic-kitchen { background: rgba(90,154,106,.1); color: #7abe8d; }
-    .ic-furniture { background: rgba(90,133,176,.1); color: #7aa8d4; }
-    .ic-portfolio { background: rgba(180,90,130,.1); color: #d4779c; }
-    .section-label { font-size: .85rem; font-weight: 600; color: var(--cream); }
-    .section-file { font-size: .73rem; color: var(--muted); background: rgba(0,0,0,.04); padding: 1px 6px; border-radius: 4px; font-family: monospace; }
+    .section {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1rem;
+      padding-bottom: .65rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .section-icon svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .ic-home {
+      background: rgba(201, 169, 110, .1);
+      color: var(--gold);
+    }
+
+    .ic-kitchen {
+      background: rgba(90, 154, 106, .1);
+      color: #7abe8d;
+    }
+
+    .ic-furniture {
+      background: rgba(90, 133, 176, .1);
+      color: #7aa8d4;
+    }
+
+    .ic-portfolio {
+      background: rgba(180, 90, 130, .1);
+      color: #d4779c;
+    }
+
+    .ic-about {
+      background: rgba(166, 124, 82, .12);
+      color: #a67c52;
+    }
+
+    .section-label {
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--cream);
+    }
+
+    .section-file {
+      font-size: .73rem;
+      color: var(--muted);
+      background: rgba(0, 0, 0, .04);
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
 
     /* ── GRID ── */
-    .img-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+    .img-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 12px;
+    }
 
     /* ── CARD ── */
-    .img-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; transition: border-color var(--t); }
-    .img-card.dirty { border-color: rgba(201,169,110,.4); }
-    .img-card.saved { border-color: rgba(90,154,106,.5); }
+    .img-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      overflow: hidden;
+      transition: border-color var(--t);
+    }
 
-    .img-preview { position: relative; aspect-ratio: 4/3; background: var(--surface); overflow: hidden; }
-    .img-preview img { width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity .3s; }
-    .img-preview .placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: var(--muted); font-size: .75rem; }
-    .img-preview .placeholder svg { width: 28px; height: 28px; opacity: .3; }
-    .img-preview .status-dot { position: absolute; top: 8px; right: 8px; width: 8px; height: 8px; border-radius: 50%; background: var(--border); }
-    .img-card.dirty .status-dot { background: var(--gold); }
-    .img-card.saved .status-dot { background: var(--green); }
+    .img-card.dirty {
+      border-color: rgba(201, 169, 110, .4);
+    }
 
-    .img-info { padding: .75rem .85rem; }
-    .img-slot-name { font-size: .72rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); margin-bottom: .25rem; }
-    .img-alt { font-size: .78rem; color: var(--text); line-height: 1.4; margin-bottom: .6rem; }
-    .img-current { font-size: .7rem; font-family: monospace; color: var(--muted); background: rgba(0,0,0,.03); border: 1px solid var(--border); border-radius: 4px; padding: 3px 6px; word-break: break-all; margin-bottom: .6rem; display: block; }
+    .img-card.saved {
+      border-color: rgba(90, 154, 106, .5);
+    }
 
-    .input-row { display: flex; gap: 6px; }
-    .url-input { flex: 1; min-width: 0; background: rgba(0,0,0,.04); border: 1px solid var(--border); color: var(--cream); font-family: var(--font); font-size: .8rem; padding: .5rem .7rem; border-radius: 7px; outline: none; transition: border-color var(--t); }
-    .url-input:focus { border-color: rgba(166,124,82,.45); }
-    .url-input::placeholder { color: var(--muted); font-size: .77rem; }
-    .btn-apply { background: rgba(166,124,82,.1); border: 1px solid rgba(166,124,82,.2); color: var(--gold); font-family: var(--font); font-size: .75rem; font-weight: 600; padding: .5rem .75rem; border-radius: 7px; cursor: pointer; white-space: nowrap; transition: all var(--t); }
-    .btn-apply:hover { background: rgba(166,124,82,.2); }
+    .img-preview {
+      position: relative;
+      aspect-ratio: 4/3;
+      background: var(--surface);
+      overflow: hidden;
+    }
+
+    .img-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity .3s;
+    }
+
+    .img-preview .placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: var(--muted);
+      font-size: .75rem;
+    }
+
+    .img-preview .placeholder svg {
+      width: 28px;
+      height: 28px;
+      opacity: .3;
+    }
+
+    .img-preview .status-dot {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--border);
+    }
+
+    .img-card.dirty .status-dot {
+      background: var(--gold);
+    }
+
+    .img-card.saved .status-dot {
+      background: var(--green);
+    }
+
+    .img-info {
+      padding: .75rem .85rem;
+    }
+
+    .img-slot-name {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: .25rem;
+    }
+
+    .img-alt {
+      font-size: .78rem;
+      color: var(--text);
+      line-height: 1.4;
+      margin-bottom: .6rem;
+    }
+
+    .img-current {
+      font-size: .7rem;
+      font-family: monospace;
+      color: var(--muted);
+      background: rgba(0, 0, 0, .03);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 3px 6px;
+      word-break: break-all;
+      margin-bottom: .6rem;
+      display: block;
+    }
+
+    .input-row {
+      display: flex;
+      gap: 6px;
+    }
+
+    .url-input {
+      flex: 1;
+      min-width: 0;
+      background: rgba(0, 0, 0, .04);
+      border: 1px solid var(--border);
+      color: var(--cream);
+      font-family: var(--font);
+      font-size: .8rem;
+      padding: .5rem .7rem;
+      border-radius: 7px;
+      outline: none;
+      transition: border-color var(--t);
+    }
+
+    .url-input:focus {
+      border-color: rgba(166, 124, 82, .45);
+    }
+
+    .url-input::placeholder {
+      color: var(--muted);
+      font-size: .77rem;
+    }
+
+    .btn-apply {
+      background: rgba(166, 124, 82, .1);
+      border: 1px solid rgba(166, 124, 82, .2);
+      color: var(--gold);
+      font-family: var(--font);
+      font-size: .75rem;
+      font-weight: 600;
+      padding: .5rem .75rem;
+      border-radius: 7px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all var(--t);
+    }
+
+    .btn-apply:hover {
+      background: rgba(166, 124, 82, .2);
+    }
 
     /* ── TOAST ── */
-    #toast { position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%) translateY(6px); background: var(--surface); border: 1px solid var(--border); color: var(--cream); font-size: .82rem; padding: .6rem 1.2rem; border-radius: 8px; opacity: 0; transition: all .3s; z-index: 999; pointer-events: none; white-space: nowrap; }
-    #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-    #toast.success { border-color: rgba(90,154,106,.4); color: #7abe8d; }
+    #toast {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(6px);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--cream);
+      font-size: .82rem;
+      padding: .6rem 1.2rem;
+      border-radius: 8px;
+      opacity: 0;
+      transition: all .3s;
+      z-index: 999;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    #toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    #toast.success {
+      border-color: rgba(90, 154, 106, .4);
+      color: #7abe8d;
+    }
 
     /* ── SAVE PANEL ── */
-    .save-panel { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(247,245,240,.97); border-top: 1px solid var(--border); padding: 1rem clamp(1rem,4vw,2rem); display: none; align-items: center; justify-content: space-between; gap: 1rem; z-index: 40; backdrop-filter: blur(12px); }
-    .save-panel.show { display: flex; }
-    .save-panel p { font-size: .82rem; color: var(--muted); }
-    .save-panel p strong { color: var(--gold); }
-    .save-panel-btns { display: flex; gap: 8px; flex-shrink: 0; }
-    .btn-download { background: var(--gold); color: #ffffff; border: none; border-radius: 8px; padding: .55rem 1.2rem; font-family: var(--font); font-size: .82rem; font-weight: 700; cursor: pointer; transition: background var(--t); display: flex; align-items: center; gap: 7px; }
-    .btn-download:hover { background: var(--gold-lt); }
-    .btn-download svg { width: 14px; height: 14px; }
-    .btn-discard { background: none; border: 1px solid var(--border); color: var(--muted); font-family: var(--font); font-size: .8rem; padding: .5rem 1rem; border-radius: 8px; cursor: pointer; transition: all var(--t); }
-    .btn-discard:hover { color: var(--cream); border-color: var(--muted); }
+    .save-panel {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(247, 245, 240, .97);
+      border-top: 1px solid var(--border);
+      padding: 1rem clamp(1rem, 4vw, 2rem);
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      z-index: 40;
+      backdrop-filter: blur(12px);
+    }
+
+    .save-panel.show {
+      display: flex;
+    }
+
+    .save-panel p {
+      font-size: .82rem;
+      color: var(--muted);
+    }
+
+    .save-panel p strong {
+      color: var(--gold);
+    }
+
+    .save-panel-btns {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .btn-download {
+      background: var(--gold);
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      padding: .55rem 1.2rem;
+      font-family: var(--font);
+      font-size: .82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background var(--t);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .btn-download:hover {
+      background: var(--gold-lt);
+    }
+
+    .btn-download svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .btn-discard {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-family: var(--font);
+      font-size: .8rem;
+      padding: .5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all var(--t);
+    }
+
+    .btn-discard:hover {
+      color: var(--cream);
+      border-color: var(--muted);
+    }
 
     @media (max-width: 500px) {
-      .img-grid { grid-template-columns: 1fr; }
-      .save-panel { flex-direction: column; align-items: flex-start; }
+      .img-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .save-panel {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<!-- ════ LOGIN ════ -->
-<div id="login">
-  <div class="login-box">
-    <div class="login-logo">
-      <div class="login-logo-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+  <!-- ════ LOGIN ════ -->
+  <div id="login">
+    <div class="login-box">
+      <div class="login-logo">
+        <div class="login-logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg>
+        </div>
+        <h1>Puniya Interiors</h1>
+        <p>Image Manager · Admin Only</p>
       </div>
-      <h1>Puniya Interiors</h1>
-      <p>Image Manager · Admin Only</p>
+      <label for="pwd">Password</label>
+      <input type="password" id="pwd" placeholder="Enter password…" autocomplete="current-password" />
+      <button class="login-btn" id="login-btn">Sign In</button>
+      <a href="index.html"
+        style="display: block; text-align: center; margin-top: 1rem; color: var(--muted); font-size: 0.8rem; text-decoration: none; font-weight: 500; transition: color var(--t);"
+        onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--muted)'">← Back to Website</a>
+      <p class="login-err" id="login-err">Incorrect password.</p>
     </div>
-    <label for="pwd">Password</label>
-    <input type="password" id="pwd" placeholder="Enter password…" autocomplete="current-password" />
-    <button class="login-btn" id="login-btn">Sign In</button>
-    <a href="index.html" style="display: block; text-align: center; margin-top: 1rem; color: var(--muted); font-size: 0.8rem; text-decoration: none; font-weight: 500; transition: color var(--t);" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--muted)'">← Back to Website</a>
-    <p class="login-err" id="login-err">Incorrect password.</p>
   </div>
-</div>
 
-<!-- ════ APP ════ -->
-<div id="app">
-  <div class="topbar">
-    <div>
-      <span class="topbar-brand">Puniya Interiors</span>
-      <span class="topbar-brand"><span> · Image Manager</span></span>
+  <!-- ════ APP ════ -->
+  <div id="app">
+    <div class="topbar">
+      <div>
+        <span class="topbar-brand">Puniya Interiors</span>
+        <span class="topbar-brand"><span> · Image Manager</span></span>
+      </div>
+      <div class="topbar-right">
+        <button class="btn-save-all" id="btn-save-all">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+          Download Updated Files
+        </button>
+        <button class="btn-logout" id="btn-logout">Sign Out</button>
+      </div>
     </div>
-    <div class="topbar-right">
-      <button class="btn-save-all" id="btn-save-all">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-        Download Updated Files
+
+    <div class="wrap">
+      <h1 class="page-title">Website <em>Image Manager</em></h1>
+      <p class="page-sub">Paste a new image URL into any slot, click Apply, then download the updated HTML files to
+        replace on your server.</p>
+
+      <div id="sections-container"></div>
+    </div>
+  </div>
+
+  <!-- Save Panel -->
+  <div class="save-panel" id="save-panel">
+    <p><strong id="dirty-count">0</strong> image(s) changed — download updated files to go live.</p>
+    <div class="save-panel-btns">
+      <button class="btn-discard" id="btn-discard">Discard Changes</button>
+      <button class="btn-download" id="btn-download-panel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+          <polyline points="7 10 12 15 17 10" />
+          <line x1="12" y1="15" x2="12" y2="3" />
+        </svg>
+        Download Files
       </button>
-      <button class="btn-logout" id="btn-logout">Sign Out</button>
     </div>
   </div>
 
-  <div class="wrap">
-    <h1 class="page-title">Website <em>Image Manager</em></h1>
-    <p class="page-sub">Paste a new image URL into any slot, click Apply, then download the updated HTML files to replace on your server.</p>
+  <div id="toast"></div>
 
-    <div id="sections-container"></div>
-  </div>
-</div>
+  <script>
+    /* ════════════════════════════════════════════
+       PASSWORD — SHA-256 of "Interior@2025"
+    ════════════════════════════════════════════ */
+    const CORRECT_HASH = 'a3b68f7f8febf83a4dc144b14e0129d7937dc800c79161784501d68293cb7773';
+    // We compute at runtime so no plain text in source
 
-<!-- Save Panel -->
-<div class="save-panel" id="save-panel">
-  <p><strong id="dirty-count">0</strong> image(s) changed — download updated files to go live.</p>
-  <div class="save-panel-btns">
-    <button class="btn-discard" id="btn-discard">Discard Changes</button>
-    <button class="btn-download" id="btn-download-panel">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      Download Files
-    </button>
-  </div>
-</div>
+    async function sha256(str) {
+      const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+      return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
 
-<div id="toast"></div>
+    /* ════════════════════════════════════════════
+       IMAGE SLOTS — all images across the site
+    ════════════════════════════════════════════ */
+    const PAGES = [
+      {
+        id: 'brand',
+        label: 'Brand Assets (All Pages)',
+        file: 'logo.png',
+        icon: 'home',
+        slots: [
+          { key: 'logo', filename: 'logo.png', label: 'Company Logo', alt: 'Puniya Interiors Logo' }
+        ]
+      },
+      {
+        id: 'index',
+        label: 'Home Page',
+        file: 'index.html',
+        icon: 'home',
+        slots: [
+          { key: 'hero-photo-1', filename: 'hero-photo-1.jpg', label: 'Hero Photo 1', alt: 'Premium modular kitchen by Puniya Interiors, Pune' },
+          { key: 'hero-photo-2', filename: 'hero-photo-2.jpg', label: 'Hero Photo 2', alt: 'Custom wardrobe and bedroom interior' },
+          { key: 'hero-photo-3', filename: 'hero-photo-3.jpg', label: 'Hero Photo 3', alt: 'Living room with TV unit' },
+          { key: 'hero-photo-4', filename: 'hero-photo-4.jpg', label: 'Hero Photo 4', alt: 'False ceiling with cove lighting' },
+          { key: 'hero-photo-5', filename: 'hero-photo-5.jpg', label: 'Hero Photo 5', alt: 'Complete home renovation' },
+          { key: 'kitchen-card', filename: 'kitchen-card.jpg', label: 'Services — Kitchen', alt: 'Modular kitchen design card' },
+          { key: 'furniture-card', filename: 'furniture-card.jpg', label: 'Services — Furniture', alt: 'Custom furniture card' },
+          { key: 'ceiling-card', filename: 'ceiling-card.jpg', label: 'Services — Ceiling', alt: 'False ceiling card' },
+          { key: 'before-room', filename: 'before-room.jpg', label: 'Before/After — BEFORE', alt: 'Before renovation photo' },
+          { key: 'after-room', filename: 'after-room.jpg', label: 'Before/After — AFTER', alt: 'After renovation photo' },
+        ]
+      },
+      {
+        id: 'kitchens',
+        label: 'Modular Kitchens Page',
+        file: 'modular-kitchens.html',
+        icon: 'kitchen',
+        slots: [
+          { key: 'kitchen-hero', filename: 'kitchen-hero.jpg', label: 'Hero Banner', alt: 'Premium modular kitchen hero' },
+          { key: 'kitchen-portrait', filename: 'kitchen-portrait.jpg', label: 'Feature Portrait', alt: 'Elegant modular kitchen portrait' },
+          { key: 'kitchen-straight', filename: 'kitchen-straight.jpg', label: 'Straight/L-shape', alt: 'Straight L-shape modular kitchen' },
+          { key: 'kitchen-island', filename: 'kitchen-island.jpg', label: 'Island Kitchen', alt: 'Island kitchen Pune' },
+          { key: 'k-gallery-1', filename: 'k-gallery-1.jpg', label: 'Kitchen Gallery 1', alt: 'Kitchen project 1' },
+          { key: 'k-gallery-2', filename: 'k-gallery-2.jpg', label: 'Kitchen Gallery 2', alt: 'Kitchen project 2' },
+          { key: 'k-gallery-3', filename: 'k-gallery-3.jpg', label: 'Kitchen Gallery 3', alt: 'Kitchen project 3' },
+          { key: 'k-gallery-4', filename: 'k-gallery-4.jpg', label: 'Kitchen Gallery 4', alt: 'Kitchen project 4' },
+          { key: 'k-gallery-5', filename: 'k-gallery-5.jpg', label: 'Kitchen Gallery 5', alt: 'Kitchen project 5' },
+        ]
+      },
+      {
+        id: 'furniture',
+        label: 'Custom Furniture Page',
+        file: 'custom-furniture.html',
+        icon: 'furniture',
+        slots: [
+          { key: 'furniture-hero', filename: 'furniture-hero.jpg', label: 'Hero Banner', alt: 'Complete interior solutions hero' },
+          { key: 'balcony-card', filename: 'balcony-card.jpg', label: 'Balcony Section', alt: 'Balcony interior design' },
+          { key: 'wallpaper-card', filename: 'wallpaper-card.jpg', label: 'Wallpaper Section', alt: 'Custom designed wallpapers' },
+          { key: 'office-card', filename: 'office-card.jpg', label: 'Office Section', alt: 'Office interior design' },
+          { key: 'shop-card', filename: 'shop-card.jpg', label: 'Shop Section', alt: 'Retail shop interior design' },
+          { key: 'mall-card', filename: 'mall-card.jpg', label: 'Mall Section', alt: 'Mall and commercial interior' },
+          { key: 'craftsmanship', filename: 'craftsmanship.jpg', label: 'Craftsmanship', alt: 'Craftsmen at work' },
+          { key: 'f-gallery-1', filename: 'f-gallery-1.jpg', label: 'Furniture Gallery 1', alt: 'Wardrobe project' },
+          { key: 'f-gallery-2', filename: 'f-gallery-2.jpg', label: 'Furniture Gallery 2', alt: 'Living room project' },
+          { key: 'f-gallery-3', filename: 'f-gallery-3.jpg', label: 'Furniture Gallery 3', alt: 'Bedroom project' },
+          { key: 'f-gallery-4', filename: 'f-gallery-4.jpg', label: 'Furniture Gallery 4', alt: 'False ceiling project' },
+          { key: 'f-gallery-5', filename: 'f-gallery-5.jpg', label: 'Furniture Gallery 5', alt: 'Entrance design' },
+        ]
+      },
+      {
+        id: 'about',
+        label: 'About Page',
+        file: 'about.html',
+        icon: 'about',
+        slots: [
+          { key: 'about-hero', filename: 'about-hero.jpg', label: 'Hero Banner', alt: 'Puniya Interiors showroom and team in Dhanori, Pune' },
+          { key: 'founder', filename: 'founder.jpg', label: 'Founder Portrait', alt: 'Founder of Puniya Interiors, Dhanori, Pune' },
+          { key: 'team-1', filename: 'team-1.jpg', label: 'Founder Card Photo', alt: 'Founder of Puniya Interiors — Interior Designer, Dhanori Pune' },
+        ]
+      },
+      {
+        id: 'portfolio',
+        label: 'Portfolio Page',
+        file: 'portfolio.html',
+        icon: 'portfolio',
+        slots: [
+          { key: 'portfolio-hero', filename: 'portfolio-hero.jpg', label: 'Hero Banner', alt: 'Completed interior projects hero' },
+          { key: 'p-turnkey-1', filename: 'p-turnkey-1.jpg', label: 'The Kulkarni Residence', alt: '3BHK renovation Viman Nagar' },
+          { key: 'p-kitchen-1', filename: 'p-kitchen-1.jpg', label: 'Island Kitchen — Baner', alt: 'Island modular kitchen Baner' },
+          { key: 'p-bedroom-1', filename: 'p-bedroom-1.jpg', label: 'Master Bedroom — Kharadi', alt: 'Master bedroom Kharadi' },
+          { key: 'p-kitchen-2', filename: 'p-kitchen-2.jpg', label: 'L-Shape Kitchen — Hadapsar', alt: 'L-shape kitchen Hadapsar' },
+          { key: 'p-furniture-1', filename: 'p-furniture-1.jpg', label: 'Walk-in Wardrobe — Wakad', alt: 'Walk-in wardrobe Wakad' },
+          { key: 'p-turnkey-2', filename: 'p-turnkey-2.jpg', label: 'The Patil Home — Wakad', alt: '4BHK renovation Wakad' },
+          { key: 'p-living-1', filename: 'p-living-1.jpg', label: 'Contemporary Living Room — Aundh', alt: 'Contemporary living room Aundh' },
+          { key: 'p-bedroom-2', filename: 'p-bedroom-2.jpg', label: "Kids' Study Bedroom — Koregaon Park", alt: 'Kids study bedroom' },
+          { key: 'p-kitchen-3', filename: 'p-kitchen-3.jpg', label: 'Parallel Kitchen — NIBM Road', alt: 'Parallel kitchen NIBM Road' },
+          { key: 'p-commercial-1', filename: 'p-commercial-1.jpg', label: 'Corporate Office — Hinjewadi', alt: 'Office interior Hinjewadi' },
+        ]
+      }
+    ];
 
-<script>
-/* ════════════════════════════════════════════
-   PASSWORD — SHA-256 of "Interior@2025"
-════════════════════════════════════════════ */
-const CORRECT_HASH = 'a3b68f7f8febf83a4dc144b14e0129d7937dc800c79161784501d68293cb7773';
-// We compute at runtime so no plain text in source
+    /* ════════════════════════════════════════════
+       STATE
+    ════════════════════════════════════════════ */
+    // changes[pageId][slotKey] = newUrl
+    const changes = {};
+    PAGES.forEach(p => { changes[p.id] = {}; });
 
-async function sha256(str) {
-  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
-  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
-}
+    /* ════════════════════════════════════════════
+       RENDER
+    ════════════════════════════════════════════ */
+    function iconSVG(type) {
+      const icons = {
+        home: '<path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>',
+        kitchen: '<path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/>',
+        furniture: '<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>',
+        portfolio: '<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>',
+        about: '<path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>',
+      };
+      return icons[type] || icons.home;
+    }
 
-/* ════════════════════════════════════════════
-   IMAGE SLOTS — all images across the site
-════════════════════════════════════════════ */
-const PAGES = [
-  {
-    id: 'brand',
-    label: 'Brand Assets (All Pages)',
-    file: 'logo.png',
-    icon: 'home',
-    slots: [
-      { key: 'logo', filename: 'logo.png', label: 'Company Logo', alt: 'Puniya Interiors Logo' }
-    ]
-  },
-  {
-    id: 'index',
-    label: 'Home Page',
-    file: 'index.html',
-    icon: 'home',
-    slots: [
-      { key: 'hero-photo-1',   filename: 'hero-photo-1.jpg',   label: 'Hero Photo 1',        alt: 'Premium modular kitchen by Puniya Interiors, Pune' },
-      { key: 'hero-photo-2',   filename: 'hero-photo-2.jpg',   label: 'Hero Photo 2',        alt: 'Custom wardrobe and bedroom interior' },
-      { key: 'hero-photo-3',   filename: 'hero-photo-3.jpg',   label: 'Hero Photo 3',        alt: 'Living room with TV unit' },
-      { key: 'hero-photo-4',   filename: 'hero-photo-4.jpg',   label: 'Hero Photo 4',        alt: 'False ceiling with cove lighting' },
-      { key: 'hero-photo-5',   filename: 'hero-photo-5.jpg',   label: 'Hero Photo 5',        alt: 'Complete home renovation' },
-      { key: 'kitchen-card',   filename: 'kitchen-card.jpg',   label: 'Services — Kitchen',  alt: 'Modular kitchen design card' },
-      { key: 'furniture-card', filename: 'furniture-card.jpg', label: 'Services — Furniture', alt: 'Custom furniture card' },
-      { key: 'ceiling-card',   filename: 'ceiling-card.jpg',   label: 'Services — Ceiling',  alt: 'False ceiling card' },
-      { key: 'before-room',    filename: 'before-room.jpg',    label: 'Before/After — BEFORE', alt: 'Before renovation photo' },
-      { key: 'after-room',     filename: 'after-room.jpg',     label: 'Before/After — AFTER',  alt: 'After renovation photo' },
-    ]
-  },
-  {
-    id: 'kitchens',
-    label: 'Modular Kitchens Page',
-    file: 'modular-kitchens.html',
-    icon: 'kitchen',
-    slots: [
-      { key: 'kitchen-hero',     filename: 'kitchen-hero.jpg',     label: 'Hero Banner',      alt: 'Premium modular kitchen hero' },
-      { key: 'kitchen-portrait', filename: 'kitchen-portrait.jpg', label: 'Feature Portrait', alt: 'Elegant modular kitchen portrait' },
-      { key: 'kitchen-straight', filename: 'kitchen-straight.jpg', label: 'Straight/L-shape', alt: 'Straight L-shape modular kitchen' },
-      { key: 'kitchen-island',   filename: 'kitchen-island.jpg',   label: 'Island Kitchen',   alt: 'Island kitchen Pune' },
-      { key: 'k-gallery-1',      filename: 'k-gallery-1.jpg',      label: 'Kitchen Gallery 1', alt: 'Kitchen project 1' },
-      { key: 'k-gallery-2',      filename: 'k-gallery-2.jpg',      label: 'Kitchen Gallery 2', alt: 'Kitchen project 2' },
-      { key: 'k-gallery-3',      filename: 'k-gallery-3.jpg',      label: 'Kitchen Gallery 3', alt: 'Kitchen project 3' },
-      { key: 'k-gallery-4',      filename: 'k-gallery-4.jpg',      label: 'Kitchen Gallery 4', alt: 'Kitchen project 4' },
-      { key: 'k-gallery-5',      filename: 'k-gallery-5.jpg',      label: 'Kitchen Gallery 5', alt: 'Kitchen project 5' },
-    ]
-  },
-  {
-    id: 'furniture',
-    label: 'Custom Furniture Page',
-    file: 'custom-furniture.html',
-    icon: 'furniture',
-    slots: [
-      { key: 'furniture-hero',   filename: 'furniture-hero.jpg',   label: 'Hero Banner',       alt: 'Complete interior solutions hero' },
-      { key: 'balcony-card',     filename: 'balcony-card.jpg',     label: 'Balcony Section',   alt: 'Balcony interior design' },
-      { key: 'wallpaper-card',   filename: 'wallpaper-card.jpg',   label: 'Wallpaper Section', alt: 'Custom designed wallpapers' },
-      { key: 'office-card',      filename: 'office-card.jpg',      label: 'Office Section',    alt: 'Office interior design' },
-      { key: 'shop-card',        filename: 'shop-card.jpg',        label: 'Shop Section',      alt: 'Retail shop interior design' },
-      { key: 'mall-card',        filename: 'mall-card.jpg',        label: 'Mall Section',      alt: 'Mall and commercial interior' },
-      { key: 'craftsmanship',    filename: 'craftsmanship.jpg',    label: 'Craftsmanship',     alt: 'Craftsmen at work' },
-      { key: 'f-gallery-1',      filename: 'f-gallery-1.jpg',      label: 'Furniture Gallery 1', alt: 'Wardrobe project' },
-      { key: 'f-gallery-2',      filename: 'f-gallery-2.jpg',      label: 'Furniture Gallery 2', alt: 'Living room project' },
-      { key: 'f-gallery-3',      filename: 'f-gallery-3.jpg',      label: 'Furniture Gallery 3', alt: 'Bedroom project' },
-      { key: 'f-gallery-4',      filename: 'f-gallery-4.jpg',      label: 'Furniture Gallery 4', alt: 'False ceiling project' },
-      { key: 'f-gallery-5',      filename: 'f-gallery-5.jpg',      label: 'Furniture Gallery 5', alt: 'Entrance design' },
-    ]
-  },
-  {
-    id: 'portfolio',
-    label: 'Portfolio Page',
-    file: 'portfolio.html',
-    icon: 'portfolio',
-    slots: [
-      { key: 'portfolio-hero',  filename: 'portfolio-hero.jpg',  label: 'Hero Banner',             alt: 'Completed interior projects hero' },
-      { key: 'p-turnkey-1',     filename: 'p-turnkey-1.jpg',     label: 'The Kulkarni Residence',   alt: '3BHK renovation Viman Nagar' },
-      { key: 'p-kitchen-1',     filename: 'p-kitchen-1.jpg',     label: 'Island Kitchen — Baner',   alt: 'Island modular kitchen Baner' },
-      { key: 'p-bedroom-1',     filename: 'p-bedroom-1.jpg',     label: 'Master Bedroom — Kharadi', alt: 'Master bedroom Kharadi' },
-      { key: 'p-kitchen-2',     filename: 'p-kitchen-2.jpg',     label: 'L-Shape Kitchen — Hadapsar', alt: 'L-shape kitchen Hadapsar' },
-      { key: 'p-furniture-1',   filename: 'p-furniture-1.jpg',   label: 'Walk-in Wardrobe — Wakad', alt: 'Walk-in wardrobe Wakad' },
-      { key: 'p-turnkey-2',     filename: 'p-turnkey-2.jpg',     label: 'The Patil Home — Wakad',   alt: '4BHK renovation Wakad' },
-      { key: 'p-living-1',      filename: 'p-living-1.jpg',      label: 'Contemporary Living Room — Aundh', alt: 'Contemporary living room Aundh' },
-      { key: 'p-bedroom-2',     filename: 'p-bedroom-2.jpg',     label: "Kids' Study Bedroom — Koregaon Park", alt: 'Kids study bedroom' },
-      { key: 'p-kitchen-3',     filename: 'p-kitchen-3.jpg',     label: 'Parallel Kitchen — NIBM Road', alt: 'Parallel kitchen NIBM Road' },
-      { key: 'p-commercial-1',  filename: 'p-commercial-1.jpg',  label: 'Corporate Office — Hinjewadi', alt: 'Office interior Hinjewadi' },
-    ]
-  }
-];
+    function render() {
+      const container = document.getElementById('sections-container');
+      container.innerHTML = '';
 
-/* ════════════════════════════════════════════
-   STATE
-════════════════════════════════════════════ */
-// changes[pageId][slotKey] = newUrl
-const changes = {};
-PAGES.forEach(p => { changes[p.id] = {}; });
-
-/* ════════════════════════════════════════════
-   RENDER
-════════════════════════════════════════════ */
-function iconSVG(type) {
-  const icons = {
-    home:      '<path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>',
-    kitchen:   '<path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/>',
-    furniture: '<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>',
-    portfolio: '<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>',
-  };
-  return icons[type] || icons.home;
-}
-
-function render() {
-  const container = document.getElementById('sections-container');
-  container.innerHTML = '';
-
-  PAGES.forEach(page => {
-    const sec = document.createElement('div');
-    sec.className = 'section';
-    sec.innerHTML = `
+      PAGES.forEach(page => {
+        const sec = document.createElement('div');
+        sec.className = 'section';
+        sec.innerHTML = `
       <div class="section-head">
         <div class="section-icon ic-${page.icon}">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">${iconSVG(page.icon)}</svg>
@@ -311,18 +828,18 @@ function render() {
       </div>
       <div class="img-grid" id="grid-${page.id}"></div>
     `;
-    container.appendChild(sec);
+        container.appendChild(sec);
 
-    const grid = sec.querySelector(`#grid-${page.id}`);
-    page.slots.forEach(slot => {
-      const card = document.createElement('div');
-      card.className = 'img-card';
-      card.id = `card-${page.id}-${slot.key}`;
+        const grid = sec.querySelector(`#grid-${page.id}`);
+        page.slots.forEach(slot => {
+          const card = document.createElement('div');
+          card.className = 'img-card';
+          card.id = `card-${page.id}-${slot.key}`;
 
-      const currentVal = changes[page.id][slot.key] || '';
-      const previewSrc = currentVal || `images/${slot.filename}`;
+          const currentVal = changes[page.id][slot.key] || '';
+          const previewSrc = currentVal || `images/${slot.filename}`;
 
-      card.innerHTML = `
+          card.innerHTML = `
         <div class="img-preview">
           <div class="placeholder">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
@@ -346,82 +863,82 @@ function render() {
           </div>
         </div>
       `;
-      grid.appendChild(card);
+          grid.appendChild(card);
 
-      // Enter key triggers apply
-      card.querySelector('.url-input').addEventListener('keydown', e => {
-        if (e.key === 'Enter') applyChange(page.id, slot.key);
+          // Enter key triggers apply
+          card.querySelector('.url-input').addEventListener('keydown', e => {
+            if (e.key === 'Enter') applyChange(page.id, slot.key);
+          });
+        });
       });
-    });
-  });
-}
+    }
 
-/* ════════════════════════════════════════════
-   APPLY CHANGE
-════════════════════════════════════════════ */
-function applyChange(pageId, slotKey) {
-  const input = document.getElementById(`input-${pageId}-${slotKey}`);
-  const url = input.value.trim();
-  const card = document.getElementById(`card-${pageId}-${slotKey}`);
-  if (!url) return;
+    /* ════════════════════════════════════════════
+       APPLY CHANGE
+    ════════════════════════════════════════════ */
+    function applyChange(pageId, slotKey) {
+      const input = document.getElementById(`input-${pageId}-${slotKey}`);
+      const url = input.value.trim();
+      const card = document.getElementById(`card-${pageId}-${slotKey}`);
+      if (!url) return;
 
-  changes[pageId][slotKey] = url;
+      changes[pageId][slotKey] = url;
 
-  // Update preview
-  const img = card.querySelector('img');
-  const placeholder = card.querySelector('.placeholder');
-  img.style.opacity = '0';
-  img.style.display = '';
-  img.onload = () => { img.style.opacity = '1'; placeholder.style.display = 'none'; };
-  img.onerror = () => { img.style.display = 'none'; placeholder.style.display = 'flex'; };
-  img.src = url;
+      // Update preview
+      const img = card.querySelector('img');
+      const placeholder = card.querySelector('.placeholder');
+      img.style.opacity = '0';
+      img.style.display = '';
+      img.onload = () => { img.style.opacity = '1'; placeholder.style.display = 'none'; };
+      img.onerror = () => { img.style.display = 'none'; placeholder.style.display = 'flex'; };
+      img.src = url;
 
-  card.classList.remove('saved');
-  card.classList.add('dirty');
-  updateSavePanel();
-  showToast('Preview updated — remember to download your files.', false);
-}
+      card.classList.remove('saved');
+      card.classList.add('dirty');
+      updateSavePanel();
+      showToast('Preview updated — remember to download your files.', false);
+    }
 
-/* ════════════════════════════════════════════
-   COUNT DIRTY
-════════════════════════════════════════════ */
-function dirtyCount() {
-  return PAGES.reduce((sum, p) => sum + Object.keys(changes[p.id]).length, 0);
-}
+    /* ════════════════════════════════════════════
+       COUNT DIRTY
+    ════════════════════════════════════════════ */
+    function dirtyCount() {
+      return PAGES.reduce((sum, p) => sum + Object.keys(changes[p.id]).length, 0);
+    }
 
-function updateSavePanel() {
-  const n = dirtyCount();
-  const panel = document.getElementById('save-panel');
-  document.getElementById('dirty-count').textContent = n;
-  panel.classList.toggle('show', n > 0);
-}
+    function updateSavePanel() {
+      const n = dirtyCount();
+      const panel = document.getElementById('save-panel');
+      document.getElementById('dirty-count').textContent = n;
+      panel.classList.toggle('show', n > 0);
+    }
 
-/* ════════════════════════════════════════════
-   GENERATE UPDATED HTML
-   We embed the original HTML as template strings
-   and do string replacement of image src values.
-   Since we can't read the actual files at runtime
-   in a static HTML page, we give the user clear
-   instructions and a copy-paste diff instead.
-════════════════════════════════════════════ */
-function generateInstructions() {
-  const lines = [];
-  PAGES.forEach(page => {
-    const pageChanges = changes[page.id];
-    if (!Object.keys(pageChanges).length) return;
-    lines.push(`\n── ${page.file} ──`);
-    Object.entries(pageChanges).forEach(([key, newUrl]) => {
-      lines.push(`  images/${key}.jpg  →  ${newUrl}`);
-    });
-  });
-  return lines.join('\n');
-}
+    /* ════════════════════════════════════════════
+       GENERATE UPDATED HTML
+       We embed the original HTML as template strings
+       and do string replacement of image src values.
+       Since we can't read the actual files at runtime
+       in a static HTML page, we give the user clear
+       instructions and a copy-paste diff instead.
+    ════════════════════════════════════════════ */
+    function generateInstructions() {
+      const lines = [];
+      PAGES.forEach(page => {
+        const pageChanges = changes[page.id];
+        if (!Object.keys(pageChanges).length) return;
+        lines.push(`\n── ${page.file} ──`);
+        Object.entries(pageChanges).forEach(([key, newUrl]) => {
+          lines.push(`  images/${key}.jpg  →  ${newUrl}`);
+        });
+      });
+      return lines.join('\n');
+    }
 
-function downloadInstructions() {
-  const n = dirtyCount();
-  if (!n) { showToast('No changes to download.', false); return; }
+    function downloadInstructions() {
+      const n = dirtyCount();
+      if (!n) { showToast('No changes to download.', false); return; }
 
-  const content = `PUNIYA INTERIORS — IMAGE UPDATE INSTRUCTIONS
+      const content = `PUNIYA INTERIORS — IMAGE UPDATE INSTRUCTIONS
 Generated: ${new Date().toLocaleString('en-IN')}
 Changes: ${n} image(s)
 ${'='.repeat(55)}
@@ -437,109 +954,109 @@ Search for: images/FILENAME.jpg
 Replace with: the new URL
 `.trim();
 
-  const blob = new Blob([content], { type: 'text/plain' });
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'image-update-instructions.txt';
-  a.click();
+      const blob = new Blob([content], { type: 'text/plain' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'image-update-instructions.txt';
+      a.click();
 
-  // Also try to generate the actual HTML replacements
-  downloadHTMLFiles();
-}
+      // Also try to generate the actual HTML replacements
+      downloadHTMLFiles();
+    }
 
-/* ════════════════════════════════════════════
-   DOWNLOAD HTML — read uploaded files + replace
-   Since the HTML files were uploaded, we can
-   fetch them from /mnt/user-data/uploads/ path
-   but that's server-side. Instead we'll make a
-   JS blob per page showing the find/replace diff.
-════════════════════════════════════════════ */
-function downloadHTMLFiles() {
-  PAGES.forEach(page => {
-    const pageChanges = changes[page.id];
-    if (!Object.keys(pageChanges).length) return;
+    /* ════════════════════════════════════════════
+       DOWNLOAD HTML — read uploaded files + replace
+       Since the HTML files were uploaded, we can
+       fetch them from /mnt/user-data/uploads/ path
+       but that's server-side. Instead we'll make a
+       JS blob per page showing the find/replace diff.
+    ════════════════════════════════════════════ */
+    function downloadHTMLFiles() {
+      PAGES.forEach(page => {
+        const pageChanges = changes[page.id];
+        if (!Object.keys(pageChanges).length) return;
 
-    // Build a find-replace map
-    let script = `<!-- FIND & REPLACE IN ${page.file} -->\n`;
-    script += `<!-- Open ${page.file} in your text editor and make these replacements: -->\n\n`;
-    Object.entries(pageChanges).forEach(([key, newUrl]) => {
-      script += `FIND:    src="images/${key}.jpg"\nREPLACE: src="${newUrl}"\n\n`;
-      script += `FIND:    src="images/${key}.png"\nREPLACE: src="${newUrl}"\n\n`;
+        // Build a find-replace map
+        let script = `<!-- FIND & REPLACE IN ${page.file} -->\n`;
+        script += `<!-- Open ${page.file} in your text editor and make these replacements: -->\n\n`;
+        Object.entries(pageChanges).forEach(([key, newUrl]) => {
+          script += `FIND:    src="images/${key}.jpg"\nREPLACE: src="${newUrl}"\n\n`;
+          script += `FIND:    src="images/${key}.png"\nREPLACE: src="${newUrl}"\n\n`;
+        });
+
+        const blob = new Blob([script], { type: 'text/plain' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = `update-${page.file}.txt`;
+        setTimeout(() => a.click(), 200 * PAGES.indexOf(page));
+      });
+
+      showToast(`Downloaded ${dirtyCount()} update instruction file(s)!`, true);
+
+      // Mark all as saved
+      PAGES.forEach(page => {
+        Object.keys(changes[page.id]).forEach(key => {
+          const card = document.getElementById(`card-${page.id}-${key}`);
+          if (card) { card.classList.remove('dirty'); card.classList.add('saved'); }
+        });
+      });
+    }
+
+    function discardChanges() {
+      PAGES.forEach(p => { changes[p.id] = {}; });
+      document.querySelectorAll('.img-card').forEach(c => c.classList.remove('dirty', 'saved'));
+      document.querySelectorAll('.url-input').forEach(i => i.value = '');
+      updateSavePanel();
+      showToast('All changes discarded.', false);
+    }
+
+    /* ════════════════════════════════════════════
+       TOAST
+    ════════════════════════════════════════════ */
+    let toastTimer;
+    function showToast(msg, success = false) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.className = 'show' + (success ? ' success' : '');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => { t.className = ''; }, 2800);
+    }
+
+    /* ════════════════════════════════════════════
+       AUTH
+    ════════════════════════════════════════════ */
+    async function tryLogin() {
+      const val = document.getElementById('pwd').value;
+      const hash = await sha256(val);
+      // Securely verify against the pre-computed hash
+      if (hash === CORRECT_HASH) {
+        sessionStorage.setItem('pi_auth', '1');
+        document.getElementById('login').style.display = 'none';
+        document.getElementById('app').style.display = 'block';
+        render();
+      } else {
+        document.getElementById('login-err').classList.add('show');
+        document.getElementById('pwd').value = '';
+      }
+    }
+
+    document.getElementById('login-btn').addEventListener('click', tryLogin);
+    document.getElementById('pwd').addEventListener('keydown', e => { if (e.key === 'Enter') tryLogin(); });
+    document.getElementById('btn-logout').addEventListener('click', () => {
+      sessionStorage.removeItem('pi_auth');
+      location.reload();
     });
+    document.getElementById('btn-save-all').addEventListener('click', downloadHTMLFiles);
+    document.getElementById('btn-download-panel').addEventListener('click', downloadInstructions);
+    document.getElementById('btn-discard').addEventListener('click', discardChanges);
 
-    const blob = new Blob([script], { type: 'text/plain' });
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = `update-${page.file}.txt`;
-    setTimeout(() => a.click(), 200 * PAGES.indexOf(page));
-  });
-
-  showToast(`Downloaded ${dirtyCount()} update instruction file(s)!`, true);
-
-  // Mark all as saved
-  PAGES.forEach(page => {
-    Object.keys(changes[page.id]).forEach(key => {
-      const card = document.getElementById(`card-${page.id}-${key}`);
-      if (card) { card.classList.remove('dirty'); card.classList.add('saved'); }
-    });
-  });
-}
-
-function discardChanges() {
-  PAGES.forEach(p => { changes[p.id] = {}; });
-  document.querySelectorAll('.img-card').forEach(c => c.classList.remove('dirty','saved'));
-  document.querySelectorAll('.url-input').forEach(i => i.value = '');
-  updateSavePanel();
-  showToast('All changes discarded.', false);
-}
-
-/* ════════════════════════════════════════════
-   TOAST
-════════════════════════════════════════════ */
-let toastTimer;
-function showToast(msg, success = false) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.className = 'show' + (success ? ' success' : '');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => { t.className = ''; }, 2800);
-}
-
-/* ════════════════════════════════════════════
-   AUTH
-════════════════════════════════════════════ */
-async function tryLogin() {
-  const val = document.getElementById('pwd').value;
-  const hash = await sha256(val);
-  // Securely verify against the pre-computed hash
-  if (hash === CORRECT_HASH) {
-    sessionStorage.setItem('pi_auth', '1');
-    document.getElementById('login').style.display = 'none';
-    document.getElementById('app').style.display = 'block';
-    render();
-  } else {
-    document.getElementById('login-err').classList.add('show');
-    document.getElementById('pwd').value = '';
-  }
-}
-
-document.getElementById('login-btn').addEventListener('click', tryLogin);
-document.getElementById('pwd').addEventListener('keydown', e => { if (e.key === 'Enter') tryLogin(); });
-document.getElementById('btn-logout').addEventListener('click', () => {
-  sessionStorage.removeItem('pi_auth');
-  location.reload();
-});
-document.getElementById('btn-save-all').addEventListener('click', downloadHTMLFiles);
-document.getElementById('btn-download-panel').addEventListener('click', downloadInstructions);
-document.getElementById('btn-discard').addEventListener('click', discardChanges);
-
-// Auto-login if session active
-if (sessionStorage.getItem('pi_auth') === '1') {
-  document.getElementById('login').style.display = 'none';
-  document.getElementById('app').style.display = 'block';
-  render();
-}
-</script>
+    // Auto-login if session active
+    if (sessionStorage.getItem('pi_auth') === '1') {
+      document.getElementById('login').style.display = 'none';
+      document.getElementById('app').style.display = 'block';
+      render();
+    }
+  </script>
 </body>
-</html>
 
+</html>
