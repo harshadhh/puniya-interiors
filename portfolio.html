@@ -421,7 +421,7 @@
     // VIDEO SHEET URL — set this once after publishing your sheet
     // OR connect via the Image Manager Videos tab — it saves here automatically
     // ═══════════════════════════════════════════════════════
-    const HARDCODED_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQp0c3t1f02V0GCvmZnHMftguplBaXUmv17JM6XpgBTIRLWtWcunWRrzs8Je-vaxii-sFzW0wHGtsQH/pub?output=csv';
+    const HARDCODED_SHEET_URL = 'YOUR_SHEET_CSV_URL_HERE';
 
     function parseVideoCSV(txt) {
       const lines = txt.trim().split('\n');
@@ -440,9 +440,17 @@
       }).filter(r => r.slot_key && r.cloudinary_url && r.cloudinary_url.startsWith('http'));
     }
 
+    function cloudinaryThumb(mp4url) {
+      // Swap /video/upload/ → /video/upload/w_800,h_450,c_fill/so_0/ and .mp4 → .jpg
+      // This fetches the first frame as a JPG thumbnail — Cloudinary generates it automatically
+      return mp4url
+        .replace('/video/upload/', '/video/upload/w_800,h_450,c_fill,so_0/')
+        .replace(/\.mp4(\?.*)?$/i, '.jpg');
+    }
+
     async function loadVideos() {
       // Use hardcoded URL first, fall back to whatever image-manager saved
-      const url = (HARDCODED_SHEET_URL && HARDCODED_SHEET_URL !== 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQp0c3t1f02V0GCvmZnHMftguplBaXUmv17JM6XpgBTIRLWtWcunWRrzs8Je-vaxii-sFzW0wHGtsQH/pub?output=csv')
+      const url = (HARDCODED_SHEET_URL && HARDCODED_SHEET_URL !== 'YOUR_SHEET_CSV_URL_HERE')
         ? HARDCODED_SHEET_URL
         : localStorage.getItem('pi_sheet_url');
       if (!url) return;
@@ -452,7 +460,11 @@
         const rows = parseVideoCSV(await res.text());
         rows.forEach(row => {
           const vid = document.querySelector(`video[data-video-key="${row.slot_key}"]`);
-          if (vid) { vid.src = row.cloudinary_url; vid.load(); }
+          if (vid) {
+            vid.src = row.cloudinary_url;
+            vid.poster = cloudinaryThumb(row.cloudinary_url);
+            vid.load();
+          }
         });
       } catch(e) { console.warn('Puniya Interiors: Could not load video sheet.', e); }
     }
