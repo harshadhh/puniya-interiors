@@ -70,7 +70,7 @@ body {
   font-family: var(--font-sans);
   font-weight: 400;
   line-height: 1.7;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 img {
@@ -1802,13 +1802,13 @@ p {
   .split-layout.reverse { grid-template-columns: 1fr; direction: ltr; }
   .split-layout.reverse .split-text { order: 1; }
   .split-layout.reverse .split-image { order: 0; }
-  .split-image .arch-image { aspect-ratio: 16/9; }
+  .split-image .arch-image { aspect-ratio: 4/3; }
   .split-image-badge { bottom: -1rem; right: 1rem; }
 
   .materials-grid { grid-template-columns: repeat(2, 1fr); }
-  .gallery-strip-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; height: auto; }
-  .gallery-strip-grid .g-item:first-child { grid-row: auto; }
-  .gallery-strip-grid .g-item { aspect-ratio: 4/3; }
+  .gallery-strip-grid { grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 1fr 1fr; height: 520px; }
+  .gallery-strip-grid .g-item:first-child { grid-row: 1 / 3; }
+  .gallery-strip-grid .g-item { aspect-ratio: unset; }
 
   .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
   .portfolio-item.featured { grid-column: span 2; }
@@ -1822,13 +1822,42 @@ p {
 }
 
 @media (max-width: 768px) {
-  .materials-grid { grid-template-columns: 1fr 1fr; }
+  /* Materials (European Quality) — 1 col, horizontal card rows */
+  .materials-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .material-card {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    gap: 0.85rem;
+    padding: 0.9rem 1rem;
+  }
+  .material-icon {
+    width: 36px; height: 36px;
+    flex-shrink: 0; margin: 0;
+  }
+  .material-icon svg { width: 15px; height: 15px; }
+  .material-card h4 { font-size: 0.85rem; margin-bottom: 0.2rem; }
+  .material-card p  { font-size: 0.76rem; line-height: 1.5; margin-inline: 0; }
+
+  /* Gallery — 1 col stacked, all 5 images, clickable */
+  .gallery-strip-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    height: auto;
+    gap: 6px;
+  }
+  .gallery-strip-grid .g-item:first-child { grid-row: auto; }
+  .gallery-strip-grid .g-item { aspect-ratio: 4/3; cursor: pointer; }
+
   .about-stat-row { grid-template-columns: 1fr; }
   .values-grid { grid-template-columns: 1fr; }
   .team-grid { grid-template-columns: 1fr; max-width: 360px; margin-inline: auto; }
   .portfolio-grid { grid-template-columns: 1fr; }
   .portfolio-item.featured { grid-column: span 1; }
-  .gallery-strip-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .contact-form-wrapper { padding: 2rem 1.5rem; }
   .whatsapp-strip { flex-direction: column; text-align: center; }
@@ -2051,9 +2080,37 @@ p {
 }
 
 @media (max-width: 768px) {
-  .components-grid { grid-template-columns: 1fr; }
+  .components-grid { grid-template-columns: 1fr; gap: 0; }
   .all-services-grid { grid-template-columns: repeat(2, 1fr); }
 
+  /* All comp-cards: horizontal icon-left layout on mobile */
+  .comp-card {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0.85rem;
+    padding: 0.9rem 1rem;
+  }
+  .comp-icon {
+    width: 36px; height: 36px;
+    flex-shrink: 0; margin-bottom: 0;
+  }
+  .comp-icon svg { width: 15px; height: 15px; }
+  .comp-card h4 { font-size: 0.85rem; margin-bottom: 0.2rem; }
+  .comp-card p  { font-size: 0.76rem; line-height: 1.5; }
+
+  /* Override orphan centering rules on mobile */
+  .components-grid .comp-card:last-child:nth-child(3n + 1) {
+    grid-column: 1;
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    max-width: 100%;
+    margin: 0;
+  }
+  .components-grid .comp-card:last-child:nth-child(3n + 2) {
+    grid-column: 1;
+  }
 }
 
 @media (max-width: 480px) {
@@ -2066,7 +2123,7 @@ p {
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 70px;
-  z-index: 900;
+  z-index: 990;
 }
 
 .jumpnav-inner {
@@ -2100,7 +2157,8 @@ p {
 
 @media (max-width: 768px) {
   .section-jumpnav { top: 62px; }
-  .jumpnav-item { padding: 0.85rem 1rem; font-size: 0.62rem; }
+  .jumpnav-inner { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .jumpnav-item { padding: 0.85rem 1rem; font-size: 0.62rem; flex-shrink: 0; }
 }
 
 
@@ -2888,7 +2946,7 @@ p {
   grid-template-columns: repeat(3, 1fr);
 }
 @media (max-width: 768px) {
-  #accessories .components-grid { grid-template-columns: 1fr; }
+  #accessories .components-grid { grid-template-columns: 1fr; gap: 0; }
 }
 
 /* Jump nav active state — clicked item glows with terracotta */
