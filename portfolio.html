@@ -243,7 +243,7 @@
 
         <div class="video-card reveal">
           <div class="video-card-embed">
-            <video src="videos/video-1.mp4" poster="images/video-1-thumb.jpg"
+            <video data-video-key="video-1" poster="images/video-1-thumb.jpg"
               controls playsinline preload="none"
               aria-label="Full Home Renovation — Wakad, Pune"></video>
           </div>
@@ -256,7 +256,7 @@
 
         <div class="video-card reveal reveal-delay-1">
           <div class="video-card-embed">
-            <video src="videos/video-2.mp4" poster="images/video-2-thumb.jpg"
+            <video data-video-key="video-2" poster="images/video-2-thumb.jpg"
               controls playsinline preload="none"
               aria-label="Modular Kitchen Reveal — Baner, Pune"></video>
           </div>
@@ -269,9 +269,9 @@
 
         <div class="video-card reveal reveal-delay-2">
           <div class="video-card-embed">
-            <video src="videos/video-3.mp4" poster="images/video-3-thumb.jpg"
+            <video data-video-key="video-3" poster="images/video-3-thumb.jpg"
               controls playsinline preload="none"
-              aria-label="Bedroom & Wardrobe Tour — Kharadi, Pune"></video>
+              aria-label="Bedroom &amp; Wardrobe Tour — Kharadi, Pune"></video>
           </div>
           <div class="video-card-body">
             <span class="video-card-tag">Bedroom &amp; Wardrobe</span>
@@ -416,6 +416,26 @@
       });
     })();
   </script>
+  <script>
+    /* ── CLOUDINARY VIDEO LOADER ──
+       Reads video URLs saved by image-manager and applies them.
+       Falls back gracefully if nothing is saved yet.
+    ── */
+    (function () {
+      try {
+        const saved = localStorage.getItem('pi_video_urls');
+        if (!saved) return;
+        const videoUrls = JSON.parse(saved);
+        document.querySelectorAll('video[data-video-key]').forEach(function (vid) {
+          const key = vid.getAttribute('data-video-key');
+          const entry = videoUrls[key];
+          if (entry && entry.url) {
+            vid.src = entry.url;
+          }
+        });
+      } catch (e) {}
+    })();
+  </script>
   <script src="js/script.js" defer></script>
   <script>
     (function() {
@@ -438,4 +458,3 @@
   </script>
 </body>
 </html>
-
