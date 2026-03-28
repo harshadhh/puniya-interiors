@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of completed interior design projects by Puniya Interiors, Pune. Browse modular kitchens, bedrooms, living rooms, false ceilings and full-home renovations across Pune." />
+  <meta name="keywords" content="interior design portfolio Pune, completed interiors Pune, Puniya Interiors projects, home renovation Pune, before after Pune" />
+  <title>Our Portfolio — Puniya Interiors, Pune</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" type="image/png" sizes="192x192" href="images/favicon.png" />
+  <link rel="apple-touch-icon" href="images/favicon.png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="page-transition enter" aria-hidden="true"></div>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="Puniya Interiors Home">
+      <img src="images/logo.png" alt="Puniya Interiors" class="nav-logo-img"
+        onerror="this.style.display='none'" loading="eager" />
+      <span class="nav-logo-text-wrap" style="display:flex;">
+        <span class="nav-logo-name">Puniya Interiors</span>
+        <span class="nav-logo-tagline">Dhanori, Pune</span>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="modular-kitchens.html">Kitchens</a></li>
+      <li><a href="custom-furniture.html">Furniture</a></li>
+      <li><a href="portfolio.html" class="active">Portfolio</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Book a Visit</a></li>
+    </ul>
+    <button class="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </nav>
+  <nav class="nav-mobile" aria-label="Mobile navigation">
+    <a href="index.html">Home</a><a href="modular-kitchens.html">Kitchens</a>
+    <a href="custom-furniture.html">Furniture</a><a href="portfolio.html">Portfolio</a>
+    <a href="about.html">About</a><a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- INNER HERO -->
+  <header class="inner-hero" aria-label="Portfolio page hero">
+    <div class="inner-hero-bg">
+      <img src="images/portfolio-hero.jpg" alt="Completed interior projects by Puniya Interiors, Pune"
+        loading="eager" onerror="this.closest('.inner-hero-bg').style.background='linear-gradient(135deg,#2A2620 0%,#2C2A28 100%)'" />
+    </div>
+    <div class="inner-hero-content">
+      <div class="inner-hero-breadcrumb">
+        <a href="index.html">Home</a><span>›</span><span>Portfolio</span>
+      </div>
+      <h1>200+ Homes.<br/><em>One Standard.</em></h1>
+      <p class="inner-hero-sub">
+        Every project in our portfolio represents a family's trust. Browse completed
+        kitchens, bedrooms, living rooms, false ceilings, and full-home renovations
+        across Pune — each delivered in 45 days with a 10-year warranty.
+      </p>
+    </div>
+  </header>
+
+  <!-- FILTER BUTTONS -->
+  <div class="portfolio-filters container" role="group" aria-label="Filter portfolio by category">
+    <button class="filter-btn active" data-filter="all">All Projects</button>
+    <button class="filter-btn" data-filter="kitchen">Modular Kitchens</button>
+    <button class="filter-btn" data-filter="furniture">Furniture &amp; Décor</button>
+    <button class="filter-btn" data-filter="renovation">Full Renovation</button>
+    <button class="filter-btn" data-filter="bedroom">Bedrooms</button>
+    <button class="filter-btn" data-filter="commercial">Commercial</button>
+  </div>
+
+  <!-- PORTFOLIO GRID -->
+  <main class="portfolio-grid container" id="portfolio-grid" aria-label="Portfolio projects">
+
+    <article class="portfolio-item featured reveal" data-category="renovation"
+      data-gallery='["images/p-turnkey-1.jpg","images/p-turnkey-1b.jpg","images/p-turnkey-1c.jpg","images/p-turnkey-1d.jpg","images/p-turnkey-1e.jpg"]'
+      data-title="The Kulkarni Residence" data-meta="Full Home Renovation · 3BHK — Viman Nagar, Pune">
+      <div class="portfolio-item-image">
+        <img src="images/p-turnkey-1.jpg" alt="Complete 3BHK renovation by Puniya Interiors, Viman Nagar" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg,#D8D0C4,#C0B8AE)'" />
+      </div>
+      <div class="portfolio-item-overlay">
+        <span class="portfolio-item-tag">Full Home Renovation</span>
+        <h4>The Kulkarni Residence</h4>
+        <p class="portfolio-item-loc">3BHK — Viman Nagar, Pune</p>
+      </div>
+    </article>
+
+    <article class="portfolio-item reveal reveal-delay-1" data-category="kitchen"
+      data-gallery='["images/p-kitchen-1.jpg","images/p-kitchen-1b.jpg","images/p-kitchen-1c.jpg","images/p-kitchen-1d.jpg"]'
+      data-title="Island Kitchen — Baner Villa" data-meta="Modular Kitchen · Baner, Pune">
+      <div class="portfolio-item-image">
+        <img src="images/p-kitchen-1.jpg" alt="Island modular kitchen by Puniya Interiors, Baner" loading="lazy" onerror="this.parentElement.style.background='#D0C8BB'" />
+      </div>
+      <div class="portfolio-item-overlay">
+        <span class="portfolio-item-tag">Modular Kitchen</span>
+        <h4>Island Kitchen — Baner Villa</h4>
+        <p class="portfolio-item-loc">Baner, Pune</p>
+      </div>
+    </article>
+
+    <article class="portfolio-item reveal reveal-delay-2" data-category="bedroom"
+      data-gallery='["images/p-bedroom-1.jpg","images/p-bedroom-1b.jpg","images/p-bedroom-1c.jpg","images/p-bedroom-1d.jpg"]'
+      data-title="Master Bedroom Suite" data-meta="Bedroom Interior · Kharadi, Pune">
+      <div class="portfolio-item-image">
+        <img src="images/p-bedroom-1.jpg" alt="Master bedroom by Puniya Interiors, Kharadi" loading="lazy" onerror="this.parentElement.style.background='#C8C0B4'" />
+      </div>
+      <div class="portfolio-item-overlay">
+        <span class="portfolio-item-tag">Bedroom Interior</span>
+        <h4>Master Bedroom Suite</h4>
+        <p class="portfolio-item-loc">Kharadi, Pune</p>
+      </div>
+    </article>
+
+    <article class="portfolio-item reveal reveal-delay-1" data-category="kitchen"
+      data-gallery='["images/p-kitchen-2.jpg","images/p-kitchen-2b.jpg","images/p-kitchen-2c.jpg","images/p-kitchen-2d.jpg"]'
+      data-title="L-Shape Kitchen — Hadapsar" data-meta="Modular Kitchen · Hadapsar, Pune">
+      <div class="portfolio-item-image">
+        <img src="images/p-kitchen-2.jpg" alt="L-shape kitchen by Puniya Interiors, Hadapsar" loading="lazy" onerror="this.parentElement.style.background='#D8D0C4'" />
+      </div>
+      <div class="portfolio-item-overlay">
+        <span class="portfolio-item-tag">Modular Kitchen</span>
+        <h4>L-Shape Kitchen — Hadapsar</h4>
+        <p class="portfolio-item-loc">Hadapsar, Pune</p>
+      </div>
+    </article>
+
+    <article class="portfolio-item reveal reveal-delay-2" data-category="furniture"
+      data-gallery='["images/p-furniture-1.jpg","images/p-furniture-1b.jpg","images/p-furniture-1c.jpg","images/p-furniture-1d.jpg"]'
+      data-title="Walk-in Wardrobe" data-meta="Wardrobe System · Wakad, Pune">
+      <div class="portfolio-item-image">
+        <img src="images/p-furniture-1.jpg" alt="Wardrobe and walk-in closet by Puniya Interiors" loading="lazy" onerror="this.parentElement.style.background='#C0B8AE'" />
+      </div>
+      <div class="portfolio-item-overlay">
+        <span class="portfolio-item-tag">Wardrobe System</span>
+        <h4>Walk-in Wardrobe</h4>
+        <p class="portfolio-item-loc">Wakad, Pune</p>
+      </div>
+    </article>
+
+    <article class="portfolio-item featured reveal" data-category="renovation"
+      data-gallery='["images/p-turnkey-2.jpg","images/p-turnkey-2b.jpg","images/p-turnkey-2c.jpg","images/p-turnkey-2d.jpg","images/p-turnkey-2e.jpg"]'
+      data-title="The Patil Home" data-meta="Full Home Renovation · 4BHK — Wakad, Pune">
+      <div class="portfolio-item-image">
+        <img src="images/p-turnkey-2.jpg" alt="4BHK full renovation by Puniya Interiors, Wakad" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg,#D0CABC,#B8B0A8)'" />
+      </div>
+      <div class="portfolio-item-overlay">
+        <span class="portfolio-item-tag">Full Home Renovation</span>
+        <h4>The Patil Home</h4>
+        <p class="portfolio-item-loc">4BHK — Wakad, Pune</p>
+      </div>
+    </article>
+
+    <article class="portfolio-item reveal reveal-delay-1" data-category="furniture"
+      data-gallery='["images/p-living-1.jpg","images/p-living-1b.jpg","images/p-living-1c.jpg","images/p-living-1d.jpg"]'
+      data-title="Contemporary Living Room" data-meta="Living Room & TV Unit · Aundh, Pune">
+      <div class="portfolio-item-image">
+        <img src="images/p-living-1.jpg" alt="Contemporary living room by Puniya Interiors, Aundh" loading="lazy" onerror="this.parentElement.style.background='#CABFB4'" />
+      </div>
+      <div class="portfolio-item-overlay">
+        <span class="portfolio-item-tag">Living Room &amp; TV Unit</span>
+        <h4>Contemporary Living Room</h4>
+        <p class="portfolio-item-loc">Aundh, Pune</p>
+      </div>
+    </article>
+
+    <article class="portfolio-item reveal reveal-delay-2" data-category="bedroom"
+      data-gallery='["images/p-bedroom-2.jpg","images/p-bedroom-2b.jpg","images/p-bedroom-2c.jpg","images/p-bedroom-2d.jpg"]'
+      data-title="Kids' Study Bedroom" data-meta="Bedroom & Study · Koregaon Park, Pune">
+      <div class="portfolio-item-image">
+        <img src="images/p-bedroom-2.jpg" alt="Children's study bedroom by Puniya Interiors" loading="lazy" onerror="this.parentElement.style.background='#D4CABC'" />
+      </div>
+      <div class="portfolio-item-overlay">
+        <span class="portfolio-item-tag">Bedroom &amp; Study</span>
+        <h4>Kids' Study Bedroom</h4>
+        <p class="portfolio-item-loc">Koregaon Park, Pune</p>
+      </div>
+    </article>
+
+    <article class="portfolio-item reveal reveal-delay-3" data-category="kitchen"
+      data-gallery='["images/p-kitchen-3.jpg","images/p-kitchen-3b.jpg","images/p-kitchen-3c.jpg","images/p-kitchen-3d.jpg"]'
+      data-title="Parallel Kitchen — NIBM Road" data-meta="Modular Kitchen · NIBM Road, Pune">
+      <div class="portfolio-item-image">
+        <img src="images/p-kitchen-3.jpg" alt="Parallel kitchen by Puniya Interiors, NIBM Road" loading="lazy" onerror="this.parentElement.style.background='#C8C0B4'" />
+      </div>
+      <div class="portfolio-item-overlay">
+        <span class="portfolio-item-tag">Modular Kitchen</span>
+        <h4>Parallel Kitchen — NIBM Road</h4>
+        <p class="portfolio-item-loc">NIBM Road, Pune</p>
+      </div>
+    </article>
+
+    <article class="portfolio-item reveal reveal-delay-1" data-category="commercial"
+      data-gallery='["images/p-commercial-1.jpg","images/p-commercial-1b.jpg","images/p-commercial-1c.jpg","images/p-commercial-1d.jpg"]'
+      data-title="Corporate Office Interior" data-meta="Commercial — Office · Hinjewadi, Pune">
+      <div class="portfolio-item-image">
+        <img src="images/p-commercial-1.jpg" alt="Office interior by Puniya Interiors, Pune" loading="lazy" onerror="this.parentElement.style.background='#D0C8C0'" />
+      </div>
+      <div class="portfolio-item-overlay">
+        <span class="portfolio-item-tag">Commercial — Office</span>
+        <h4>Corporate Office Interior</h4>
+        <p class="portfolio-item-loc">Hinjewadi, Pune</p>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- PROJECT GALLERY LIGHTBOX -->
+  <div class="project-lightbox-overlay" id="projectLightbox" role="dialog" aria-modal="true" aria-label="Project gallery">
+    <div class="project-lightbox-inner">
+      <div class="project-lightbox-header">
+        <div>
+          <div class="project-lightbox-title" id="lbTitle"></div>
+          <div class="project-lightbox-meta" id="lbMeta"></div>
+        </div>
+        <button class="project-lightbox-close" id="lbClose" aria-label="Close gallery">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="project-lightbox-stage" id="lbStage">
+        <button class="project-lightbox-nav prev" id="lbPrev" aria-label="Previous photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="project-lightbox-nav next" id="lbNext" aria-label="Next photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+      <div class="project-lightbox-thumbs" id="lbThumbs"></div>
+      <div class="project-lightbox-counter" id="lbCounter"></div>
+    </div>
+  </div>
+
+  <!-- VIDEO SHOWCASE -->
+  <section class="video-showcase" aria-labelledby="video-heading">
+    <div class="container">
+      <div class="video-showcase-header reveal">
+        <span class="eyebrow">Watch Our Work</span>
+        <h2>Design in <em>Motion</em></h2>
+        <p>See our completed projects come to life — walkthroughs, reveals, and behind-the-scenes from real Pune homes.</p>
+      </div>
+      <div class="video-grid">
+
+        <div class="video-card reveal">
+          <div class="video-card-embed">
+            <video src="videos/video-1.mp4" poster="images/video-1-thumb.jpg"
+              controls playsinline preload="none"
+              aria-label="Full Home Renovation — Wakad, Pune"></video>
+          </div>
+          <div class="video-card-body">
+            <span class="video-card-tag">Full Home Renovation</span>
+            <h3 class="video-card-title">Complete 4BHK Transformation</h3>
+            <p class="video-card-loc">Wakad, Pune</p>
+          </div>
+        </div>
+
+        <div class="video-card reveal reveal-delay-1">
+          <div class="video-card-embed">
+            <video src="videos/video-2.mp4" poster="images/video-2-thumb.jpg"
+              controls playsinline preload="none"
+              aria-label="Modular Kitchen Reveal — Baner, Pune"></video>
+          </div>
+          <div class="video-card-body">
+            <span class="video-card-tag">Modular Kitchen</span>
+            <h3 class="video-card-title">Island Kitchen Reveal</h3>
+            <p class="video-card-loc">Baner, Pune</p>
+          </div>
+        </div>
+
+        <div class="video-card reveal reveal-delay-2">
+          <div class="video-card-embed">
+            <video src="videos/video-3.mp4" poster="images/video-3-thumb.jpg"
+              controls playsinline preload="none"
+              aria-label="Bedroom & Wardrobe Tour — Kharadi, Pune"></video>
+          </div>
+          <div class="video-card-body">
+            <span class="video-card-tag">Bedroom &amp; Wardrobe</span>
+            <h3 class="video-card-title">Master Suite Walkthrough</h3>
+            <p class="video-card-loc">Kharadi, Pune</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner" aria-labelledby="portfolio-cta-heading">
+    <h2 id="portfolio-cta-heading">Your Project Could<br/><em>Be Next</em></h2>
+    <p>Every home you see here started with a conversation. Let's start yours — and have it done in 45 days.</p>
+    <div class="cta-banner-actions">
+      <a href="contact.html" class="btn btn-light">Book a Free Site Visit</a>
+      <a href="https://wa.me/917840998921?text=Hi%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20my%20project."
+         target="_blank" rel="noopener noreferrer" class="btn btn-ghost-white">WhatsApp Us Now</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="margin-bottom:1rem;">
+          <img src="images/logo.png" alt="Puniya Interiors" class="footer-logo-img" onerror="this.style.display='none'" />
+          <span class="nav-logo-text-wrap" style="display:flex"><span class="nav-logo-name">Puniya Interiors</span><span class="nav-logo-tagline">Dhanori, Pune — Est. 2015</span></span>
+        </div>
+        <p>Pune's one-stop solution for all interior works — delivered in 45 days with a 10-year warranty.</p>
+      </div>
+      <div class="footer-col"><h5>Explore</h5><ul><li><a href="index.html">Home</a></li><li><a href="modular-kitchens.html">Modular Kitchens</a></li><li><a href="custom-furniture.html">End-to-End Furniture</a></li><li><a href="portfolio.html">Our Portfolio</a></li><li><a href="about.html">Our Story</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+      <div class="footer-col"><h5>Services</h5><ul><li><a href="modular-kitchens.html">Modular Kitchens</a></li><li><a href="custom-furniture.html#bedroom">Wardrobes &amp; Bedrooms</a></li><li><a href="custom-furniture.html#living">Living Room &amp; TV Units</a></li><li><a href="custom-furniture.html#civil">False Ceiling &amp; Lighting</a></li><li><a href="custom-furniture.html#civil">Civil Work &amp; Renovation</a></li><li><a href="custom-furniture.html#commercial">Commercial Spaces</a></li></ul></div>
+      <div class="footer-col"><h5>Visit Us</h5>
+        <div class="footer-contact-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Jakaat Naka, Bharat Mata Rd,<br/>Madhav Nagar, Dhanori,<br/>Pune — 411015</span></div>
+        <div class="footer-contact-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><a href="tel:+917840998921">+91 78409 98921</a></div>
+        <div class="footer-contact-item"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Mon–Sat: 10 AM – 7 PM</span></div>
+      </div>
+    </div>
+    <div class="footer-bottom" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
+      <span>© 2026 Puniya Interiors. All rights reserved.</span>
+      <span>
+        One-Stop Solution for All Interior Works — Pune.
+        <span style="opacity: 0.3; margin: 0 0.5rem;">|</span>
+        <a href="image-manager.html" style="opacity: 0.6; color: inherit; text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">Admin</a>
+      </span>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/917840998921" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.529 5.859L.057 23.5l5.777-1.517A11.951 11.951 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.893 0-3.667-.52-5.184-1.426l-.371-.22-3.43.9.916-3.345-.242-.383A9.953 9.953 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
+  </a>
+
+  <script>
+    /* ── PORTFOLIO GALLERY LIGHTBOX ── */
+    (function () {
+      const overlay = document.getElementById('projectLightbox');
+      const stage   = document.getElementById('lbStage');
+      const thumbs  = document.getElementById('lbThumbs');
+      const counter = document.getElementById('lbCounter');
+      const title   = document.getElementById('lbTitle');
+      const meta    = document.getElementById('lbMeta');
+      const btnPrev = document.getElementById('lbPrev');
+      const btnNext = document.getElementById('lbNext');
+
+      let images = [], current = 0;
+
+      function buildStage(imgs) {
+        // Remove old imgs (keep nav buttons)
+        stage.querySelectorAll('img').forEach(i => i.remove());
+        imgs.forEach((src, i) => {
+          const img = document.createElement('img');
+          img.src = src;
+          img.alt = 'Project photo ' + (i + 1);
+          if (i === 0) img.classList.add('active');
+          stage.appendChild(img);
+        });
+      }
+
+      function buildThumbs(imgs) {
+        thumbs.innerHTML = '';
+        imgs.forEach((src, i) => {
+          const d = document.createElement('div');
+          d.className = 'project-lightbox-thumb' + (i === 0 ? ' active' : '');
+          const img = document.createElement('img');
+          img.src = src;
+          img.alt = '';
+          d.appendChild(img);
+          d.addEventListener('click', () => goTo(i));
+          thumbs.appendChild(d);
+        });
+      }
+
+      function goTo(idx) {
+        const stageImgs = stage.querySelectorAll('img');
+        stageImgs[current].classList.remove('active');
+        thumbs.children[current].classList.remove('active');
+        current = (idx + images.length) % images.length;
+        stageImgs[current].classList.add('active');
+        thumbs.children[current].classList.add('active');
+        counter.textContent = (current + 1) + ' / ' + images.length;
+        thumbs.children[current].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      }
+
+      function open(item) {
+        images  = JSON.parse(item.dataset.gallery || '[]');
+        if (!images.length) return;
+        current = 0;
+        title.textContent = item.dataset.title || '';
+        meta.textContent  = item.dataset.meta  || '';
+        buildStage(images);
+        buildThumbs(images);
+        counter.textContent = '1 / ' + images.length;
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        // show/hide nav arrows
+        btnPrev.style.display = images.length > 1 ? '' : 'none';
+        btnNext.style.display = images.length > 1 ? '' : 'none';
+      }
+
+      function close() {
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('.portfolio-item[data-gallery]').forEach(item => {
+        item.addEventListener('click', () => open(item));
+      });
+
+      btnPrev.addEventListener('click', (e) => { e.stopPropagation(); goTo(current - 1); });
+      btnNext.addEventListener('click', (e) => { e.stopPropagation(); goTo(current + 1); });
+      document.getElementById('lbClose').addEventListener('click', close);
+      overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+
+      document.addEventListener('keydown', (e) => {
+        if (!overlay.classList.contains('open')) return;
+        if (e.key === 'ArrowLeft')  goTo(current - 1);
+        if (e.key === 'ArrowRight') goTo(current + 1);
+        if (e.key === 'Escape')     close();
+      });
+    })();
+  </script>
+  <script src="js/script.js" defer></script>
+  <script>
+    (function() {
+      const btns = document.querySelectorAll('.filter-btn');
+      const items = document.querySelectorAll('.portfolio-item');
+      btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          btns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.getAttribute('data-filter');
+          items.forEach(item => {
+            const match = filter === 'all' || item.getAttribute('data-category') === filter;
+            item.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+            if (match) { item.style.opacity='1'; item.style.transform='scale(1)'; item.style.display=''; }
+            else { item.style.opacity='0'; item.style.transform='scale(0.97)'; setTimeout(() => { item.style.display='none'; }, 400); }
+          });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
+
