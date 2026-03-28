@@ -11,6 +11,34 @@
   <link rel="icon" type="image/png" sizes="192x192" href="images/favicon.png" />
   <link rel="apple-touch-icon" href="images/favicon.png" />
   <link rel="stylesheet" href="css/style.css" />
+<style>
+/* === MOBILE JUMPNAV ARROW === */
+.section-jumpnav { position: relative; }
+.section-jumpnav::after {
+  content:''; display:none; position:absolute;
+  top:0; right:0; bottom:0; width:52px;
+  background:linear-gradient(to right,transparent,var(--bg-primary) 70%);
+  pointer-events:none; z-index:2;
+}
+.jumpnav-scroll-arrow {
+  display:none; position:absolute; top:50%; right:8px;
+  transform:translateY(-50%); z-index:3; pointer-events:none;
+  color:var(--accent); animation:arrowPulse 1.4s ease-in-out infinite;
+}
+.jumpnav-scroll-arrow svg { width:18px; height:18px; display:block; }
+@keyframes arrowPulse {
+  0%,100%{ opacity:1; transform:translateY(-50%) translateX(0); }
+  50%    { opacity:0.4; transform:translateY(-50%) translateX(3px); }
+}
+@media (max-width:768px){
+  .section-jumpnav::after { display:block; }
+  .jumpnav-scroll-arrow   { display:block; }
+  .section-jumpnav.scrolled-end::after,
+  .section-jumpnav.scrolled-end .jumpnav-scroll-arrow { display:none; }
+}
+/* comp-card-body for flex layout */
+.comp-card-body { flex: 1; min-width: 0; }
+</style>
 </head>
 <body>
 
@@ -94,6 +122,9 @@
   <nav class="section-jumpnav" aria-label="Jump to kitchen section">
     <div class="container">
       <div class="jumpnav-inner">
+      <span class="jumpnav-scroll-arrow" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </span>
         <a href="#overview"      class="jumpnav-item">Overview</a>
         <a href="#storage-units" class="jumpnav-item">Storage Units</a>
         <a href="#accessories"   class="jumpnav-item">Accessories</a>
@@ -161,72 +192,90 @@
             <div class="comp-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18"/></svg>
             </div>
-            <h4>Tandems</h4>
+            <div class="comp-card-body">
+              <h4>Tandems</h4>
             <p>Deep drawer systems with soft-close mechanism. Available in Acrylic, Laminate, and PU &amp; Deco finishes. Ideal for pots, pans, and daily essentials.</p>
+            </div>
           </div>
 
           <div class="comp-card reveal reveal-delay-2">
             <div class="comp-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
             </div>
-            <h4>SS Stainless Steel Trolleys</h4>
+            <div class="comp-card-body">
+              <h4>SS Stainless Steel Trolleys</h4>
             <p>Premium stainless steel pull-out trolleys in Acrylic, Laminate, and PU &amp; Deco finishes. Rust-proof, hygienic, and built to last for decades.</p>
+            </div>
           </div>
 
           <div class="comp-card reveal reveal-delay-3">
             <div class="comp-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 3v18M2 9h6M2 15h6"/></svg>
             </div>
-            <h4>Pantry Unit</h4>
+            <div class="comp-card-body">
+              <h4>Pantry Unit</h4>
             <p>Floor-to-ceiling tall pantry with pull-out larder system. Organizes grains, spices, and dry goods beautifully — every shelf accessible with a single pull.</p>
+            </div>
           </div>
 
           <div class="comp-card reveal reveal-delay-1">
             <div class="comp-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 8h18"/><circle cx="8" cy="5.5" r="1"/><circle cx="16" cy="5.5" r="1"/></svg>
             </div>
-            <h4>Tall Unit</h4>
+            <div class="comp-card-body">
+              <h4>Tall Unit</h4>
             <p>Versatile full-height storage cabinet — perfect for an oven tower, microwave column, or an integrated pantry storage unit. Maximizes vertical space.</p>
+            </div>
           </div>
 
           <div class="comp-card reveal reveal-delay-2">
             <div class="comp-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="8" cy="6" r="2"/><circle cx="8" cy="18" r="2"/></svg>
             </div>
-            <h4>Rolling Shutter Unit</h4>
+            <div class="comp-card-body">
+              <h4>Rolling Shutter Unit</h4>
             <p>Sleek retractable shutter cabinet — hides appliances, creates a clean counter aesthetic. Smooth European roll mechanism with no swing clearance needed.</p>
+            </div>
           </div>
 
           <div class="comp-card reveal reveal-delay-3">
             <div class="comp-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="9" rx="1"/><rect x="3" y="14" width="18" height="7" rx="1"/><path d="M12 12v2"/></svg>
             </div>
-            <h4>Wicker Baskets</h4>
+            <div class="comp-card-body">
+              <h4>Wicker Baskets</h4>
             <p>Natural woven wicker pull-out baskets for vegetables, fruits, and onion storage. Breathable, traditional, and visually warm inside modern cabinetry.</p>
+            </div>
           </div>
 
           <div class="comp-card reveal reveal-delay-1">
             <div class="comp-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 3v18M16 3v18"/><path d="M2 12h20"/></svg>
             </div>
-            <h4>Crockery Cabinet with Glass</h4>
+            <div class="comp-card-body">
+              <h4>Crockery Cabinet with Glass</h4>
             <p>Elegant display cabinets with hydraulic bar or hinges. Choose your glass: <strong>Fluted &amp; Clear</strong>, <strong>Black Tinted</strong>, or <strong>Frosted</strong> — for visual depth and a luxury showroom feel.</p>
+            </div>
           </div>
 
           <div class="comp-card reveal reveal-delay-2">
             <div class="comp-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 3H5a2 2 0 00-2 2v3M21 8V5a2 2 0 00-2-2h-3M3 16v3a2 2 0 002 2h3M16 21h3a2 2 0 002-2v-3"/></svg>
             </div>
-            <h4>Loft (Overhead Storage)</h4>
+            <div class="comp-card-body">
+              <h4>Loft (Overhead Storage)</h4>
             <p>Maximized overhead loft cabinets with smooth-action lift-up or hinged doors. Ideal for seasonal storage without cluttering your main workspace.</p>
+            </div>
           </div>
 
           <div class="comp-card reveal reveal-delay-3">
             <div class="comp-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="14" width="20" height="8" rx="1"/><path d="M2 14l4-8h12l4 8"/></svg>
             </div>
-            <h4>Platform Top — Quartz &amp; Granite</h4>
+            <div class="comp-card-body">
+              <h4>Platform Top — Quartz &amp; Granite</h4>
             <p>Durable, heat-resistant platform tops in premium Quartz or Granite. With protective <strong>Platform Guards</strong> at edges — scratch-proof, stain-resistant, and elegantly finished.</p>
+            </div>
           </div>
 
         </div>
@@ -246,40 +295,50 @@
             <div class="comp-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
             </div>
-            <h4>Premium Handles</h4>
+            <div class="comp-card-body">
+              <h4>Premium Handles</h4>
             <p>Profile handles, J-handles, bar handles, and handleless push-to-open options. Brushed gold, matte black, chrome, and stainless finishes available.</p>
+            </div>
           </div>
 
           <div class="comp-card reveal reveal-delay-2">
             <div class="comp-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
             </div>
-            <h4>Magic Corner</h4>
+            <div class="comp-card-body">
+              <h4>Magic Corner</h4>
             <p>Clever rotating corner unit that brings every item stored in a deep corner cabinet forward to you. Zero wasted space, zero reaching awkwardly into the dark.</p>
+            </div>
           </div>
 
           <div class="comp-card reveal reveal-delay-3">
             <div class="comp-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 3v18M2 8h6M2 14h6M2 20h6"/></svg>
             </div>
-            <h4>Pantry Pull-Out Larder</h4>
+            <div class="comp-card-body">
+              <h4>Pantry Pull-Out Larder</h4>
             <p>Full-extension pantry pull-out with multiple shelves and basket tiers. Turns a slim 150mm gap into a fully organized spice and dry goods station.</p>
+            </div>
           </div>
 
           <div class="comp-card reveal reveal-delay-1">
             <div class="comp-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
             </div>
-            <h4>Masala Pull-Out</h4>
+            <div class="comp-card-body">
+              <h4>Masala Pull-Out</h4>
             <p>Dedicated pull-out spice drawer with tiered rows and removable containers. Every spice visible, accessible, and perfectly organized at your fingertips.</p>
+            </div>
           </div>
 
           <div class="comp-card reveal reveal-delay-2">
             <div class="comp-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 3H5a2 2 0 00-2 2v5M21 8V5a2 2 0 00-2-2h-3M3 16v3a2 2 0 002 2h3M16 21h3a2 2 0 002-2v-3M12 8v8M8 12h8"/></svg>
             </div>
-            <h4>DBR Pull-Down Lift-Up Basket Elevator</h4>
+            <div class="comp-card-body">
+              <h4>DBR Pull-Down Lift-Up Basket Elevator</h4>
             <p>Revolutionary wall cabinet elevator — brings upper shelves down to counter level with a gentle touch. No more tiptoe-reaching. Ergonomic, effortless, and beautiful.</p>
+            </div>
           </div>
 
         </div>
@@ -299,23 +358,31 @@
       <div class="materials-grid">
         <div class="material-card reveal reveal-delay-1">
           <div class="material-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-          <h4>Hettich (Germany)</h4>
+          <div class="comp-card-body">
+              <h4>Hettich (Germany)</h4>
           <p>Soft-close drawer runners, Quadro drawer systems, and InnoTech Atira — precision-engineered for decades of smooth, silent operation.</p>
+            </div>
         </div>
         <div class="material-card reveal reveal-delay-2">
           <div class="material-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-          <h4>Häfele (Germany)</h4>
+          <div class="comp-card-body">
+              <h4>Häfele (Germany)</h4>
           <p>Magic corners, tandem boxes, pull-out larders, and lift systems — the German engineering standard that makes your kitchen feel effortless.</p>
+            </div>
         </div>
         <div class="material-card reveal reveal-delay-3">
           <div class="material-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
-          <h4>BWP Marine Ply Carcass</h4>
+          <div class="comp-card-body">
+              <h4>BWP Marine Ply Carcass</h4>
           <p>Boiling Water Proof marine ply for all cabinet bodies — 100% termite-resistant, warp-proof, and built to withstand Pune's humidity for 20+ years.</p>
+            </div>
         </div>
         <div class="material-card reveal reveal-delay-4">
           <div class="material-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg></div>
-          <h4>Premium Finishes</h4>
+          <div class="comp-card-body">
+              <h4>Premium Finishes</h4>
           <p>UV-sealed Acrylic Sheets, scratch-resistant Laminate Sheets, and luxury PU &amp; Deco finishes — each with a UV coating for lasting colour fidelity.</p>
+            </div>
         </div>
       </div>
     </div>
@@ -403,8 +470,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="nav-logo" style="margin-bottom:1rem;">
-          <img src="images/logo.png" alt="Puniya Interiors" class="footer-logo-img" onerror="this.style.display='none'"
-            onerror="this.style.display='none'" />
+          <img src="images/logo.png" alt="Puniya Interiors" class="footer-logo-img" />
           <span class="nav-logo-text-wrap" style="display:flex"><span class="nav-logo-name">Puniya Interiors</span><span class="nav-logo-tagline">Dhanori, Pune — Est. 2015</span></span>
         </div>
         <p>Pune's one-stop solution for all interior works. Delivered in 45 days with a 10-year warranty.</p>
@@ -432,6 +498,63 @@
   </a>
 
   <script src="js/script.js" defer></script>
+  <script>
+    /* Jumpnav scroll arrow — hide when scrolled to end */
+    (function(){
+      var nav=document.querySelector('.section-jumpnav');
+      var inner=nav&&nav.querySelector('.jumpnav-inner');
+      if(!inner) return;
+      inner.addEventListener('scroll',function(){
+        nav.classList.toggle('scrolled-end', inner.scrollLeft+inner.clientWidth>=inner.scrollWidth-8);
+      },{passive:true});
+    })();
+    /* Gallery lightbox — tap to open full image with prev/next */
+    (function(){
+      var items=document.querySelectorAll('.gallery-strip-grid .g-item');
+      if(!items.length) return;
+      var ov=document.createElement('div');
+      ov.style.cssText='display:none;position:fixed;inset:0;background:rgba(0,0,0,0.93);z-index:9999;align-items:center;justify-content:center;flex-direction:column;';
+      var img=document.createElement('img');
+      img.style.cssText='max-width:92vw;max-height:82vh;object-fit:contain;border-radius:8px;';
+      var counter=document.createElement('div');
+      counter.style.cssText='color:rgba(255,255,255,0.5);font-size:0.75rem;margin-top:0.75rem;letter-spacing:0.1em;';
+      var close=document.createElement('button');
+      close.innerHTML='&times;';
+      close.setAttribute('aria-label','Close');
+      close.style.cssText='position:absolute;top:16px;right:20px;background:none;border:none;color:#fff;font-size:2.2rem;cursor:pointer;line-height:1;padding:4px 8px;';
+      var prev=document.createElement('button');
+      prev.innerHTML='&#8249;';
+      prev.setAttribute('aria-label','Previous');
+      prev.style.cssText='position:absolute;left:8px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.1);border:none;color:#fff;font-size:2.8rem;cursor:pointer;line-height:1;padding:4px 14px;border-radius:6px;';
+      var next=document.createElement('button');
+      next.innerHTML='&#8250;';
+      next.setAttribute('aria-label','Next');
+      next.style.cssText='position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.1);border:none;color:#fff;font-size:2.8rem;cursor:pointer;line-height:1;padding:4px 14px;border-radius:6px;';
+      ov.appendChild(img);ov.appendChild(counter);ov.appendChild(close);ov.appendChild(prev);ov.appendChild(next);
+      document.body.appendChild(ov);
+      var current=0;
+      var srcs=Array.from(items).map(function(i){return i.querySelector('img').src;});
+      function show(idx){
+        current=(idx+srcs.length)%srcs.length;
+        img.src=srcs[current];
+        counter.textContent=(current+1)+' / '+srcs.length;
+        ov.style.display='flex';
+        document.body.style.overflow='hidden';
+      }
+      function hide(){ov.style.display='none';document.body.style.overflow='';}
+      items.forEach(function(item,i){item.addEventListener('click',function(){show(i);});});
+      close.addEventListener('click',hide);
+      ov.addEventListener('click',function(e){if(e.target===ov)hide();});
+      prev.addEventListener('click',function(e){e.stopPropagation();show(current-1);});
+      next.addEventListener('click',function(e){e.stopPropagation();show(current+1);});
+      document.addEventListener('keydown',function(e){
+        if(ov.style.display!=='flex')return;
+        if(e.key==='ArrowLeft')show(current-1);
+        if(e.key==='ArrowRight')show(current+1);
+        if(e.key==='Escape')hide();
+      });
+    })();
+  </script>
 </body>
 </html>
 

@@ -11,6 +11,34 @@
   <link rel="icon" type="image/png" sizes="192x192" href="images/favicon.png" />
   <link rel="apple-touch-icon" href="images/favicon.png" />
   <link rel="stylesheet" href="css/style.css" />
+<style>
+/* === MOBILE JUMPNAV ARROW === */
+.section-jumpnav { position: relative; }
+.section-jumpnav::after {
+  content:''; display:none; position:absolute;
+  top:0; right:0; bottom:0; width:52px;
+  background:linear-gradient(to right,transparent,var(--bg-primary) 70%);
+  pointer-events:none; z-index:2;
+}
+.jumpnav-scroll-arrow {
+  display:none; position:absolute; top:50%; right:8px;
+  transform:translateY(-50%); z-index:3; pointer-events:none;
+  color:var(--accent); animation:arrowPulse 1.4s ease-in-out infinite;
+}
+.jumpnav-scroll-arrow svg { width:18px; height:18px; display:block; }
+@keyframes arrowPulse {
+  0%,100%{ opacity:1; transform:translateY(-50%) translateX(0); }
+  50%    { opacity:0.4; transform:translateY(-50%) translateX(3px); }
+}
+@media (max-width:768px){
+  .section-jumpnav::after { display:block; }
+  .jumpnav-scroll-arrow   { display:block; }
+  .section-jumpnav.scrolled-end::after,
+  .section-jumpnav.scrolled-end .jumpnav-scroll-arrow { display:none; }
+}
+/* comp-card-body for flex layout */
+.comp-card-body { flex: 1; min-width: 0; }
+</style>
 </head>
 <body>
 
@@ -67,6 +95,9 @@
   <nav class="section-jumpnav" aria-label="Jump to section">
     <div class="container">
       <div class="jumpnav-inner">
+      <span class="jumpnav-scroll-arrow" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </span>
         <a href="#bedroom" class="jumpnav-item">Bedroom</a>
         <a href="#living" class="jumpnav-item">Living Room</a>
         <a href="#entrance" class="jumpnav-item">Entrance</a>
@@ -94,62 +125,82 @@
 
         <div class="comp-card reveal reveal-delay-1">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><rect x="9" y="13" width="6" height="8"/></svg></div>
-          <h4>Hydraulic Bed</h4>
+          <div class="comp-card-body">
+              <h4>Hydraulic Bed</h4>
           <p>Gas-lift hydraulic storage beds that open smoothly to reveal a full under-mattress storage compartment. Premium upholstered headboard included.</p>
+            </div>
         </div>
 
         <div class="comp-card reveal reveal-delay-2">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M2 11h20M7 7V5a1 1 0 011-1h8a1 1 0 011 1v2"/></svg></div>
-          <h4>Drawer Bed</h4>
+          <div class="comp-card-body">
+              <h4>Drawer Bed</h4>
           <p>Beds with built-in pull-out drawers on the sides — perfect for linen, seasonal clothing, and extra storage without compromising the bedroom aesthetic.</p>
+            </div>
         </div>
 
         <div class="comp-card reveal reveal-delay-3">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 3H5a2 2 0 00-2 2v5M21 8V5a2 2 0 00-2-2h-3M3 16v3a2 2 0 002 2h3M16 21h3a2 2 0 002-2v-3"/><path d="M12 8v8M8 12h8"/></svg></div>
-          <h4>Wall Mounted Bed</h4>
+          <div class="comp-card-body">
+              <h4>Wall Mounted Bed</h4>
           <p>Murphy-style wall-mounted folding beds — ideal for studio apartments and guest rooms. Folds away cleanly to free up the full floor space when not in use.</p>
+            </div>
         </div>
 
         <div class="comp-card reveal reveal-delay-1">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
-          <h4>Foam Headboard</h4>
+          <div class="comp-card-body">
+              <h4>Foam Headboard</h4>
           <p>Custom upholstered foam headboards in premium fabric, velvet, or leatherette. Wall-fixed or bed-integrated, designed to anchor your bedroom's visual identity.</p>
+            </div>
         </div>
 
         <div class="comp-card reveal reveal-delay-2">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="2" width="18" height="20" rx="2"/><path d="M8 2v20M3 8h5M3 14h5M16 8h5M16 14h5"/></svg></div>
-          <h4>Wardrobes — Full System</h4>
+          <div class="comp-card-body">
+              <h4>Wardrobes — Full System</h4>
           <p>Floor-to-ceiling wardrobes with: <strong>Drawers</strong>, <strong>Cloth Hanging</strong>, <strong>Built-in Dressing Mirror</strong>, <strong>Organisers</strong>, <strong>Iron Board</strong>, and dedicated compartments for every need. Soft-close Hettich fittings throughout.</p>
+            </div>
         </div>
 
         <div class="comp-card reveal reveal-delay-3">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="3" width="6" height="4" rx="1"/><rect x="9" y="3" width="6" height="4" rx="1"/><rect x="16" y="3" width="6" height="4" rx="1"/><path d="M2 9h20M2 13h20M2 17h20M2 21h20"/></svg></div>
-          <h4>Side Tables</h4>
+          <div class="comp-card-body">
+              <h4>Side Tables</h4>
           <p>Custom bedside tables designed to match your bed and wardrobe — with integrated charging points, drawers, or open shelving. Any size, any finish.</p>
+            </div>
         </div>
 
         <div class="comp-card reveal reveal-delay-1">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 19V5a2 2 0 012-2h12a2 2 0 012 2v14"/><path d="M2 19h20M9 3v16M15 3v4"/></svg></div>
-          <h4>Study Table</h4>
+          <div class="comp-card-body">
+              <h4>Study Table</h4>
           <p>Wall-mounted or free-standing study tables with overhead shelves, cable management, and a dedicated workspace for children and home-office needs.</p>
+            </div>
         </div>
 
         <div class="comp-card reveal reveal-delay-2">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 19V5a2 2 0 012-2h8l6 6v10a2 2 0 01-2 2H6a2 2 0 01-2-2z"/><polyline points="14 3 14 9 20 9"/></svg></div>
-          <h4>Book Rack</h4>
+          <div class="comp-card-body">
+              <h4>Book Rack</h4>
           <p>Open or closed book racks — wall-mounted floating shelves, built-in alcove shelving, or freestanding units. Designed to display your collection beautifully.</p>
+            </div>
         </div>
 
         <div class="comp-card reveal reveal-delay-3">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 3H5a2 2 0 00-2 2v5M21 8V5a2 2 0 00-2-2h-3M3 16v3a2 2 0 002 2h3M16 21h3a2 2 0 002-2v-3"/></svg></div>
-          <h4>Loft Storage</h4>
+          <div class="comp-card-body">
+              <h4>Loft Storage</h4>
           <p>Overhead loft cabinets above wardrobes for seasonal storage. Smooth-action lift-up or hinged doors — maximizing every vertical inch of your bedroom.</p>
+            </div>
         </div>
 
         <div class="comp-card reveal reveal-delay-1">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/><circle cx="15" cy="6" r="1"/></svg></div>
-          <h4>Wall Décor</h4>
+          <div class="comp-card-body">
+              <h4>Wall Décor</h4>
           <p>Feature walls with paneling, fluted panels, back-painted glass, wallpapers, or textured finishes — transforming a plain wall into your bedroom's signature statement.</p>
+            </div>
         </div>
 
       </div>
@@ -170,44 +221,58 @@
 
         <div class="comp-card reveal reveal-delay-1">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
-          <h4>TV Unit with Louvers</h4>
+          <div class="comp-card-body">
+              <h4>TV Unit with Louvers</h4>
           <p>Statement TV units with textured <strong>louver panels</strong>, concealed wire management, backlit floating shelves, and integrated bar/display niches. The centrepiece your living room deserves.</p>
+            </div>
         </div>
 
         <div class="comp-card reveal reveal-delay-2">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-          <h4>Mandir</h4>
+          <div class="comp-card-body">
+              <h4>Mandir</h4>
           <p>Beautifully crafted wooden mandirs — wall-mounted, free-standing, or integrated into your living room unit. Traditional craftsmanship with clean, contemporary lines.</p>
+            </div>
         </div>
 
         <div class="comp-card reveal reveal-delay-3">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 9V7a2 2 0 00-2-2H6a2 2 0 00-2 2v2M2 11v5a2 2 0 002 2h16a2 2 0 002-2v-5a2 2 0 00-2-2H4a2 2 0 00-2 2z"/><path d="M6 18v2M18 18v2"/></svg></div>
-          <h4>Sofa Set</h4>
+          <div class="comp-card-body">
+              <h4>Sofa Set</h4>
           <p>Custom upholstered sofa sets designed to your living room's dimensions and aesthetic — fabric, velvet, or leatherette in any configuration: L-shape, sectional, or classic 3+1+1.</p>
+            </div>
         </div>
 
         <div class="comp-card reveal reveal-delay-1">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="7" width="20" height="15" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div>
-          <h4>Back Wall Décor</h4>
+          <div class="comp-card-body">
+              <h4>Back Wall Décor</h4>
           <p>Feature accent walls with fluted panels, CNC-cut patterns, wallpaper, textured paint, or stone cladding — creating a visual anchor for your entire living room.</p>
+            </div>
         </div>
 
         <div class="comp-card reveal reveal-delay-2">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
-          <h4>False Ceiling</h4>
+          <div class="comp-card-body">
+              <h4>False Ceiling</h4>
           <p>Living room false ceilings with cove lighting, POP designs, coffered panels, and integrated lighting zones — transforming a flat ceiling into an architectural feature.</p>
+            </div>
         </div>
 
         <div class="comp-card reveal reveal-delay-3">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></div>
-          <h4>Room Partition</h4>
+          <div class="comp-card-body">
+              <h4>Room Partition</h4>
           <p>Stylish partitions in CNC-cut wood, fluted glass, or metal frames — dividing living and dining areas with visual interest rather than solid walls.</p>
+            </div>
         </div>
 
         <div class="comp-card reveal reveal-delay-1">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="1"/><path d="M2 10h20M2 14h20M7 7V3M17 7V3"/></svg></div>
-          <h4>Dining Table</h4>
+          <div class="comp-card-body">
+              <h4>Dining Table</h4>
           <p>Custom dining tables in <strong>Folding</strong> and <strong>Wall-Mounted</strong> configurations — perfect for compact apartments. Also available as fixed 4/6/8-seater sets with matching chairs.</p>
+            </div>
         </div>
 
       </div>
@@ -228,38 +293,50 @@
 
         <div class="comp-card reveal reveal-delay-1">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v6M15 3v6"/></svg></div>
-          <h4>Wall Paneling</h4>
+          <div class="comp-card-body">
+              <h4>Wall Paneling</h4>
           <p>Fluted wood panels, PU-finished boards, or textured wall cladding at the entrance — creating a warm, hotel-lobby arrival experience the moment you step in.</p>
+            </div>
         </div>
 
         <div class="comp-card reveal reveal-delay-2">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
-          <h4>Shoe Rack</h4>
+          <div class="comp-card-body">
+              <h4>Shoe Rack</h4>
           <p>Concealed or open shoe storage designed for Indian homes — with seating bench, pull-out drawers, and ventilated panels to keep your entrance clean and organized.</p>
+            </div>
         </div>
 
         <div class="comp-card reveal reveal-delay-3">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></div>
-          <h4>Safety Door with Digital Lock</h4>
+          <div class="comp-card-body">
+              <h4>Safety Door with Digital Lock</h4>
           <p>Premium safety doors with biometric / PIN / card digital smart locks. Powder-coated steel frames with decorative panel inserts — security without compromising style.</p>
+            </div>
         </div>
 
         <div class="comp-card reveal reveal-delay-1">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg></div>
-          <h4>CNC Jali</h4>
+          <div class="comp-card-body">
+              <h4>CNC Jali</h4>
           <p>Precision CNC-cut decorative screens in MDF or metal — used as room dividers, door panels, or feature walls. Geometric, floral, or custom pattern in any design you choose.</p>
+            </div>
         </div>
 
         <div class="comp-card reveal reveal-delay-2">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-          <h4>Name Plates</h4>
+          <div class="comp-card-body">
+              <h4>Name Plates</h4>
           <p>Custom designer name plates in brass, stainless steel, acrylic, or wood — engraved, laser-cut, or backlit LED. The smallest detail that makes a powerful statement.</p>
+            </div>
         </div>
 
         <div class="comp-card reveal reveal-delay-3">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-4M16 3l5 5-5 5M21 8H9"/></svg></div>
-          <h4>Main Door</h4>
+          <div class="comp-card-body">
+              <h4>Main Door</h4>
           <p>Solid wood, engineered wood, or composite main doors with custom veneers, glass inserts, or carved panels. Complete with frames, seals, and a 10-year structural warranty.</p>
+            </div>
         </div>
 
       </div>
@@ -312,38 +389,50 @@
 
         <div class="comp-card reveal reveal-delay-1">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
-          <h4>False Ceiling — POP &amp; Gypsum</h4>
+          <div class="comp-card-body">
+              <h4>False Ceiling — POP &amp; Gypsum</h4>
           <p>Coffered ceilings, dropped panels, cove designs, and multi-level ceilings in POP or gypsum board — transforming every room from top to bottom.</p>
+            </div>
         </div>
 
         <div class="comp-card reveal reveal-delay-2">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 20h20M4 20V10M8 20V6M12 20V2M16 20V8M20 20V14"/></svg></div>
-          <h4>Painting</h4>
+          <div class="comp-card-body">
+              <h4>Painting</h4>
           <p>Interior and exterior painting with premium Asian Paints or Berger finishes — texture paint, designer finishes, and meticulous preparation for a flawless result.</p>
+            </div>
         </div>
 
         <div class="comp-card reveal reveal-delay-3">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/></svg></div>
-          <h4>Plumbing</h4>
+          <div class="comp-card-body">
+              <h4>Plumbing</h4>
           <p>Kitchen and bathroom plumbing — pipe re-routing, new fixture installation, drainage upgrades, and waterproofing. Clean, code-compliant, and long-lasting work.</p>
+            </div>
         </div>
 
         <div class="comp-card reveal reveal-delay-1">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="9" height="9"/><rect x="13" y="2" width="9" height="9"/><rect x="2" y="13" width="9" height="9"/><rect x="13" y="13" width="9" height="9"/></svg></div>
-          <h4>Renovation</h4>
+          <div class="comp-card-body">
+              <h4>Renovation</h4>
           <p>Complete home renovation — demolition, masonry, waterproofing, screeding, and rebuild. We handle gut renovations as smoothly as targeted room refreshes.</p>
+            </div>
         </div>
 
         <div class="comp-card reveal reveal-delay-2">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="1"/><rect x="13" y="2" width="9" height="9" rx="1"/><rect x="2" y="13" width="9" height="9" rx="1"/><rect x="13" y="13" width="9" height="9" rx="1"/></svg></div>
-          <h4>Tiling Work</h4>
+          <div class="comp-card-body">
+              <h4>Tiling Work</h4>
           <p>Expert tile-laying for kitchens, bathrooms, and living areas. Precise grouting, waterproofing, and levelling — so every tile sits perfectly flat and lasts for decades.</p>
+            </div>
         </div>
 
         <div class="comp-card reveal reveal-delay-3">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg></div>
-          <h4>Electrical &amp; Wiring</h4>
+          <div class="comp-card-body">
+              <h4>Electrical &amp; Wiring</h4>
           <p>Concealed wiring, circuit planning, switch-board upgrades, and point additions — done safely, to IS standards, coordinated with your furniture layout.</p>
+            </div>
         </div>
 
       </div>
@@ -364,38 +453,50 @@
 
         <div class="comp-card reveal reveal-delay-1">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="8" width="20" height="8" rx="2"/><path d="M6 8V5M18 8V5M6 16v3M18 16v3"/></svg></div>
-          <h4>Panel Lights</h4>
+          <div class="comp-card-body">
+              <h4>Panel Lights</h4>
           <p><strong>Surface-mounted</strong> panel lights and <strong>rectangular LED panels</strong> for kitchens, offices, and utility spaces — uniform, glare-free illumination in warm or cool white.</p>
+            </div>
         </div>
 
         <div class="comp-card reveal reveal-delay-2">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="2" x2="12" y2="22"/><path d="M5 5.5l14 13M19 5.5L5 18.5"/></svg></div>
-          <h4>Profile Lights</h4>
+          <div class="comp-card-body">
+              <h4>Profile Lights</h4>
           <p>Aluminum LED profile channels recessed into furniture edges, under cabinets, and ceiling coving. Creates a luxury glow that makes your kitchen and wardrobes look premium.</p>
+            </div>
         </div>
 
         <div class="comp-card reveal reveal-delay-3">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
-          <h4>Magnetic Lights</h4>
+          <div class="comp-card-body">
+              <h4>Magnetic Lights</h4>
           <p>Modern magnetic track systems — repositionable spotlights that click into a ceiling-mounted magnetic rail. Change your lighting layout any time without any electrical work.</p>
+            </div>
         </div>
 
         <div class="comp-card reveal reveal-delay-1">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="5" r="3"/><path d="M12 8v8M8 12l4 4 4-4"/></svg></div>
-          <h4>Spot Lights</h4>
+          <div class="comp-card-body">
+              <h4>Spot Lights</h4>
           <p>Recessed downlights precisely aimed at artwork, décor items, and kitchen platforms — creating drama and depth with targeted illumination where it matters most.</p>
+            </div>
         </div>
 
         <div class="comp-card reveal reveal-delay-2">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/><circle cx="6" cy="6" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg></div>
-          <h4>Track Lights</h4>
+          <div class="comp-card-body">
+              <h4>Track Lights</h4>
           <p>Adjustable track lighting mounted to ceiling rails — ideal for kitchens, art walls, and retail-style living rooms. Aims precisely where you need it.</p>
+            </div>
         </div>
 
         <div class="comp-card reveal reveal-delay-3">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
-          <h4>Cove Lights</h4>
+          <div class="comp-card-body">
+              <h4>Cove Lights</h4>
           <p>Indirect LED strips hidden inside false ceiling coves — washing the ceiling and walls with a warm ambient glow. The defining feature of any luxury living room.</p>
+            </div>
         </div>
 
       </div>
@@ -451,20 +552,26 @@
 
         <div class="comp-card reveal reveal-delay-1">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="2"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="12" y1="2" x2="12" y2="22"/></svg></div>
-          <h4>Full Body Tiles</h4>
+          <div class="comp-card-body">
+              <h4>Full Body Tiles</h4>
           <p>Through-body porcelain tiles — the colour runs throughout the tile body, making chips virtually invisible. Premium-grade, 800x800mm and larger formats available.</p>
+            </div>
         </div>
 
         <div class="comp-card reveal reveal-delay-2">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="1"/><rect x="13" y="2" width="9" height="9" rx="1"/><rect x="2" y="13" width="9" height="9" rx="1"/><rect x="13" y="13" width="9" height="9" rx="1"/></svg></div>
-          <h4>Ceramic Tiles</h4>
+          <div class="comp-card-body">
+              <h4>Ceramic Tiles</h4>
           <p>Glazed ceramic wall and floor tiles — a wide range of textures, patterns, and sizes for kitchens, bathrooms, and living areas. Budget-friendly without compromising look.</p>
+            </div>
         </div>
 
         <div class="comp-card reveal reveal-delay-3">
           <div class="comp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-          <h4>Marble &amp; Natural Stone</h4>
+          <div class="comp-card-body">
+              <h4>Marble &amp; Natural Stone</h4>
           <p>Italian, Indian, and imported marble for flooring, feature walls, kitchen platforms, and bathrooms. Sealed, polished, and professionally installed for lasting elegance.</p>
+            </div>
         </div>
 
       </div>
@@ -587,8 +694,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="nav-logo" style="margin-bottom:1rem;">
-          <img src="images/logo.png" alt="Puniya Interiors" class="footer-logo-img" onerror="this.style.display='none'"
-            onerror="this.style.display='none'" />
+          <img src="images/logo.png" alt="Puniya Interiors" class="footer-logo-img" />
           <span class="nav-logo-text-wrap" style="display:flex"><span class="nav-logo-name">Puniya Interiors</span><span class="nav-logo-tagline">Dhanori, Pune — Est. 2015</span></span>
         </div>
         <p>Pune's one-stop solution for all interior works — delivered in 45 days with a 10-year warranty.</p>
@@ -616,6 +722,63 @@
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.529 5.859L.057 23.5l5.777-1.517A11.951 11.951 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.893 0-3.667-.52-5.184-1.426l-.371-.22-3.43.9.916-3.345-.242-.383A9.953 9.953 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
   </a>
   <script src="js/script.js" defer></script>
+  <script>
+    /* Jumpnav scroll arrow — hide when scrolled to end */
+    (function(){
+      var nav=document.querySelector('.section-jumpnav');
+      var inner=nav&&nav.querySelector('.jumpnav-inner');
+      if(!inner) return;
+      inner.addEventListener('scroll',function(){
+        nav.classList.toggle('scrolled-end', inner.scrollLeft+inner.clientWidth>=inner.scrollWidth-8);
+      },{passive:true});
+    })();
+    /* Gallery lightbox — tap to open full image with prev/next */
+    (function(){
+      var items=document.querySelectorAll('.gallery-strip-grid .g-item');
+      if(!items.length) return;
+      var ov=document.createElement('div');
+      ov.style.cssText='display:none;position:fixed;inset:0;background:rgba(0,0,0,0.93);z-index:9999;align-items:center;justify-content:center;flex-direction:column;';
+      var img=document.createElement('img');
+      img.style.cssText='max-width:92vw;max-height:82vh;object-fit:contain;border-radius:8px;';
+      var counter=document.createElement('div');
+      counter.style.cssText='color:rgba(255,255,255,0.5);font-size:0.75rem;margin-top:0.75rem;letter-spacing:0.1em;';
+      var close=document.createElement('button');
+      close.innerHTML='&times;';
+      close.setAttribute('aria-label','Close');
+      close.style.cssText='position:absolute;top:16px;right:20px;background:none;border:none;color:#fff;font-size:2.2rem;cursor:pointer;line-height:1;padding:4px 8px;';
+      var prev=document.createElement('button');
+      prev.innerHTML='&#8249;';
+      prev.setAttribute('aria-label','Previous');
+      prev.style.cssText='position:absolute;left:8px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.1);border:none;color:#fff;font-size:2.8rem;cursor:pointer;line-height:1;padding:4px 14px;border-radius:6px;';
+      var next=document.createElement('button');
+      next.innerHTML='&#8250;';
+      next.setAttribute('aria-label','Next');
+      next.style.cssText='position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.1);border:none;color:#fff;font-size:2.8rem;cursor:pointer;line-height:1;padding:4px 14px;border-radius:6px;';
+      ov.appendChild(img);ov.appendChild(counter);ov.appendChild(close);ov.appendChild(prev);ov.appendChild(next);
+      document.body.appendChild(ov);
+      var current=0;
+      var srcs=Array.from(items).map(function(i){return i.querySelector('img').src;});
+      function show(idx){
+        current=(idx+srcs.length)%srcs.length;
+        img.src=srcs[current];
+        counter.textContent=(current+1)+' / '+srcs.length;
+        ov.style.display='flex';
+        document.body.style.overflow='hidden';
+      }
+      function hide(){ov.style.display='none';document.body.style.overflow='';}
+      items.forEach(function(item,i){item.addEventListener('click',function(){show(i);});});
+      close.addEventListener('click',hide);
+      ov.addEventListener('click',function(e){if(e.target===ov)hide();});
+      prev.addEventListener('click',function(e){e.stopPropagation();show(current-1);});
+      next.addEventListener('click',function(e){e.stopPropagation();show(current+1);});
+      document.addEventListener('keydown',function(e){
+        if(ov.style.display!=='flex')return;
+        if(e.key==='ArrowLeft')show(current-1);
+        if(e.key==='ArrowRight')show(current+1);
+        if(e.key==='Escape')hide();
+      });
+    })();
+  </script>
 </body>
 </html>
 
