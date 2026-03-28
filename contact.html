@@ -170,27 +170,8 @@
         <h3>Send Us a Message</h3>
         <p>Tell us about your project and we'll reply with ideas and a rough estimate within 24 hours.</p>
 
-        <!--
-          FORM SETUP (GitHub Pages doesn't process forms — use one of these):
-          ─────────────────────────────────────────────────────────────────
-          OPTION 1 — FORMSPREE (Free, recommended):
-            1. Sign up at https://formspree.io
-            2. Create a form → copy your Form ID
-            3. Replace YOUR_FORMSPREE_ID below with your ID
-            4. Submissions land in your email automatically
-
-          OPTION 2 — NETLIFY FORMS (if hosting on Netlify):
-            Add netlify attribute to <form> tag
-
-          OPTION 3 — EMAILJS (works on GitHub Pages):
-            Sign up at emailjs.com and update script.js
-          ─────────────────────────────────────────────────────────────────
-        -->
-        <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="inquiry-form" novalidate
+        <form id="puniya-contact-form" class="inquiry-form" novalidate
           aria-label="Project inquiry form">
-
-          <input type="hidden" name="_subject" value="New Inquiry — Puniya Interiors Website" />
-          <input type="text" name="_gotcha" style="display:none;" tabindex="-1" autocomplete="off" />
 
           <div class="form-row">
             <div class="form-group">
@@ -394,6 +375,60 @@
     </svg>
   </a>
 
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    // ════════════════════════════════════════════════════
+    // EMAILJS SETUP — fill in your 3 IDs from emailjs.com
+    // ════════════════════════════════════════════════════
+    const EJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';    // Account → API Keys
+    const EJS_SERVICE_ID  = 'YOUR_SERVICE_ID';    // Email Services tab
+    const EJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';   // Email Templates tab
+
+    emailjs.init({ publicKey: EJS_PUBLIC_KEY });
+
+    document.getElementById('puniya-contact-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const form = this;
+      const btn  = form.querySelector('[type="submit"]');
+
+      // Basic validation
+      const name  = form.querySelector('[name="name"]').value.trim();
+      const phone = form.querySelector('[name="phone"]').value.trim();
+      if (!name || !phone) {
+        alert('Please fill in your name and phone number.');
+        return;
+      }
+
+      const orig = btn.textContent;
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+
+      try {
+        await emailjs.sendForm(EJS_SERVICE_ID, EJS_TEMPLATE_ID, form);
+        // Success — replace form with thank you message
+        form.innerHTML = `
+          <div style="text-align:center;padding:3rem 1rem;">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"
+              style="margin-bottom:1.25rem;">
+              <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+            <p style="font-family:var(--font-serif);font-size:1.9rem;color:var(--accent);margin-bottom:.5rem;">
+              Thank you.
+            </p>
+            <p style="color:var(--text-secondary);font-size:.95rem;">
+              Your message was sent successfully.<br/>We'll be in touch within 24 hours.
+            </p>
+          </div>`;
+      } catch (err) {
+        btn.textContent = orig;
+        btn.disabled = false;
+        alert('Could not send your message. Please WhatsApp us directly at +91 78409 98921.');
+        console.error('EmailJS error:', err);
+      }
+    });
+  </script>
   <script src="js/script.js" defer></script>
 </body>
 
