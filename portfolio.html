@@ -482,7 +482,7 @@
     // PASTE YOUR GOOGLE SHEET CSV URL BELOW (one-time setup)
     // In Google Sheets: File → Share → Publish to web → CSV → copy URL → paste here
     // ═══════════════════════════════════════════════════════
-    const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRGU6MKQqonGbgp5PVKY9luxWw9y6M29jAh-qLJ1PDvxgk5e0MYp_xQwWFQoP8iTdiafEEV-9MrM9Lo/pub?output=csv';
+    const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQp0c3t1f02V0GCvmZnHMftguplBaXUmv17JM6XpgBTIRLWtWcunWRrzs8Je-vaxii-sFzW0wHGtsQH/pub?output=csv';
 
     function parseVideoCSV(txt) {
       const lines = txt.trim().split('\n');
@@ -502,7 +502,7 @@
     }
 
     async function loadVideos() {
-      if (!SHEET_CSV_URL || SHEET_CSV_URL === 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRGU6MKQqonGbgp5PVKY9luxWw9y6M29jAh-qLJ1PDvxgk5e0MYp_xQwWFQoP8iTdiafEEV-9MrM9Lo/pub?output=csv') return;
+      if (!SHEET_CSV_URL || SHEET_CSV_URL === 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQp0c3t1f02V0GCvmZnHMftguplBaXUmv17JM6XpgBTIRLWtWcunWRrzs8Je-vaxii-sFzW0wHGtsQH/pub?output=csv') return;
       try {
         const res = await fetch(SHEET_CSV_URL);
         const rows = parseVideoCSV(await res.text());
