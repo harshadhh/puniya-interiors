@@ -5,9 +5,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Image Manager — Puniya Interiors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap"
-    rel="stylesheet" />
+    rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet" /></noscript>
   <style>
     :root {
       --bg: #F7F5F0;
@@ -21,8 +24,8 @@
       --muted: #9C958E;
       --green: #5a9a6a;
       --red: #b05a5a;
-      --font-serif: 'Playfair Display', serif;
-      --font: 'DM Sans', sans-serif;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       --r: 10px;
       --t: 0.22s ease;
     }
@@ -612,7 +615,6 @@
       border-bottom: 1px solid var(--border);
       padding-bottom: 0;
     }
-
     .tab-btn {
       background: none;
       border: none;
@@ -629,28 +631,11 @@
       align-items: center;
       gap: 6px;
     }
-
-    .tab-btn:hover {
-      color: var(--cream);
-    }
-
-    .tab-btn.active {
-      color: var(--gold);
-      border-bottom-color: var(--gold);
-    }
-
-    .tab-btn svg {
-      width: 14px;
-      height: 14px;
-    }
-
-    .tab-panel {
-      display: none;
-    }
-
-    .tab-panel.active {
-      display: block;
-    }
+    .tab-btn:hover { color: var(--cream); }
+    .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+    .tab-btn svg { width: 14px; height: 14px; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
 
     /* ── CLOUDINARY PANEL ── */
     .cloud-hero {
@@ -662,38 +647,16 @@
       align-items: flex-start;
       gap: 1.5rem;
     }
-
     .cloud-hero-icon {
-      width: 48px;
-      height: 48px;
-      flex-shrink: 0;
-      background: rgba(184, 148, 90, .15);
-      border: 1px solid rgba(184, 148, 90, .25);
+      width: 48px; height: 48px; flex-shrink: 0;
+      background: rgba(184,148,90,.15);
+      border: 1px solid rgba(184,148,90,.25);
       border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
     }
-
-    .cloud-hero-icon svg {
-      width: 22px;
-      height: 22px;
-      color: var(--gold);
-    }
-
-    .cloud-hero h2 {
-      font-family: var(--font-serif);
-      font-size: 1.3rem;
-      font-weight: 400;
-      color: #fff;
-      margin-bottom: .3rem;
-    }
-
-    .cloud-hero p {
-      font-size: .82rem;
-      color: rgba(255, 255, 255, .55);
-      line-height: 1.6;
-    }
+    .cloud-hero-icon svg { width: 22px; height: 22px; color: var(--gold); }
+    .cloud-hero h2 { font-family: var(--font-serif); font-size: 1.3rem; font-weight: 400; color: #fff; margin-bottom: .3rem; }
+    .cloud-hero p { font-size: .82rem; color: rgba(255,255,255,.55); line-height: 1.6; }
 
     .cloud-steps {
       background: var(--card);
@@ -702,70 +665,22 @@
       padding: 1.5rem;
       margin-bottom: 1.5rem;
     }
-
-    .cloud-steps h3 {
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1rem;
-    }
-
-    .step-list {
-      display: flex;
-      flex-direction: column;
-      gap: .85rem;
-    }
-
-    .step-item {
-      display: flex;
-      gap: .85rem;
-      align-items: flex-start;
-    }
-
+    .cloud-steps h3 { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+    .step-list { display: flex; flex-direction: column; gap: .85rem; }
+    .step-item { display: flex; gap: .85rem; align-items: flex-start; }
     .step-num {
-      width: 22px;
-      height: 22px;
-      flex-shrink: 0;
-      background: rgba(166, 124, 82, .12);
-      border: 1px solid rgba(166, 124, 82, .25);
+      width: 22px; height: 22px; flex-shrink: 0;
+      background: rgba(166,124,82,.12);
+      border: 1px solid rgba(166,124,82,.25);
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: .68rem;
-      font-weight: 700;
-      color: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .68rem; font-weight: 700; color: var(--gold);
     }
-
-    .step-text {
-      font-size: .82rem;
-      color: var(--text);
-      line-height: 1.5;
-      padding-top: 2px;
-    }
-
-    .step-text strong {
-      color: var(--cream);
-    }
-
-    .step-text code {
-      font-size: .75rem;
-      background: rgba(0, 0, 0, .05);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 1px 5px;
-    }
-
-    .step-text a {
-      color: var(--gold);
-      text-decoration: none;
-    }
-
-    .step-text a:hover {
-      text-decoration: underline;
-    }
+    .step-text { font-size: .82rem; color: var(--text); line-height: 1.5; padding-top: 2px; }
+    .step-text strong { color: var(--cream); }
+    .step-text code { font-size: .75rem; background: rgba(0,0,0,.05); border: 1px solid var(--border); border-radius: 4px; padding: 1px 5px; }
+    .step-text a { color: var(--gold); text-decoration: none; }
+    .step-text a:hover { text-decoration: underline; }
 
     .sheet-connect-box {
       background: var(--card);
@@ -774,26 +689,11 @@
       padding: 1.5rem;
       margin-bottom: 1.5rem;
     }
-
-    .sheet-connect-box h3 {
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1rem;
-    }
-
-    .sheet-input-row {
-      display: flex;
-      gap: 8px;
-      align-items: stretch;
-    }
-
+    .sheet-connect-box h3 { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+    .sheet-input-row { display: flex; gap: 8px; align-items: stretch; }
     .sheet-url-input {
-      flex: 1;
-      min-width: 0;
-      background: rgba(0, 0, 0, .04);
+      flex: 1; min-width: 0;
+      background: rgba(0,0,0,.04);
       border: 1px solid var(--border);
       color: var(--cream);
       font-family: var(--font);
@@ -803,15 +703,8 @@
       outline: none;
       transition: border-color var(--t);
     }
-
-    .sheet-url-input:focus {
-      border-color: rgba(166, 124, 82, .45);
-    }
-
-    .sheet-url-input::placeholder {
-      color: var(--muted);
-    }
-
+    .sheet-url-input:focus { border-color: rgba(166,124,82,.45); }
+    .sheet-url-input::placeholder { color: var(--muted); }
     .btn-connect {
       background: var(--gold);
       color: #fff;
@@ -824,20 +717,10 @@
       cursor: pointer;
       white-space: nowrap;
       transition: background var(--t);
-      display: flex;
-      align-items: center;
-      gap: 7px;
+      display: flex; align-items: center; gap: 7px;
     }
-
-    .btn-connect:hover {
-      background: var(--gold-lt);
-    }
-
-    .btn-connect svg {
-      width: 13px;
-      height: 13px;
-    }
-
+    .btn-connect:hover { background: var(--gold-lt); }
+    .btn-connect svg { width: 13px; height: 13px; }
     .sheet-status {
       margin-top: .8rem;
       font-size: .8rem;
@@ -847,181 +730,73 @@
       padding: .55rem .8rem;
       border-radius: 7px;
     }
-
-    .sheet-status.ok {
-      display: flex;
-      background: rgba(90, 154, 106, .08);
-      color: #5a9a6a;
-      border: 1px solid rgba(90, 154, 106, .2);
-    }
-
-    .sheet-status.err {
-      display: flex;
-      background: rgba(176, 90, 90, .08);
-      color: #b05a5a;
-      border: 1px solid rgba(176, 90, 90, .2);
-    }
-
-    .sheet-status.loading {
-      display: flex;
-      color: var(--muted);
-      border: 1px solid var(--border);
-      background: var(--surface);
-    }
-
-    .sheet-status svg {
-      width: 14px;
-      height: 14px;
-      flex-shrink: 0;
-    }
+    .sheet-status.ok { display: flex; background: rgba(90,154,106,.08); color: #5a9a6a; border: 1px solid rgba(90,154,106,.2); }
+    .sheet-status.err { display: flex; background: rgba(176,90,90,.08); color: #b05a5a; border: 1px solid rgba(176,90,90,.2); }
+    .sheet-status.loading { display: flex; color: var(--muted); border: 1px solid var(--border); background: var(--surface); }
+    .sheet-status svg { width: 14px; height: 14px; flex-shrink: 0; }
 
     .video-slots-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 12px;
     }
-
     .video-slot-card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--r);
       overflow: hidden;
     }
-
-    .video-slot-card.connected {
-      border-color: rgba(90, 154, 106, .4);
-    }
-
-    .video-slot-card.error-state {
-      border-color: rgba(176, 90, 90, .3);
-    }
-
+    .video-slot-card.connected { border-color: rgba(90,154,106,.4); }
+    .video-slot-card.error-state { border-color: rgba(176,90,90,.3); }
     .vid-preview {
       position: relative;
       aspect-ratio: 16/9;
       background: #111;
       overflow: hidden;
     }
-
     .vid-preview video {
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
       object-fit: contain;
       display: block;
     }
-
     .vid-placeholder {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      color: rgba(255, 255, 255, .3);
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 8px; color: rgba(255,255,255,.3);
       font-size: .75rem;
     }
-
-    .vid-placeholder svg {
-      width: 32px;
-      height: 32px;
-      opacity: .4;
-    }
-
+    .vid-placeholder svg { width: 32px; height: 32px; opacity: .4; }
     .vid-badge {
-      position: absolute;
-      top: 8px;
-      left: 8px;
-      background: rgba(0, 0, 0, .6);
-      color: #fff;
-      font-size: .65rem;
-      font-weight: 700;
-      letter-spacing: .06em;
-      padding: 3px 8px;
-      border-radius: 4px;
-      text-transform: uppercase;
+      position: absolute; top: 8px; left: 8px;
+      background: rgba(0,0,0,.6); color: #fff;
+      font-size: .65rem; font-weight: 700; letter-spacing: .06em;
+      padding: 3px 8px; border-radius: 4px; text-transform: uppercase;
     }
-
     .vid-status-dot {
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, .2);
+      position: absolute; top: 8px; right: 8px;
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,.2);
     }
-
-    .video-slot-card.connected .vid-status-dot {
-      background: #5a9a6a;
-    }
-
-    .video-slot-card.error-state .vid-status-dot {
-      background: #b05a5a;
-    }
-
-    .vid-info {
-      padding: .8rem .9rem;
-    }
-
-    .vid-label {
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .07em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: .25rem;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .vid-label svg {
-      width: 12px;
-      height: 12px;
-      color: var(--gold);
-    }
-
-    .vid-desc {
-      font-size: .8rem;
-      color: var(--text);
-      margin-bottom: .5rem;
-    }
-
+    .video-slot-card.connected .vid-status-dot { background: #5a9a6a; }
+    .video-slot-card.error-state .vid-status-dot { background: #b05a5a; }
+    .vid-info { padding: .8rem .9rem; }
+    .vid-label { font-size: .72rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); margin-bottom: .25rem; display: flex; align-items: center; gap: 6px; }
+    .vid-label svg { width: 12px; height: 12px; color: var(--gold); }
+    .vid-desc { font-size: .8rem; color: var(--text); margin-bottom: .5rem; }
     .vid-url-display {
-      font-size: .7rem;
-      font-family: monospace;
-      color: var(--muted);
-      background: rgba(0, 0, 0, .03);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 3px 6px;
-      word-break: break-all;
-      display: block;
-      margin-bottom: .6rem;
-      min-height: 24px;
+      font-size: .7rem; font-family: monospace; color: var(--muted);
+      background: rgba(0,0,0,.03); border: 1px solid var(--border);
+      border-radius: 4px; padding: 3px 6px;
+      word-break: break-all; display: block;
+      margin-bottom: .6rem; min-height: 24px;
     }
-
-    .vid-url-display.has-url {
-      color: #5a9a6a;
-      border-color: rgba(90, 154, 106, .25);
-    }
-
-    .vid-url-display.no-url {
-      color: var(--muted);
-      font-style: italic;
-      font-family: var(--font);
-    }
-
-    .vid-manual-row {
-      display: flex;
-      gap: 6px;
-    }
-
+    .vid-url-display.has-url { color: #5a9a6a; border-color: rgba(90,154,106,.25); }
+    .vid-url-display.no-url { color: var(--muted); font-style: italic; font-family: var(--font); }
+    .vid-manual-row { display: flex; gap: 6px; }
     .vid-manual-input {
-      flex: 1;
-      min-width: 0;
-      background: rgba(0, 0, 0, .04);
+      flex: 1; min-width: 0;
+      background: rgba(0,0,0,.04);
       border: 1px solid var(--border);
       color: var(--cream);
       font-family: var(--font);
@@ -1031,30 +806,14 @@
       outline: none;
       transition: border-color var(--t);
     }
-
-    .vid-manual-input:focus {
-      border-color: rgba(166, 124, 82, .45);
-    }
-
-    .vid-manual-input::placeholder {
-      color: var(--muted);
-      font-size: .74rem;
-    }
-
+    .vid-manual-input:focus { border-color: rgba(166,124,82,.45); }
+    .vid-manual-input::placeholder { color: var(--muted); font-size: .74rem; }
     .vid-sheet-note {
-      font-size: .7rem;
-      color: var(--muted);
+      font-size: .7rem; color: var(--muted);
       margin-top: .4rem;
-      display: flex;
-      align-items: center;
-      gap: 4px;
+      display: flex; align-items: center; gap: 4px;
     }
-
-    .vid-sheet-note svg {
-      width: 11px;
-      height: 11px;
-      flex-shrink: 0;
-    }
+    .vid-sheet-note svg { width: 11px; height: 11px; flex-shrink: 0; }
 
     .cloud-sheet-template {
       background: var(--card);
@@ -1063,53 +822,13 @@
       padding: 1.5rem;
       margin-bottom: 1.5rem;
     }
-
-    .cloud-sheet-template h3 {
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: .75rem;
-    }
-
-    .sheet-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: .78rem;
-    }
-
-    .sheet-table th {
-      text-align: left;
-      font-size: .68rem;
-      font-weight: 700;
-      letter-spacing: .07em;
-      text-transform: uppercase;
-      color: var(--muted);
-      padding: .4rem .65rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .sheet-table td {
-      padding: .5rem .65rem;
-      border-bottom: 1px solid rgba(209, 204, 196, .5);
-      font-family: monospace;
-      font-size: .75rem;
-      color: var(--cream);
-    }
-
-    .sheet-table tr:last-child td {
-      border-bottom: none;
-    }
-
-    .sheet-table td:first-child {
-      color: var(--muted);
-    }
-
-    .sheet-table td.example-url {
-      color: var(--gold);
-      font-size: .7rem;
-    }
+    .cloud-sheet-template h3 { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: .75rem; }
+    .sheet-table { width: 100%; border-collapse: collapse; font-size: .78rem; }
+    .sheet-table th { text-align: left; font-size: .68rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); padding: .4rem .65rem; border-bottom: 1px solid var(--border); }
+    .sheet-table td { padding: .5rem .65rem; border-bottom: 1px solid rgba(209,204,196,.5); font-family: monospace; font-size: .75rem; color: var(--cream); }
+    .sheet-table tr:last-child td { border-bottom: none; }
+    .sheet-table td:first-child { color: var(--muted); }
+    .sheet-table td.example-url { color: var(--gold); font-size: .7rem; }
   </style>
 </head>
 
@@ -1163,21 +882,13 @@
       <!-- TABS -->
       <div class="tab-bar">
         <button class="tab-btn active" id="tab-images" onclick="switchTab('images')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <rect x="3" y="3" width="18" height="18" rx="2" />
-            <circle cx="8.5" cy="8.5" r="1.5" />
-            <polyline points="21 15 16 10 5 21" />
-          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
           Images
         </button>
         <button class="tab-btn" id="tab-videos" onclick="switchTab('videos')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <polygon points="23 7 16 12 23 17 23 7" />
-            <rect x="1" y="5" width="15" height="14" rx="2" />
-          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
           Videos
-          <span id="vid-connected-badge"
-            style="display:none;background:rgba(90,154,106,.15);color:#5a9a6a;border:1px solid rgba(90,154,106,.3);font-size:.65rem;font-weight:700;padding:1px 7px;border-radius:10px;">LIVE</span>
+          <span id="vid-connected-badge" style="display:none;background:rgba(90,154,106,.15);color:#5a9a6a;border:1px solid rgba(90,154,106,.3);font-size:.65rem;font-weight:700;padding:1px 7px;border-radius:10px;">LIVE</span>
         </button>
       </div>
 
@@ -1192,14 +903,11 @@
         <!-- Hero banner -->
         <div class="cloud-hero">
           <div class="cloud-hero-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z" />
-            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg>
           </div>
           <div>
             <h2>Cloudinary Video Manager</h2>
-            <p>Upload your videos to Cloudinary (free), paste their URLs into a Google Sheet, then connect the sheet
-              here. Your website will automatically use those videos &mdash; no code changes needed.</p>
+            <p>Upload your videos to Cloudinary (free), paste their URLs into a Google Sheet, then connect the sheet here. Your website will automatically use those videos &mdash; no code changes needed.</p>
           </div>
         </div>
 
@@ -1209,26 +917,19 @@
           <div class="step-list">
             <div class="step-item">
               <div class="step-num">1</div>
-              <div class="step-text"><strong>Upload videos to Cloudinary</strong> &mdash; Go to <a
-                  href="https://cloudinary.com" target="_blank">cloudinary.com</a> (free account), upload your
-                <code>.mp4</code> files. Copy each video's URL (ends in <code>.mp4</code>).</div>
+              <div class="step-text"><strong>Upload videos to Cloudinary</strong> &mdash; Go to <a href="https://cloudinary.com" target="_blank">cloudinary.com</a> (free account), upload your <code>.mp4</code> files. Copy each video's URL (ends in <code>.mp4</code>).</div>
             </div>
             <div class="step-item">
               <div class="step-num">2</div>
-              <div class="step-text"><strong>Create a Google Sheet</strong> &mdash; Make a new Google Sheet with exactly
-                <strong>4 columns</strong>: <code>slot_key</code>, <code>label</code>, <code>cloudinary_url</code>,
-                <code>notes</code>. See the template below.</div>
+              <div class="step-text"><strong>Create a Google Sheet</strong> &mdash; Make a new Google Sheet with exactly <strong>4 columns</strong>: <code>slot_key</code>, <code>label</code>, <code>cloudinary_url</code>, <code>notes</code>. See the template below.</div>
             </div>
             <div class="step-item">
               <div class="step-num">3</div>
-              <div class="step-text"><strong>Publish the Sheet as CSV</strong> &mdash; In Google Sheets: <em>File &rarr;
-                  Share &rarr; Publish to web &rarr; choose "Comma-separated values (.csv)" &rarr; Publish</em>. Copy
-                the URL it gives you.</div>
+              <div class="step-text"><strong>Publish the Sheet as CSV</strong> &mdash; In Google Sheets: <em>File &rarr; Share &rarr; Publish to web &rarr; choose "Comma-separated values (.csv)" &rarr; Publish</em>. Copy the URL it gives you.</div>
             </div>
             <div class="step-item">
               <div class="step-num">4</div>
-              <div class="step-text"><strong>Paste the CSV URL below</strong> and click Connect. This page will
-                instantly load your video URLs. Anytime you update the sheet, just click Refresh.</div>
+              <div class="step-text"><strong>Paste the CSV URL below</strong> and click Connect. This page will instantly load your video URLs. Anytime you update the sheet, just click Refresh.</div>
             </div>
           </div>
         </div>
@@ -1238,12 +939,7 @@
           <h3>Google Sheet Template &mdash; Exact Format Required</h3>
           <table class="sheet-table">
             <thead>
-              <tr>
-                <th>slot_key</th>
-                <th>label</th>
-                <th>cloudinary_url</th>
-                <th>notes</th>
-              </tr>
+              <tr><th>slot_key</th><th>label</th><th>cloudinary_url</th><th>notes</th></tr>
             </thead>
             <tbody>
               <tr>
@@ -1276,26 +972,20 @@
               placeholder="Paste Google Sheet CSV URL here&hellip; (from File &rarr; Share &rarr; Publish to web)"
               autocomplete="off" />
             <button class="btn-connect" id="btn-connect-sheet" onclick="connectSheet()">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z" />
-              </svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg>
               Connect
             </button>
           </div>
           <div class="sheet-status" id="sheet-status">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="sheet-status-icon"></svg>
             <span id="sheet-status-text"></span>
-            <button onclick="refreshSheet()" id="btn-refresh-sheet"
-              style="display:none;margin-left:auto;background:none;border:1px solid rgba(90,154,106,.3);color:#5a9a6a;font-family:var(--font);font-size:.75rem;font-weight:600;padding:.2rem .6rem;border-radius:5px;cursor:pointer;">&#8635;
-              Refresh</button>
+            <button onclick="refreshSheet()" id="btn-refresh-sheet" style="display:none;margin-left:auto;background:none;border:1px solid rgba(90,154,106,.3);color:#5a9a6a;font-family:var(--font);font-size:.75rem;font-weight:600;padding:.2rem .6rem;border-radius:5px;cursor:pointer;">&#8635; Refresh</button>
           </div>
         </div>
 
         <!-- Video slots -->
         <div>
-          <div
-            style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.85rem;">
-            Video Slots &mdash; portfolio.html</div>
+          <div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.85rem;">Video Slots &mdash; portfolio.html</div>
           <div class="video-slots-grid" id="video-slots-grid"></div>
         </div>
 
@@ -1422,63 +1112,63 @@
           { key: 'portfolio-hero', filename: 'portfolio-hero.jpg', label: 'Hero Banner', alt: 'Completed interior projects hero' },
 
           // ── Project 1: The Kulkarni Residence ──
-          { key: 'p-turnkey-1', filename: 'p-turnkey-1.jpg', label: 'Kulkarni Residence — Cover', alt: '3BHK renovation Viman Nagar' },
+          { key: 'p-turnkey-1',  filename: 'p-turnkey-1.jpg',  label: 'Kulkarni Residence — Cover',   alt: '3BHK renovation Viman Nagar' },
           { key: 'p-turnkey-1b', filename: 'p-turnkey-1b.jpg', label: 'Kulkarni Residence — Photo 2', alt: '3BHK renovation photo 2' },
           { key: 'p-turnkey-1c', filename: 'p-turnkey-1c.jpg', label: 'Kulkarni Residence — Photo 3', alt: '3BHK renovation photo 3' },
           { key: 'p-turnkey-1d', filename: 'p-turnkey-1d.jpg', label: 'Kulkarni Residence — Photo 4', alt: '3BHK renovation photo 4' },
           { key: 'p-turnkey-1e', filename: 'p-turnkey-1e.jpg', label: 'Kulkarni Residence — Photo 5', alt: '3BHK renovation photo 5' },
 
           // ── Project 2: Island Kitchen — Baner ──
-          { key: 'p-kitchen-1', filename: 'p-kitchen-1.jpg', label: 'Island Kitchen — Cover', alt: 'Island modular kitchen Baner' },
+          { key: 'p-kitchen-1',  filename: 'p-kitchen-1.jpg',  label: 'Island Kitchen — Cover',   alt: 'Island modular kitchen Baner' },
           { key: 'p-kitchen-1b', filename: 'p-kitchen-1b.jpg', label: 'Island Kitchen — Photo 2', alt: 'Island kitchen photo 2' },
           { key: 'p-kitchen-1c', filename: 'p-kitchen-1c.jpg', label: 'Island Kitchen — Photo 3', alt: 'Island kitchen photo 3' },
           { key: 'p-kitchen-1d', filename: 'p-kitchen-1d.jpg', label: 'Island Kitchen — Photo 4', alt: 'Island kitchen photo 4' },
 
           // ── Project 3: Master Bedroom — Kharadi ──
-          { key: 'p-bedroom-1', filename: 'p-bedroom-1.jpg', label: 'Master Bedroom — Cover', alt: 'Master bedroom Kharadi' },
+          { key: 'p-bedroom-1',  filename: 'p-bedroom-1.jpg',  label: 'Master Bedroom — Cover',   alt: 'Master bedroom Kharadi' },
           { key: 'p-bedroom-1b', filename: 'p-bedroom-1b.jpg', label: 'Master Bedroom — Photo 2', alt: 'Master bedroom photo 2' },
           { key: 'p-bedroom-1c', filename: 'p-bedroom-1c.jpg', label: 'Master Bedroom — Photo 3', alt: 'Master bedroom photo 3' },
           { key: 'p-bedroom-1d', filename: 'p-bedroom-1d.jpg', label: 'Master Bedroom — Photo 4', alt: 'Master bedroom photo 4' },
 
           // ── Project 4: L-Shape Kitchen — Hadapsar ──
-          { key: 'p-kitchen-2', filename: 'p-kitchen-2.jpg', label: 'L-Shape Kitchen — Cover', alt: 'L-shape kitchen Hadapsar' },
+          { key: 'p-kitchen-2',  filename: 'p-kitchen-2.jpg',  label: 'L-Shape Kitchen — Cover',   alt: 'L-shape kitchen Hadapsar' },
           { key: 'p-kitchen-2b', filename: 'p-kitchen-2b.jpg', label: 'L-Shape Kitchen — Photo 2', alt: 'L-shape kitchen photo 2' },
           { key: 'p-kitchen-2c', filename: 'p-kitchen-2c.jpg', label: 'L-Shape Kitchen — Photo 3', alt: 'L-shape kitchen photo 3' },
           { key: 'p-kitchen-2d', filename: 'p-kitchen-2d.jpg', label: 'L-Shape Kitchen — Photo 4', alt: 'L-shape kitchen photo 4' },
 
           // ── Project 5: Walk-in Wardrobe — Wakad ──
-          { key: 'p-furniture-1', filename: 'p-furniture-1.jpg', label: 'Walk-in Wardrobe — Cover', alt: 'Walk-in wardrobe Wakad' },
+          { key: 'p-furniture-1',  filename: 'p-furniture-1.jpg',  label: 'Walk-in Wardrobe — Cover',   alt: 'Walk-in wardrobe Wakad' },
           { key: 'p-furniture-1b', filename: 'p-furniture-1b.jpg', label: 'Walk-in Wardrobe — Photo 2', alt: 'Walk-in wardrobe photo 2' },
           { key: 'p-furniture-1c', filename: 'p-furniture-1c.jpg', label: 'Walk-in Wardrobe — Photo 3', alt: 'Walk-in wardrobe photo 3' },
           { key: 'p-furniture-1d', filename: 'p-furniture-1d.jpg', label: 'Walk-in Wardrobe — Photo 4', alt: 'Walk-in wardrobe photo 4' },
 
           // ── Project 6: The Patil Home — Wakad ──
-          { key: 'p-turnkey-2', filename: 'p-turnkey-2.jpg', label: 'Patil Home — Cover', alt: '4BHK renovation Wakad' },
+          { key: 'p-turnkey-2',  filename: 'p-turnkey-2.jpg',  label: 'Patil Home — Cover',   alt: '4BHK renovation Wakad' },
           { key: 'p-turnkey-2b', filename: 'p-turnkey-2b.jpg', label: 'Patil Home — Photo 2', alt: 'Patil home photo 2' },
           { key: 'p-turnkey-2c', filename: 'p-turnkey-2c.jpg', label: 'Patil Home — Photo 3', alt: 'Patil home photo 3' },
           { key: 'p-turnkey-2d', filename: 'p-turnkey-2d.jpg', label: 'Patil Home — Photo 4', alt: 'Patil home photo 4' },
           { key: 'p-turnkey-2e', filename: 'p-turnkey-2e.jpg', label: 'Patil Home — Photo 5', alt: 'Patil home photo 5' },
 
           // ── Project 7: Contemporary Living Room — Aundh ──
-          { key: 'p-living-1', filename: 'p-living-1.jpg', label: 'Living Room — Cover', alt: 'Contemporary living room Aundh' },
+          { key: 'p-living-1',  filename: 'p-living-1.jpg',  label: 'Living Room — Cover',   alt: 'Contemporary living room Aundh' },
           { key: 'p-living-1b', filename: 'p-living-1b.jpg', label: 'Living Room — Photo 2', alt: 'Living room photo 2' },
           { key: 'p-living-1c', filename: 'p-living-1c.jpg', label: 'Living Room — Photo 3', alt: 'Living room photo 3' },
           { key: 'p-living-1d', filename: 'p-living-1d.jpg', label: 'Living Room — Photo 4', alt: 'Living room photo 4' },
 
           // ── Project 8: Kids Study Bedroom — Koregaon Park ──
-          { key: 'p-bedroom-2', filename: 'p-bedroom-2.jpg', label: "Kids' Bedroom — Cover", alt: 'Kids study bedroom' },
+          { key: 'p-bedroom-2',  filename: 'p-bedroom-2.jpg',  label: "Kids' Bedroom — Cover",   alt: 'Kids study bedroom' },
           { key: 'p-bedroom-2b', filename: 'p-bedroom-2b.jpg', label: "Kids' Bedroom — Photo 2", alt: 'Kids bedroom photo 2' },
           { key: 'p-bedroom-2c', filename: 'p-bedroom-2c.jpg', label: "Kids' Bedroom — Photo 3", alt: 'Kids bedroom photo 3' },
           { key: 'p-bedroom-2d', filename: 'p-bedroom-2d.jpg', label: "Kids' Bedroom — Photo 4", alt: 'Kids bedroom photo 4' },
 
           // ── Project 9: Parallel Kitchen — NIBM Road ──
-          { key: 'p-kitchen-3', filename: 'p-kitchen-3.jpg', label: 'Parallel Kitchen — Cover', alt: 'Parallel kitchen NIBM Road' },
+          { key: 'p-kitchen-3',  filename: 'p-kitchen-3.jpg',  label: 'Parallel Kitchen — Cover',   alt: 'Parallel kitchen NIBM Road' },
           { key: 'p-kitchen-3b', filename: 'p-kitchen-3b.jpg', label: 'Parallel Kitchen — Photo 2', alt: 'Parallel kitchen photo 2' },
           { key: 'p-kitchen-3c', filename: 'p-kitchen-3c.jpg', label: 'Parallel Kitchen — Photo 3', alt: 'Parallel kitchen photo 3' },
           { key: 'p-kitchen-3d', filename: 'p-kitchen-3d.jpg', label: 'Parallel Kitchen — Photo 4', alt: 'Parallel kitchen photo 4' },
 
           // ── Project 10: Corporate Office — Hinjewadi ──
-          { key: 'p-commercial-1', filename: 'p-commercial-1.jpg', label: 'Corporate Office — Cover', alt: 'Office interior Hinjewadi' },
+          { key: 'p-commercial-1',  filename: 'p-commercial-1.jpg',  label: 'Corporate Office — Cover',   alt: 'Office interior Hinjewadi' },
           { key: 'p-commercial-1b', filename: 'p-commercial-1b.jpg', label: 'Corporate Office — Photo 2', alt: 'Office interior photo 2' },
           { key: 'p-commercial-1c', filename: 'p-commercial-1c.jpg', label: 'Corporate Office — Photo 3', alt: 'Office interior photo 3' },
           { key: 'p-commercial-1d', filename: 'p-commercial-1d.jpg', label: 'Corporate Office — Photo 4', alt: 'Office interior photo 4' },
@@ -1537,7 +1227,8 @@
           card.id = `card-${page.id}-${slot.key}`;
           const currentVal = changes[page.id][slot.key] || '';
           const folder = isVideo ? 'videos' : 'images';
-          const previewSrc = currentVal || `${folder}/${slot.filename}`;
+          // Only use previewSrc if user has already pasted a real URL (starts with http)
+          const previewSrc = (currentVal && currentVal.startsWith('http')) ? currentVal : '';
 
           if (isVideo) {
             card.innerHTML = `
@@ -1546,9 +1237,9 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
               <span>videos/${slot.filename}</span>
             </div>
-            <video id="vid-${page.id}-${slot.key}" src="${previewSrc}"
+            <video id="vid-${page.id}-${slot.key}" ${previewSrc ? `src="${previewSrc}"` : ''}
               style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:none;"
-              preload="metadata" muted playsinline controls></video>
+              ${previewSrc ? 'preload="metadata"' : 'preload="none"'} muted playsinline controls></video>
             <div class="status-dot"></div>
           </div>
           <div class="img-info">
@@ -1571,10 +1262,10 @@
         `;
             grid.appendChild(card);
             const vid = card.querySelector('video');
-            const ph = card.querySelector('.placeholder');
-            if (currentVal) { vid.style.display = ''; ph.style.display = 'none'; }
-            vid.addEventListener('loadedmetadata', () => { vid.style.display = ''; ph.style.display = 'none'; });
-            vid.addEventListener('error', () => { vid.style.display = 'none'; ph.style.display = 'flex'; });
+            const ph  = card.querySelector('.placeholder');
+            if (previewSrc) { vid.style.display = ''; ph.style.display = 'none'; }
+            vid.addEventListener('loadedmetadata', () => { vid.style.display=''; ph.style.display='none'; });
+            vid.addEventListener('error', () => { vid.style.display='none'; ph.style.display='flex'; });
             card.querySelector('.url-input').addEventListener('keydown', e => {
               if (e.key === 'Enter') applyVideoChange(page.id, slot.key);
             });
@@ -1585,10 +1276,10 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
               <span>images/${slot.filename}</span>
             </div>
-            <img src="${previewSrc}" alt="${slot.alt}"
+            <img ${previewSrc ? `src="${previewSrc}"` : ''} alt="${slot.alt}"
               onload="this.style.opacity=1;this.previousElementSibling.style.display='none'"
               onerror="this.style.display='none';this.previousElementSibling.style.display='flex'"
-              style="opacity:0;position:absolute;inset:0;" />
+              style="opacity:0;position:absolute;inset:0;${previewSrc ? '' : 'display:none;'}" />
             <div class="status-dot"></div>
           </div>
           <div class="img-info">
@@ -1645,7 +1336,7 @@
       if (!url) return;
       changes[pageId][slotKey] = url;
       const vid = card.querySelector('video');
-      const ph = card.querySelector('.placeholder');
+      const ph  = card.querySelector('.placeholder');
       vid.src = url;
       vid.style.display = '';
       ph.style.display = 'none';
@@ -1873,8 +1564,8 @@ Replace with: the new URL
               ${url ? url : 'Not connected — waiting for sheet or manual URL'}
             </code>
             ${source === 'sheet'
-            ? `<div class="vid-sheet-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg> Loaded from Google Sheet</div>`
-            : `<div class="vid-manual-row">
+              ? `<div class="vid-sheet-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg> Loaded from Google Sheet</div>`
+              : `<div class="vid-manual-row">
                   <input class="vid-manual-input" id="vmanual-${slot.key}" type="url"
                     placeholder="Or paste Cloudinary .mp4 URL directly…"
                     value="${source === 'manual' ? url : ''}" />
@@ -1884,7 +1575,7 @@ Replace with: the new URL
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
                   Connect a sheet above to manage all videos centrally
                 </div>`
-          }
+            }
           </div>
         `;
         grid.appendChild(card);
@@ -2033,7 +1724,7 @@ Replace with: the new URL
           const hasSheet = Object.values(videoUrls).some(v => v.source === 'sheet');
           if (hasSheet) document.getElementById('vid-connected-badge').style.display = 'inline';
         }
-      } catch (e) { }
+      } catch(e) {}
 
       // Restore sheet URL in input
       const savedSheetUrl = sessionStorage.getItem('pi_sheet_url');
@@ -2041,7 +1732,7 @@ Replace with: the new URL
         sheetCsvUrl = savedSheetUrl;
         document.getElementById('sheet-csv-url').value = savedSheetUrl;
         const hasSheet = Object.values(videoUrls).some(v => v.source === 'sheet');
-        if (hasSheet) setSheetStatus('ok', 'Sheet connected — ' + Object.values(videoUrls).filter(v => v.source === 'sheet').length + ' video(s) loaded.', true);
+        if (hasSheet) setSheetStatus('ok', 'Sheet connected — ' + Object.values(videoUrls).filter(v => v.source==='sheet').length + ' video(s) loaded.', true);
       }
 
       renderVideoSlots();
