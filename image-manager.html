@@ -1962,48 +1962,39 @@ Replace with: the new URL
     async function fetchSheetData(url) {
       setSheetStatus('loading', 'Connecting to sheet…', false);
       try {
-        // Use a CORS proxy since Google Sheets CSV is cross-origin
-        const proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url);
-        const res = await fetch(proxyUrl);
+        // Direct fetch — same strategy as SP Driving School gallery
+        const res = await fetch(url);
         if (!res.ok) throw new Error('HTTP ' + res.status);
         const csv = await res.text();
         const rows = parseCSV(csv);
 
-        if (!rows.length || rows[0].length < 3) {
-          throw new Error('Sheet format incorrect. Make sure columns are: slot_key, label, cloudinary_url, notes');
+        if (!rows.length) {
+          throw new Error('Sheet appears empty. Make sure it has rows with slot_key and cloudinary_url columns.');
         }
-
-        // Skip header row if present
-        const dataRows = rows[0][0].toLowerCase().includes('slot') ? rows.slice(1) : rows;
-        let loaded = 0;
 
         // Clear existing sheet entries
         VIDEO_SLOTS.forEach(s => {
-          if (videoUrls[s.key] && videoUrls[s.key].source === 'sheet') {
-            delete videoUrls[s.key];
-          }
+          if (videoUrls[s.key] && videoUrls[s.key].source === 'sheet') delete videoUrls[s.key];
         });
 
-        dataRows.forEach(row => {
-          const [key, , cloudUrl] = row;
-          if (!key || !cloudUrl) return;
-          const trimKey = key.trim();
-          const trimUrl = cloudUrl.trim();
-          if (VIDEO_SLOTS.find(s => s.key === trimKey) && trimUrl) {
-            videoUrls[trimKey] = { url: trimUrl, source: 'sheet' };
+        let loaded = 0;
+        rows.forEach(row => {
+          const key = (row.slot_key || '').trim();
+          const cloudUrl = (row.cloudinary_url || '').trim();
+          if (VIDEO_SLOTS.find(s => s.key === key) && cloudUrl) {
+            videoUrls[key] = { url: cloudUrl, source: 'sheet' };
             loaded++;
           }
         });
 
         if (loaded === 0) {
-          throw new Error('No matching slot_key values found. Check your sheet has video-1, video-2, video-3 in column A.');
+          throw new Error('No matching slot_key values found. Check your sheet has video-1, video-2, video-3 in the slot_key column.');
         }
 
         saveVideoUrlsToSession();
         localStorage.setItem('pi_sheet_url', url);
         document.getElementById('sheet-csv-url').value = url;
 
-        // Show badge on tab
         document.getElementById('vid-connected-badge').style.display = 'inline';
         setSheetStatus('ok', loaded + ' video(s) loaded from sheet successfully.', true);
         renderVideoSlots();
@@ -2015,20 +2006,21 @@ Replace with: the new URL
       }
     }
 
-    function parseCSV(text) {
-      return text.trim().split('\n').map(line => {
-        const row = [];
-        let cell = '';
-        let inQ = false;
-        for (let i = 0; i < line.length; i++) {
-          const c = line[i];
-          if (c === '"') { inQ = !inQ; }
-          else if (c === ',' && !inQ) { row.push(cell.trim()); cell = ''; }
-          else { cell += c; }
+    function parseCSV(txt) {
+      const lines = txt.trim().split('\n');
+      const hdrs = lines[0].split(',').map(h => h.trim().replace(/^"|"$/g, '').toLowerCase());
+      return lines.slice(1).map(line => {
+        const cols = []; let cur = '', q = false;
+        for (const ch of line) {
+          if (ch === '"') q = !q;
+          else if (ch === ',' && !q) { cols.push(cur.trim()); cur = ''; }
+          else cur += ch;
         }
-        row.push(cell.trim());
-        return row;
-      });
+        cols.push(cur.trim());
+        const o = {};
+        hdrs.forEach((h, i) => o[h] = (cols[i] || '').replace(/^"|"$/g, '').trim());
+        return o;
+      }).filter(r => r.slot_key && r.cloudinary_url && r.cloudinary_url.startsWith('http'));
     }
 
     function saveVideoUrlsToSession() {
