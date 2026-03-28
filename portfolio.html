@@ -101,7 +101,7 @@
       </div>
       <div class="portfolio-item-overlay">
         <span class="portfolio-item-tag">Modular Kitchen</span>
-        <h4>Island Kitchen — Baner Villa</h4>
+        <h4>Island Kitchen — Baner Flat</h4>
         <p class="portfolio-item-loc">Baner, Pune</p>
       </div>
     </article>
@@ -115,7 +115,7 @@
       </div>
       <div class="portfolio-item-overlay">
         <span class="portfolio-item-tag">Bedroom Interior</span>
-        <h4>Master Bedroom Suite</h4>
+        <h4>Kids Bedroom Suite</h4>
         <p class="portfolio-item-loc">Kharadi, Pune</p>
       </div>
     </article>
@@ -270,9 +270,9 @@
               aria-label="Full Home Renovation — Wakad, Pune"></video>
           </div>
           <div class="video-card-body">
-            <span class="video-card-tag">Full Home Renovation</span>
-            <h3 class="video-card-title">Complete 4BHK Transformation</h3>
-            <p class="video-card-loc">Wakad, Pune</p>
+            <span class="video-card-tag">Full Bedroom Renovation</span>
+            <h3 class="video-card-title">Complete Bedroom Transformation</h3>
+            <p class="video-card-loc">Dhanori, Pune</p>
           </div>
         </div>
 
@@ -282,9 +282,9 @@
               aria-label="Modular Kitchen Reveal — Baner, Pune"></video>
           </div>
           <div class="video-card-body">
-            <span class="video-card-tag">Modular Kitchen</span>
-            <h3 class="video-card-title">Island Kitchen Reveal</h3>
-            <p class="video-card-loc">Baner, Pune</p>
+            <span class="video-card-tag">Bedroom Renovation</span>
+            <h3 class="video-card-title">Part 2</h3>
+            <p class="video-card-loc">Dhanori, Pune</p>
           </div>
         </div>
 
@@ -295,8 +295,8 @@
           </div>
           <div class="video-card-body">
             <span class="video-card-tag">Bedroom &amp; Wardrobe</span>
-            <h3 class="video-card-title">Master Suite Walkthrough</h3>
-            <p class="video-card-loc">Kharadi, Pune</p>
+            <h3 class="video-card-title">Master Kids Bedroom</h3>
+            <p class="video-card-loc">Vishrwantwadi, Pune</p>
           </div>
         </div>
 
@@ -482,7 +482,7 @@
     // VIDEO SHEET URL — set this once after publishing your sheet
     // OR connect via the Image Manager Videos tab — it saves here automatically
     // ═══════════════════════════════════════════════════════
-    const HARDCODED_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQp0c3t1f02V0GCvmZnHMftguplBaXUmv17JM6XpgBTIRLWtWcunWRrzs8Je-vaxii-sFzW0wHGtsQH/pubhtml';
+    const HARDCODED_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQp0c3t1f02V0GCvmZnHMftguplBaXUmv17JM6XpgBTIRLWtWcunWRrzs8Je-vaxii-sFzW0wHGtsQH/pub?gid=0&single=true&output=csv';
 
     function parseVideoCSV(txt) {
       const lines = txt.trim().split('\n');
@@ -511,12 +511,12 @@
 
     async function loadVideos() {
       // Use hardcoded URL first, fall back to whatever image-manager saved
-      const url = (HARDCODED_SHEET_URL && HARDCODED_SHEET_URL !== 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQp0c3t1f02V0GCvmZnHMftguplBaXUmv17JM6XpgBTIRLWtWcunWRrzs8Je-vaxii-sFzW0wHGtsQH/pubhtml')
+      const url = (HARDCODED_SHEET_URL && HARDCODED_SHEET_URL !== 'YOUR_SHEET_CSV_URL_HERE')
         ? HARDCODED_SHEET_URL
         : localStorage.getItem('pi_sheet_url');
       if (!url) return;
       try {
-        const res = await fetch(url);
+        const res = await fetch(url + '&t=' + Date.now(), { cache: 'no-store' });
         if (!res.ok) throw new Error('HTTP ' + res.status);
         const rows = parseVideoCSV(await res.text());
         rows.forEach(row => {
