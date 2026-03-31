@@ -258,10 +258,10 @@
       if (form.id === 'puniya-contact-form' && typeof emailjs !== 'undefined') {
         try {
           /* 
-            User needs to update 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' here.
+            User needs to update 'service_mhornvj' and 'template_oe0i54j' here.
             The public key is already in contact.html
           */
-          await emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form);
+          await emailjs.sendForm('service_mhornvj', 'template_oe0i54j', form);
           form.innerHTML = `
             <div style="text-align:center;padding:3rem 0;animation:fadeIn 0.5s ease-out;">
               <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" style="margin-bottom:1rem;"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
