@@ -890,6 +890,14 @@
           Videos
           <span id="vid-connected-badge" style="display:none;background:rgba(90,154,106,.15);color:#5a9a6a;border:1px solid rgba(90,154,106,.3);font-size:.65rem;font-weight:700;padding:1px 7px;border-radius:10px;">LIVE</span>
         </button>
+        <button class="tab-btn" id="tab-kitchen-cats" onclick="switchTab('kitchen-cats')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          Kitchen Categories
+        </button>
+        <button class="tab-btn" id="tab-furniture-cats" onclick="switchTab('furniture-cats')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+          Furniture Categories
+        </button>
       </div>
 
       <!-- IMAGES TAB -->
@@ -990,6 +998,16 @@
         </div>
 
       </div><!-- /panel-videos -->
+
+      <!-- KITCHEN CATEGORIES TAB -->
+      <div class="tab-panel" id="panel-kitchen-cats">
+        <div id="kitchen-cats-container"></div>
+      </div>
+
+      <!-- FURNITURE CATEGORIES TAB -->
+      <div class="tab-panel" id="panel-furniture-cats">
+        <div id="furniture-cats-container"></div>
+      </div>
 
     </div>
   </div>
@@ -1739,6 +1757,365 @@ Replace with: the new URL
 
       renderVideoSlots();
     }
+
+    /* ════════════════════════════════════════════
+       KITCHEN & FURNITURE CATEGORY IMAGE SLOTS
+    ════════════════════════════════════════════ */
+    const KITCHEN_CAT_PAGES = [
+      {
+        id: 'kc-storage',
+        label: 'Storage & Cabinet Units',
+        file: 'modular-kitchens.html',
+        slots: [
+          { key: 'kc-tandems-1', filename: 'kc-tandems-1.jpg', label: 'Tandems — Photo 1', alt: 'Tandem drawer kitchen Pune' },
+          { key: 'kc-tandems-2', filename: 'kc-tandems-2.jpg', label: 'Tandems — Photo 2', alt: 'Tandem drawer kitchen Pune 2' },
+          { key: 'kc-tandems-3', filename: 'kc-tandems-3.jpg', label: 'Tandems — Photo 3', alt: 'Tandem drawer kitchen Pune 3' },
+          { key: 'kc-ss-trolleys-1', filename: 'kc-ss-trolleys-1.jpg', label: 'SS Trolleys — Photo 1', alt: 'SS stainless steel trolley kitchen' },
+          { key: 'kc-ss-trolleys-2', filename: 'kc-ss-trolleys-2.jpg', label: 'SS Trolleys — Photo 2', alt: 'SS stainless steel trolley kitchen 2' },
+          { key: 'kc-ss-trolleys-3', filename: 'kc-ss-trolleys-3.jpg', label: 'SS Trolleys — Photo 3', alt: 'SS stainless steel trolley kitchen 3' },
+          { key: 'kc-pantry-1', filename: 'kc-pantry-1.jpg', label: 'Pantry Unit — Photo 1', alt: 'Pantry unit kitchen Pune' },
+          { key: 'kc-pantry-2', filename: 'kc-pantry-2.jpg', label: 'Pantry Unit — Photo 2', alt: 'Pantry unit kitchen Pune 2' },
+          { key: 'kc-pantry-3', filename: 'kc-pantry-3.jpg', label: 'Pantry Unit — Photo 3', alt: 'Pantry unit kitchen Pune 3' },
+          { key: 'kc-tall-unit-1', filename: 'kc-tall-unit-1.jpg', label: 'Tall Unit — Photo 1', alt: 'Tall storage unit kitchen' },
+          { key: 'kc-tall-unit-2', filename: 'kc-tall-unit-2.jpg', label: 'Tall Unit — Photo 2', alt: 'Tall storage unit kitchen 2' },
+          { key: 'kc-tall-unit-3', filename: 'kc-tall-unit-3.jpg', label: 'Tall Unit — Photo 3', alt: 'Tall storage unit kitchen 3' },
+          { key: 'kc-rolling-shutter-1', filename: 'kc-rolling-shutter-1.jpg', label: 'Rolling Shutter — Photo 1', alt: 'Rolling shutter kitchen cabinet' },
+          { key: 'kc-rolling-shutter-2', filename: 'kc-rolling-shutter-2.jpg', label: 'Rolling Shutter — Photo 2', alt: 'Rolling shutter kitchen cabinet 2' },
+          { key: 'kc-rolling-shutter-3', filename: 'kc-rolling-shutter-3.jpg', label: 'Rolling Shutter — Photo 3', alt: 'Rolling shutter kitchen cabinet 3' },
+          { key: 'kc-wicker-1', filename: 'kc-wicker-1.jpg', label: 'Wicker Baskets — Photo 1', alt: 'Wicker basket kitchen storage' },
+          { key: 'kc-wicker-2', filename: 'kc-wicker-2.jpg', label: 'Wicker Baskets — Photo 2', alt: 'Wicker basket kitchen storage 2' },
+          { key: 'kc-wicker-3', filename: 'kc-wicker-3.jpg', label: 'Wicker Baskets — Photo 3', alt: 'Wicker basket kitchen storage 3' },
+          { key: 'kc-crockery-1', filename: 'kc-crockery-1.jpg', label: 'Crockery Cabinet — Photo 1', alt: 'Crockery cabinet with glass kitchen' },
+          { key: 'kc-crockery-2', filename: 'kc-crockery-2.jpg', label: 'Crockery Cabinet — Photo 2', alt: 'Crockery cabinet with glass kitchen 2' },
+          { key: 'kc-crockery-3', filename: 'kc-crockery-3.jpg', label: 'Crockery Cabinet — Photo 3', alt: 'Crockery cabinet with glass kitchen 3' },
+          { key: 'kc-loft-1', filename: 'kc-loft-1.jpg', label: 'Loft Storage — Photo 1', alt: 'Loft overhead storage kitchen' },
+          { key: 'kc-loft-2', filename: 'kc-loft-2.jpg', label: 'Loft Storage — Photo 2', alt: 'Loft overhead storage kitchen 2' },
+          { key: 'kc-loft-3', filename: 'kc-loft-3.jpg', label: 'Loft Storage — Photo 3', alt: 'Loft overhead storage kitchen 3' },
+          { key: 'kc-platform-1', filename: 'kc-platform-1.jpg', label: 'Platform Top — Photo 1', alt: 'Quartz granite platform top kitchen' },
+          { key: 'kc-platform-2', filename: 'kc-platform-2.jpg', label: 'Platform Top — Photo 2', alt: 'Quartz granite platform top kitchen 2' },
+          { key: 'kc-platform-3', filename: 'kc-platform-3.jpg', label: 'Platform Top — Photo 3', alt: 'Quartz granite platform top kitchen 3' },
+        ]
+      },
+      {
+        id: 'kc-accessories',
+        label: 'Smart Accessories',
+        file: 'modular-kitchens.html',
+        slots: [
+          { key: 'kc-handles-1', filename: 'kc-handles-1.jpg', label: 'Premium Handles — Photo 1', alt: 'Premium kitchen handles' },
+          { key: 'kc-handles-2', filename: 'kc-handles-2.jpg', label: 'Premium Handles — Photo 2', alt: 'Premium kitchen handles 2' },
+          { key: 'kc-handles-3', filename: 'kc-handles-3.jpg', label: 'Premium Handles — Photo 3', alt: 'Premium kitchen handles 3' },
+          { key: 'kc-magic-corner-1', filename: 'kc-magic-corner-1.jpg', label: 'Magic Corner — Photo 1', alt: 'Magic corner kitchen unit' },
+          { key: 'kc-magic-corner-2', filename: 'kc-magic-corner-2.jpg', label: 'Magic Corner — Photo 2', alt: 'Magic corner kitchen unit 2' },
+          { key: 'kc-magic-corner-3', filename: 'kc-magic-corner-3.jpg', label: 'Magic Corner — Photo 3', alt: 'Magic corner kitchen unit 3' },
+          { key: 'kc-pull-out-larder-1', filename: 'kc-pull-out-larder-1.jpg', label: 'Pull-Out Larder — Photo 1', alt: 'Pull-out pantry larder kitchen' },
+          { key: 'kc-pull-out-larder-2', filename: 'kc-pull-out-larder-2.jpg', label: 'Pull-Out Larder — Photo 2', alt: 'Pull-out pantry larder kitchen 2' },
+          { key: 'kc-pull-out-larder-3', filename: 'kc-pull-out-larder-3.jpg', label: 'Pull-Out Larder — Photo 3', alt: 'Pull-out pantry larder kitchen 3' },
+          { key: 'kc-masala-1', filename: 'kc-masala-1.jpg', label: 'Masala Pull-Out — Photo 1', alt: 'Masala spice pull-out kitchen' },
+          { key: 'kc-masala-2', filename: 'kc-masala-2.jpg', label: 'Masala Pull-Out — Photo 2', alt: 'Masala spice pull-out kitchen 2' },
+          { key: 'kc-masala-3', filename: 'kc-masala-3.jpg', label: 'Masala Pull-Out — Photo 3', alt: 'Masala spice pull-out kitchen 3' },
+          { key: 'kc-dbr-1', filename: 'kc-dbr-1.jpg', label: 'DBR Elevator — Photo 1', alt: 'DBR basket lift elevator kitchen' },
+          { key: 'kc-dbr-2', filename: 'kc-dbr-2.jpg', label: 'DBR Elevator — Photo 2', alt: 'DBR basket lift elevator kitchen 2' },
+          { key: 'kc-dbr-3', filename: 'kc-dbr-3.jpg', label: 'DBR Elevator — Photo 3', alt: 'DBR basket lift elevator kitchen 3' },
+        ]
+      },
+      {
+        id: 'kc-hardware',
+        label: 'European Quality Hardware',
+        file: 'modular-kitchens.html',
+        slots: [
+          { key: 'kc-hettich-1', filename: 'kc-hettich-1.jpg', label: 'Hettich — Photo 1', alt: 'Hettich hardware kitchen Pune' },
+          { key: 'kc-hettich-2', filename: 'kc-hettich-2.jpg', label: 'Hettich — Photo 2', alt: 'Hettich hardware kitchen Pune 2' },
+          { key: 'kc-hettich-3', filename: 'kc-hettich-3.jpg', label: 'Hettich — Photo 3', alt: 'Hettich hardware kitchen Pune 3' },
+          { key: 'kc-hafele-1', filename: 'kc-hafele-1.jpg', label: 'Häfele — Photo 1', alt: 'Hafele hardware kitchen Pune' },
+          { key: 'kc-hafele-2', filename: 'kc-hafele-2.jpg', label: 'Häfele — Photo 2', alt: 'Hafele hardware kitchen Pune 2' },
+          { key: 'kc-hafele-3', filename: 'kc-hafele-3.jpg', label: 'Häfele — Photo 3', alt: 'Hafele hardware kitchen Pune 3' },
+          { key: 'kc-bwp-ply-1', filename: 'kc-bwp-ply-1.jpg', label: 'BWP Ply — Photo 1', alt: 'BWP marine ply kitchen carcass' },
+          { key: 'kc-bwp-ply-2', filename: 'kc-bwp-ply-2.jpg', label: 'BWP Ply — Photo 2', alt: 'BWP marine ply kitchen carcass 2' },
+          { key: 'kc-bwp-ply-3', filename: 'kc-bwp-ply-3.jpg', label: 'BWP Ply — Photo 3', alt: 'BWP marine ply kitchen carcass 3' },
+          { key: 'kc-finishes-1', filename: 'kc-finishes-1.jpg', label: 'Premium Finishes — Photo 1', alt: 'Acrylic laminate PU finish kitchen' },
+          { key: 'kc-finishes-2', filename: 'kc-finishes-2.jpg', label: 'Premium Finishes — Photo 2', alt: 'Acrylic laminate PU finish kitchen 2' },
+          { key: 'kc-finishes-3', filename: 'kc-finishes-3.jpg', label: 'Premium Finishes — Photo 3', alt: 'Acrylic laminate PU finish kitchen 3' },
+        ]
+      },
+    ];
+
+    const FURNITURE_CAT_PAGES = [
+      {
+        id: 'fc-bedroom',
+        label: '01 — Bedroom',
+        file: 'custom-furniture.html',
+        slots: [
+          { key: 'fc-hydraulic-bed-1', filename: 'fc-hydraulic-bed-1.jpg', label: 'Hydraulic Bed — Photo 1', alt: 'Hydraulic storage bed Pune' },
+          { key: 'fc-hydraulic-bed-2', filename: 'fc-hydraulic-bed-2.jpg', label: 'Hydraulic Bed — Photo 2', alt: 'Hydraulic storage bed Pune 2' },
+          { key: 'fc-hydraulic-bed-3', filename: 'fc-hydraulic-bed-3.jpg', label: 'Hydraulic Bed — Photo 3', alt: 'Hydraulic storage bed Pune 3' },
+          { key: 'fc-drawer-bed-1', filename: 'fc-drawer-bed-1.jpg', label: 'Drawer Bed — Photo 1', alt: 'Drawer bed Pune' },
+          { key: 'fc-drawer-bed-2', filename: 'fc-drawer-bed-2.jpg', label: 'Drawer Bed — Photo 2', alt: 'Drawer bed Pune 2' },
+          { key: 'fc-drawer-bed-3', filename: 'fc-drawer-bed-3.jpg', label: 'Drawer Bed — Photo 3', alt: 'Drawer bed Pune 3' },
+          { key: 'fc-wall-bed-1', filename: 'fc-wall-bed-1.jpg', label: 'Wall Mounted Bed — Photo 1', alt: 'Murphy wall mounted bed Pune' },
+          { key: 'fc-wall-bed-2', filename: 'fc-wall-bed-2.jpg', label: 'Wall Mounted Bed — Photo 2', alt: 'Murphy wall mounted bed Pune 2' },
+          { key: 'fc-wall-bed-3', filename: 'fc-wall-bed-3.jpg', label: 'Wall Mounted Bed — Photo 3', alt: 'Murphy wall mounted bed Pune 3' },
+          { key: 'fc-headboard-1', filename: 'fc-headboard-1.jpg', label: 'Foam Headboard — Photo 1', alt: 'Foam upholstered headboard Pune' },
+          { key: 'fc-headboard-2', filename: 'fc-headboard-2.jpg', label: 'Foam Headboard — Photo 2', alt: 'Foam upholstered headboard Pune 2' },
+          { key: 'fc-headboard-3', filename: 'fc-headboard-3.jpg', label: 'Foam Headboard — Photo 3', alt: 'Foam upholstered headboard Pune 3' },
+          { key: 'fc-wardrobe-1', filename: 'fc-wardrobe-1.jpg', label: 'Wardrobes — Photo 1', alt: 'Custom wardrobe Pune' },
+          { key: 'fc-wardrobe-2', filename: 'fc-wardrobe-2.jpg', label: 'Wardrobes — Photo 2', alt: 'Custom wardrobe Pune 2' },
+          { key: 'fc-wardrobe-3', filename: 'fc-wardrobe-3.jpg', label: 'Wardrobes — Photo 3', alt: 'Custom wardrobe Pune 3' },
+          { key: 'fc-side-tables-1', filename: 'fc-side-tables-1.jpg', label: 'Side Tables — Photo 1', alt: 'Custom side tables Pune' },
+          { key: 'fc-side-tables-2', filename: 'fc-side-tables-2.jpg', label: 'Side Tables — Photo 2', alt: 'Custom side tables Pune 2' },
+          { key: 'fc-side-tables-3', filename: 'fc-side-tables-3.jpg', label: 'Side Tables — Photo 3', alt: 'Custom side tables Pune 3' },
+          { key: 'fc-study-table-1', filename: 'fc-study-table-1.jpg', label: 'Study Table — Photo 1', alt: 'Study table Pune' },
+          { key: 'fc-study-table-2', filename: 'fc-study-table-2.jpg', label: 'Study Table — Photo 2', alt: 'Study table Pune 2' },
+          { key: 'fc-study-table-3', filename: 'fc-study-table-3.jpg', label: 'Study Table — Photo 3', alt: 'Study table Pune 3' },
+          { key: 'fc-book-rack-1', filename: 'fc-book-rack-1.jpg', label: 'Book Rack — Photo 1', alt: 'Book rack shelving Pune' },
+          { key: 'fc-book-rack-2', filename: 'fc-book-rack-2.jpg', label: 'Book Rack — Photo 2', alt: 'Book rack shelving Pune 2' },
+          { key: 'fc-book-rack-3', filename: 'fc-book-rack-3.jpg', label: 'Book Rack — Photo 3', alt: 'Book rack shelving Pune 3' },
+          { key: 'fc-loft-storage-1', filename: 'fc-loft-storage-1.jpg', label: 'Loft Storage — Photo 1', alt: 'Loft overhead storage bedroom' },
+          { key: 'fc-loft-storage-2', filename: 'fc-loft-storage-2.jpg', label: 'Loft Storage — Photo 2', alt: 'Loft overhead storage bedroom 2' },
+          { key: 'fc-loft-storage-3', filename: 'fc-loft-storage-3.jpg', label: 'Loft Storage — Photo 3', alt: 'Loft overhead storage bedroom 3' },
+          { key: 'fc-wall-decor-bed-1', filename: 'fc-wall-decor-bed-1.jpg', label: 'Wall Décor — Photo 1', alt: 'Bedroom wall decor paneling Pune' },
+          { key: 'fc-wall-decor-bed-2', filename: 'fc-wall-decor-bed-2.jpg', label: 'Wall Décor — Photo 2', alt: 'Bedroom wall decor paneling Pune 2' },
+          { key: 'fc-wall-decor-bed-3', filename: 'fc-wall-decor-bed-3.jpg', label: 'Wall Décor — Photo 3', alt: 'Bedroom wall decor paneling Pune 3' },
+        ]
+      },
+      {
+        id: 'fc-living',
+        label: '02 — Living Room',
+        file: 'custom-furniture.html',
+        slots: [
+          { key: 'fc-tv-unit-1', filename: 'fc-tv-unit-1.jpg', label: 'TV Unit — Photo 1', alt: 'TV unit with louvers Pune' },
+          { key: 'fc-tv-unit-2', filename: 'fc-tv-unit-2.jpg', label: 'TV Unit — Photo 2', alt: 'TV unit with louvers Pune 2' },
+          { key: 'fc-tv-unit-3', filename: 'fc-tv-unit-3.jpg', label: 'TV Unit — Photo 3', alt: 'TV unit with louvers Pune 3' },
+          { key: 'fc-mandir-1', filename: 'fc-mandir-1.jpg', label: 'Mandir — Photo 1', alt: 'Custom wooden mandir Pune' },
+          { key: 'fc-mandir-2', filename: 'fc-mandir-2.jpg', label: 'Mandir — Photo 2', alt: 'Custom wooden mandir Pune 2' },
+          { key: 'fc-mandir-3', filename: 'fc-mandir-3.jpg', label: 'Mandir — Photo 3', alt: 'Custom wooden mandir Pune 3' },
+          { key: 'fc-sofa-1', filename: 'fc-sofa-1.jpg', label: 'Sofa Set — Photo 1', alt: 'Custom sofa set Pune' },
+          { key: 'fc-sofa-2', filename: 'fc-sofa-2.jpg', label: 'Sofa Set — Photo 2', alt: 'Custom sofa set Pune 2' },
+          { key: 'fc-sofa-3', filename: 'fc-sofa-3.jpg', label: 'Sofa Set — Photo 3', alt: 'Custom sofa set Pune 3' },
+          { key: 'fc-back-wall-1', filename: 'fc-back-wall-1.jpg', label: 'Back Wall Décor — Photo 1', alt: 'Living room back wall decor Pune' },
+          { key: 'fc-back-wall-2', filename: 'fc-back-wall-2.jpg', label: 'Back Wall Décor — Photo 2', alt: 'Living room back wall decor Pune 2' },
+          { key: 'fc-back-wall-3', filename: 'fc-back-wall-3.jpg', label: 'Back Wall Décor — Photo 3', alt: 'Living room back wall decor Pune 3' },
+          { key: 'fc-false-ceil-liv-1', filename: 'fc-false-ceil-liv-1.jpg', label: 'False Ceiling — Photo 1', alt: 'Living room false ceiling Pune' },
+          { key: 'fc-false-ceil-liv-2', filename: 'fc-false-ceil-liv-2.jpg', label: 'False Ceiling — Photo 2', alt: 'Living room false ceiling Pune 2' },
+          { key: 'fc-false-ceil-liv-3', filename: 'fc-false-ceil-liv-3.jpg', label: 'False Ceiling — Photo 3', alt: 'Living room false ceiling Pune 3' },
+          { key: 'fc-partition-1', filename: 'fc-partition-1.jpg', label: 'Room Partition — Photo 1', alt: 'Room partition Pune' },
+          { key: 'fc-partition-2', filename: 'fc-partition-2.jpg', label: 'Room Partition — Photo 2', alt: 'Room partition Pune 2' },
+          { key: 'fc-partition-3', filename: 'fc-partition-3.jpg', label: 'Room Partition — Photo 3', alt: 'Room partition Pune 3' },
+          { key: 'fc-dining-table-1', filename: 'fc-dining-table-1.jpg', label: 'Dining Table — Photo 1', alt: 'Custom dining table Pune' },
+          { key: 'fc-dining-table-2', filename: 'fc-dining-table-2.jpg', label: 'Dining Table — Photo 2', alt: 'Custom dining table Pune 2' },
+          { key: 'fc-dining-table-3', filename: 'fc-dining-table-3.jpg', label: 'Dining Table — Photo 3', alt: 'Custom dining table Pune 3' },
+        ]
+      },
+      {
+        id: 'fc-entrance',
+        label: '03 — Entrance',
+        file: 'custom-furniture.html',
+        slots: [
+          { key: 'fc-wall-paneling-1', filename: 'fc-wall-paneling-1.jpg', label: 'Wall Paneling — Photo 1', alt: 'Entrance wall paneling Pune' },
+          { key: 'fc-wall-paneling-2', filename: 'fc-wall-paneling-2.jpg', label: 'Wall Paneling — Photo 2', alt: 'Entrance wall paneling Pune 2' },
+          { key: 'fc-wall-paneling-3', filename: 'fc-wall-paneling-3.jpg', label: 'Wall Paneling — Photo 3', alt: 'Entrance wall paneling Pune 3' },
+          { key: 'fc-shoe-rack-1', filename: 'fc-shoe-rack-1.jpg', label: 'Shoe Rack — Photo 1', alt: 'Entrance shoe rack Pune' },
+          { key: 'fc-shoe-rack-2', filename: 'fc-shoe-rack-2.jpg', label: 'Shoe Rack — Photo 2', alt: 'Entrance shoe rack Pune 2' },
+          { key: 'fc-shoe-rack-3', filename: 'fc-shoe-rack-3.jpg', label: 'Shoe Rack — Photo 3', alt: 'Entrance shoe rack Pune 3' },
+          { key: 'fc-safety-door-1', filename: 'fc-safety-door-1.jpg', label: 'Safety Door — Photo 1', alt: 'Safety door digital lock Pune' },
+          { key: 'fc-safety-door-2', filename: 'fc-safety-door-2.jpg', label: 'Safety Door — Photo 2', alt: 'Safety door digital lock Pune 2' },
+          { key: 'fc-safety-door-3', filename: 'fc-safety-door-3.jpg', label: 'Safety Door — Photo 3', alt: 'Safety door digital lock Pune 3' },
+          { key: 'fc-cnc-jali-1', filename: 'fc-cnc-jali-1.jpg', label: 'CNC Jali — Photo 1', alt: 'CNC jali decorative screen Pune' },
+          { key: 'fc-cnc-jali-2', filename: 'fc-cnc-jali-2.jpg', label: 'CNC Jali — Photo 2', alt: 'CNC jali decorative screen Pune 2' },
+          { key: 'fc-cnc-jali-3', filename: 'fc-cnc-jali-3.jpg', label: 'CNC Jali — Photo 3', alt: 'CNC jali decorative screen Pune 3' },
+          { key: 'fc-name-plates-1', filename: 'fc-name-plates-1.jpg', label: 'Name Plates — Photo 1', alt: 'Custom name plate Pune' },
+          { key: 'fc-name-plates-2', filename: 'fc-name-plates-2.jpg', label: 'Name Plates — Photo 2', alt: 'Custom name plate Pune 2' },
+          { key: 'fc-name-plates-3', filename: 'fc-name-plates-3.jpg', label: 'Name Plates — Photo 3', alt: 'Custom name plate Pune 3' },
+          { key: 'fc-main-door-1', filename: 'fc-main-door-1.jpg', label: 'Main Door — Photo 1', alt: 'Custom main door Pune' },
+          { key: 'fc-main-door-2', filename: 'fc-main-door-2.jpg', label: 'Main Door — Photo 2', alt: 'Custom main door Pune 2' },
+          { key: 'fc-main-door-3', filename: 'fc-main-door-3.jpg', label: 'Main Door — Photo 3', alt: 'Custom main door Pune 3' },
+        ]
+      },
+      {
+        id: 'fc-civil',
+        label: '05 — False Ceiling & Civil Work',
+        file: 'custom-furniture.html',
+        slots: [
+          { key: 'fc-pop-ceiling-1', filename: 'fc-pop-ceiling-1.jpg', label: 'POP Ceiling — Photo 1', alt: 'POP gypsum false ceiling Pune' },
+          { key: 'fc-pop-ceiling-2', filename: 'fc-pop-ceiling-2.jpg', label: 'POP Ceiling — Photo 2', alt: 'POP gypsum false ceiling Pune 2' },
+          { key: 'fc-pop-ceiling-3', filename: 'fc-pop-ceiling-3.jpg', label: 'POP Ceiling — Photo 3', alt: 'POP gypsum false ceiling Pune 3' },
+          { key: 'fc-painting-1', filename: 'fc-painting-1.jpg', label: 'Painting — Photo 1', alt: 'Interior painting Pune' },
+          { key: 'fc-painting-2', filename: 'fc-painting-2.jpg', label: 'Painting — Photo 2', alt: 'Interior painting Pune 2' },
+          { key: 'fc-painting-3', filename: 'fc-painting-3.jpg', label: 'Painting — Photo 3', alt: 'Interior painting Pune 3' },
+          { key: 'fc-plumbing-1', filename: 'fc-plumbing-1.jpg', label: 'Plumbing — Photo 1', alt: 'Plumbing work Pune' },
+          { key: 'fc-plumbing-2', filename: 'fc-plumbing-2.jpg', label: 'Plumbing — Photo 2', alt: 'Plumbing work Pune 2' },
+          { key: 'fc-plumbing-3', filename: 'fc-plumbing-3.jpg', label: 'Plumbing — Photo 3', alt: 'Plumbing work Pune 3' },
+          { key: 'fc-renovation-1', filename: 'fc-renovation-1.jpg', label: 'Renovation — Photo 1', alt: 'Home renovation Pune' },
+          { key: 'fc-renovation-2', filename: 'fc-renovation-2.jpg', label: 'Renovation — Photo 2', alt: 'Home renovation Pune 2' },
+          { key: 'fc-renovation-3', filename: 'fc-renovation-3.jpg', label: 'Renovation — Photo 3', alt: 'Home renovation Pune 3' },
+          { key: 'fc-tiling-1', filename: 'fc-tiling-1.jpg', label: 'Tiling — Photo 1', alt: 'Tile laying work Pune' },
+          { key: 'fc-tiling-2', filename: 'fc-tiling-2.jpg', label: 'Tiling — Photo 2', alt: 'Tile laying work Pune 2' },
+          { key: 'fc-tiling-3', filename: 'fc-tiling-3.jpg', label: 'Tiling — Photo 3', alt: 'Tile laying work Pune 3' },
+          { key: 'fc-electrical-1', filename: 'fc-electrical-1.jpg', label: 'Electrical — Photo 1', alt: 'Electrical wiring work Pune' },
+          { key: 'fc-electrical-2', filename: 'fc-electrical-2.jpg', label: 'Electrical — Photo 2', alt: 'Electrical wiring work Pune 2' },
+          { key: 'fc-electrical-3', filename: 'fc-electrical-3.jpg', label: 'Electrical — Photo 3', alt: 'Electrical wiring work Pune 3' },
+        ]
+      },
+      {
+        id: 'fc-lighting',
+        label: '06 — Lighting Design',
+        file: 'custom-furniture.html',
+        slots: [
+          { key: 'fc-panel-lights-1', filename: 'fc-panel-lights-1.jpg', label: 'Panel Lights — Photo 1', alt: 'LED panel lights interior Pune' },
+          { key: 'fc-panel-lights-2', filename: 'fc-panel-lights-2.jpg', label: 'Panel Lights — Photo 2', alt: 'LED panel lights interior Pune 2' },
+          { key: 'fc-panel-lights-3', filename: 'fc-panel-lights-3.jpg', label: 'Panel Lights — Photo 3', alt: 'LED panel lights interior Pune 3' },
+          { key: 'fc-profile-lights-1', filename: 'fc-profile-lights-1.jpg', label: 'Profile Lights — Photo 1', alt: 'Aluminum LED profile lights Pune' },
+          { key: 'fc-profile-lights-2', filename: 'fc-profile-lights-2.jpg', label: 'Profile Lights — Photo 2', alt: 'Aluminum LED profile lights Pune 2' },
+          { key: 'fc-profile-lights-3', filename: 'fc-profile-lights-3.jpg', label: 'Profile Lights — Photo 3', alt: 'Aluminum LED profile lights Pune 3' },
+          { key: 'fc-magnetic-lights-1', filename: 'fc-magnetic-lights-1.jpg', label: 'Magnetic Lights — Photo 1', alt: 'Magnetic track lights interior Pune' },
+          { key: 'fc-magnetic-lights-2', filename: 'fc-magnetic-lights-2.jpg', label: 'Magnetic Lights — Photo 2', alt: 'Magnetic track lights interior Pune 2' },
+          { key: 'fc-magnetic-lights-3', filename: 'fc-magnetic-lights-3.jpg', label: 'Magnetic Lights — Photo 3', alt: 'Magnetic track lights interior Pune 3' },
+          { key: 'fc-spot-lights-1', filename: 'fc-spot-lights-1.jpg', label: 'Spot Lights — Photo 1', alt: 'Recessed spot lights Pune' },
+          { key: 'fc-spot-lights-2', filename: 'fc-spot-lights-2.jpg', label: 'Spot Lights — Photo 2', alt: 'Recessed spot lights Pune 2' },
+          { key: 'fc-spot-lights-3', filename: 'fc-spot-lights-3.jpg', label: 'Spot Lights — Photo 3', alt: 'Recessed spot lights Pune 3' },
+          { key: 'fc-track-lights-1', filename: 'fc-track-lights-1.jpg', label: 'Track Lights — Photo 1', alt: 'Track lighting interior Pune' },
+          { key: 'fc-track-lights-2', filename: 'fc-track-lights-2.jpg', label: 'Track Lights — Photo 2', alt: 'Track lighting interior Pune 2' },
+          { key: 'fc-track-lights-3', filename: 'fc-track-lights-3.jpg', label: 'Track Lights — Photo 3', alt: 'Track lighting interior Pune 3' },
+          { key: 'fc-cove-lights-1', filename: 'fc-cove-lights-1.jpg', label: 'Cove Lights — Photo 1', alt: 'Cove LED ceiling lights Pune' },
+          { key: 'fc-cove-lights-2', filename: 'fc-cove-lights-2.jpg', label: 'Cove Lights — Photo 2', alt: 'Cove LED ceiling lights Pune 2' },
+          { key: 'fc-cove-lights-3', filename: 'fc-cove-lights-3.jpg', label: 'Cove Lights — Photo 3', alt: 'Cove LED ceiling lights Pune 3' },
+        ]
+      },
+      {
+        id: 'fc-tiles',
+        label: '08 — Tiles & Marble',
+        file: 'custom-furniture.html',
+        slots: [
+          { key: 'fc-full-body-tiles-1', filename: 'fc-full-body-tiles-1.jpg', label: 'Full Body Tiles — Photo 1', alt: 'Full body porcelain tiles Pune' },
+          { key: 'fc-full-body-tiles-2', filename: 'fc-full-body-tiles-2.jpg', label: 'Full Body Tiles — Photo 2', alt: 'Full body porcelain tiles Pune 2' },
+          { key: 'fc-full-body-tiles-3', filename: 'fc-full-body-tiles-3.jpg', label: 'Full Body Tiles — Photo 3', alt: 'Full body porcelain tiles Pune 3' },
+          { key: 'fc-ceramic-tiles-1', filename: 'fc-ceramic-tiles-1.jpg', label: 'Ceramic Tiles — Photo 1', alt: 'Ceramic tiles Pune' },
+          { key: 'fc-ceramic-tiles-2', filename: 'fc-ceramic-tiles-2.jpg', label: 'Ceramic Tiles — Photo 2', alt: 'Ceramic tiles Pune 2' },
+          { key: 'fc-ceramic-tiles-3', filename: 'fc-ceramic-tiles-3.jpg', label: 'Ceramic Tiles — Photo 3', alt: 'Ceramic tiles Pune 3' },
+          { key: 'fc-marble-1', filename: 'fc-marble-1.jpg', label: 'Marble & Stone — Photo 1', alt: 'Marble natural stone Pune' },
+          { key: 'fc-marble-2', filename: 'fc-marble-2.jpg', label: 'Marble & Stone — Photo 2', alt: 'Marble natural stone Pune 2' },
+          { key: 'fc-marble-3', filename: 'fc-marble-3.jpg', label: 'Marble & Stone — Photo 3', alt: 'Marble natural stone Pune 3' },
+        ]
+      },
+    ];
+
+    /* ── RENDER CATEGORY SECTIONS ── */
+    function renderCatSections(pages, containerId) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      container.innerHTML = '';
+      pages.forEach(page => {
+        const sec = document.createElement('div');
+        sec.className = 'section';
+        // Group slots into 3-per-category sub-groups
+        const groupMap = {};
+        page.slots.forEach(slot => {
+          // key format: prefix-N, group by stripping trailing -N
+          const groupKey = slot.key.replace(/-[123]$/, '');
+          if (!groupMap[groupKey]) groupMap[groupKey] = [];
+          groupMap[groupKey].push(slot);
+        });
+        let groupsHTML = '';
+        Object.entries(groupMap).forEach(([groupKey, slots]) => {
+          const groupLabel = slots[0].label.replace(/ — Photo \d$/, '');
+          groupsHTML += `
+            <div style="margin-bottom:1.5rem;">
+              <div style="font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem;padding-bottom:.4rem;border-bottom:1px solid var(--border);">${groupLabel}</div>
+              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;">
+                ${slots.map(slot => renderCatSlot(slot)).join('')}
+              </div>
+            </div>`;
+        });
+        sec.innerHTML = `
+          <div class="section-head">
+            <div class="section-icon ic-kitchen">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+            <div class="section-label">${page.label}</div>
+            <span class="section-file">${page.file}</span>
+          </div>
+          <div style="padding:1.25rem 1.5rem 1.5rem;">${groupsHTML}</div>`;
+        container.appendChild(sec);
+      });
+    }
+
+    function renderCatSlot(slot) {
+      return `
+        <div class="img-card" id="cat-card-${slot.key}">
+          <div class="img-preview">
+            <div class="placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <span>images/${slot.filename}</span>
+            </div>
+            <img src="images/${slot.filename}" alt="${slot.alt}"
+              onload="this.style.opacity=1;this.previousElementSibling.style.display='none'"
+              onerror="this.style.display='none';this.previousElementSibling.style.display='flex'"
+              style="opacity:0;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+            <div class="status-dot"></div>
+          </div>
+          <div class="img-info">
+            <div class="img-slot-name">${slot.label}</div>
+            <code class="img-current">images/${slot.filename}</code>
+            <label class="cat-upload-label" style="display:flex;align-items:center;gap:.4rem;background:var(--surface);border:1px solid var(--border);border-radius:7px;padding:.45rem .75rem;cursor:pointer;font-size:.75rem;font-weight:700;color:var(--cream);transition:border-color .2s;margin-bottom:.5rem;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              Upload
+              <input type="file" accept="image/*" style="display:none;" onchange="handleCatUpload(this,'${slot.key}','${slot.filename}')" />
+            </label>
+            <div class="input-row">
+              <input class="url-input" type="url" id="cat-input-${slot.key}"
+                placeholder="Paste new image URL…"
+                value="" />
+              <button class="btn-apply" onclick="applyCatUrlChange('${slot.key}','${slot.filename}')">Apply</button>
+            </div>
+          </div>
+        </div>`;
+    }
+
+    function handleCatUpload(input, slotKey, filename) {
+      const file = input.files[0];
+      if (!file) return;
+      const card = document.getElementById('cat-card-' + slotKey);
+      const label = input.closest('label');
+      const uploadText = label.childNodes[2]; // text node after svg
+      if (uploadText) uploadText.textContent = ' Saving…';
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const img = card.querySelector('.img-preview img');
+        const placeholder = card.querySelector('.img-preview .placeholder');
+        if (img) { img.src = e.target.result; img.style.opacity = 1; img.style.display = ''; }
+        if (placeholder) placeholder.style.display = 'none';
+        const dot = card.querySelector('.status-dot');
+        if (dot) dot.style.background = 'var(--green)';
+        if (uploadText) uploadText.textContent = ' ✓ Uploaded';
+        label.style.borderColor = 'var(--green)';
+        setTimeout(() => {
+          if (uploadText) uploadText.textContent = ' Upload';
+          label.style.borderColor = 'var(--border)';
+        }, 4000);
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function applyCatUrlChange(slotKey, filename) {
+      const input = document.getElementById('cat-input-' + slotKey);
+      const url = input ? input.value.trim() : '';
+      if (!url) return;
+      const card = document.getElementById('cat-card-' + slotKey);
+      if (!card) return;
+      const img = card.querySelector('.img-preview img');
+      const placeholder = card.querySelector('.img-preview .placeholder');
+      const dot = card.querySelector('.status-dot');
+      if (img) {
+        img.src = url;
+        img.style.opacity = 0;
+        img.style.display = '';
+        img.onload = () => { img.style.opacity = 1; if (placeholder) placeholder.style.display = 'none'; if (dot) dot.style.background = 'var(--green)'; };
+        img.onerror = () => { img.style.display = 'none'; if (placeholder) placeholder.style.display = 'flex'; };
+      }
+    }
+
+    // Render both category tabs on load
+    renderCatSections(KITCHEN_CAT_PAGES, 'kitchen-cats-container');
+    renderCatSections(FURNITURE_CAT_PAGES, 'furniture-cats-container');
   </script>
 </body>
 
